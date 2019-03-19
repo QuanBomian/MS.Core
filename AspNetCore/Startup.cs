@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using AspNetCore.Application.Authorization;
-using AspNetCore.Application.VillagerInformation;
-using AspNetCore.Domain.Respository;
-using AspNetCore.Domain.VillagerInformation;
+using AspNetCore.Application.UserInfo;
+using AspNetCore.Application.VillagerInfo;
+using AspNetCore.Domain.Repository;
+using AspNetCore.Domain.UserInfo;
+using AspNetCore.Domain.VillagerInfo;
 using AspNetCore.Entity.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -71,7 +73,7 @@ namespace AspNetCore
             {
                 options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());
                 options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
-                options.AddPolicy("AdminOrClient", policy => policy.RequireRole("Admin", "Client").Build());
+                options.AddPolicy("SystemOrAdmin", policy => policy.RequireRole("Admin", "System").Build());
             });
             #endregion
 
@@ -86,7 +88,13 @@ namespace AspNetCore
 
             services.AddTransient<IVillagerAppService, VillagerAppService>();
             services.AddTransient<IVillagerDomain, VillagerDomain>();
-            services.AddTransient<IVillagerRespository, VillagerRespository>();
+            services.AddTransient<IVillagerRepository, VillagerRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
+            services.AddTransient<IUserRoleRepository, UserRoleRepository>();
+            services.AddTransient<IUserInfoDomain, UserInfoDomain>();
+            services.AddTransient<IUserInfoAppService, UserInfoAppService>();
+    
             services.AddTransient<IJwtAppService, JwtAppService>();
             services.AddDbContext<MsContext>();
 

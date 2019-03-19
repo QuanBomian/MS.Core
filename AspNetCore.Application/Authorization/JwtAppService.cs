@@ -28,7 +28,7 @@ namespace AspNetCore.Application.Authorization
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, $"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}"),
                 new Claim(JwtRegisteredClaimNames.Nbf, $"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}"),
-                new Claim(JwtRegisteredClaimNames.Exp, $"{new DateTimeOffset(DateTime.Now.AddSeconds(100)).ToUnixTimeSeconds()}"),
+                new Claim(JwtRegisteredClaimNames.Exp, $"{new DateTimeOffset(DateTime.Now.AddMinutes(20)).ToUnixTimeSeconds()}"),
                 new Claim(JwtRegisteredClaimNames.Iss, audienceConfig["Issuer"]),
                 new Claim(JwtRegisteredClaimNames.Aud, audienceConfig["Audience"]),
                 new Claim(ClaimTypes.Role, token.Role),

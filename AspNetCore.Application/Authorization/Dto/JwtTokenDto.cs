@@ -6,7 +6,7 @@ namespace AspNetCore.Application.Authorization.Dto
 {
     public class JwtTokenDto
     {
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public String Role { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using AspNetCore.Entity.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AspNetCore.Entity.Migrations
 {
     [DbContext(typeof(MsContext))]
-    partial class MsContextModelSnapshot : ModelSnapshot
+    [Migration("20190319050818_Migration00")]
+    partial class Migration00
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +24,7 @@ namespace AspNetCore.Entity.Migrations
 
             modelBuilder.Entity("AspNetCore.Entity.Core.Villager", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("VillagerId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AnnualIncome");
@@ -46,80 +48,78 @@ namespace AspNetCore.Entity.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasKey("VillagerId");
 
                     b.ToTable("Villagers");
                 });
 
             modelBuilder.Entity("AspNetCore.Entity.Role", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("RoleId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("RoleName")
                         .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasKey("RoleId");
 
                     b.ToTable("Roles");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("68337de8-4e74-46e4-8106-cbba7c5f1dd2"),
+                            RoleId = new Guid("36f4a336-5239-4519-8f53-0783d5fa7f27"),
                             RoleName = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("55e03c6e-1a5c-4400-bc93-89a335d65f36"),
+                            RoleId = new Guid("aed0a076-7111-4a5e-bfff-6055850a11cd"),
                             RoleName = "Client"
                         },
                         new
                         {
-                            Id = new Guid("83dfab26-61d6-4217-961e-d851d4a84be9"),
+                            RoleId = new Guid("382417ca-b56d-47bc-8db2-e9c1930592c3"),
                             RoleName = "System"
                         });
                 });
 
             modelBuilder.Entity("AspNetCore.Entity.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(40);
+                        .IsRequired();
 
                     b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(20);
+                        .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("94af1519-77b0-4c2c-bf5b-e89ddcd156f8"),
+                            UserId = new Guid("4ba9e9b7-36ef-40da-8e3c-849c2673cf0f"),
                             Password = "admin",
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = new Guid("b1678831-72e3-44e0-9756-de794763b95e"),
+                            UserId = new Guid("8e423e51-56e6-4ef5-85fa-6373c96269c5"),
                             Password = "user1",
                             UserName = "user1"
                         },
                         new
                         {
-                            Id = new Guid("88370eb7-923e-4f27-8f28-3362851aae85"),
+                            UserId = new Guid("859c27dd-48b3-4512-80ad-c3c7a46118e4"),
                             Password = "user2",
                             UserName = "user2"
                         },
                         new
                         {
-                            Id = new Guid("5cc65f3d-05be-45d2-9321-e126de4fb503"),
+                            UserId = new Guid("78e16794-f853-445c-9879-f150f8f817be"),
                             Password = "user3",
                             UserName = "user3"
                         });
@@ -127,14 +127,14 @@ namespace AspNetCore.Entity.Migrations
 
             modelBuilder.Entity("AspNetCore.Entity.UserRole", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("UserRoleId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<Guid>("RoleId");
 
                     b.Property<Guid>("UserId");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserRoleId");
 
                     b.HasIndex("RoleId");
 
@@ -145,27 +145,27 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("182abc09-ec5b-4f42-98d0-3043fa0b8b7c"),
-                            RoleId = new Guid("68337de8-4e74-46e4-8106-cbba7c5f1dd2"),
-                            UserId = new Guid("94af1519-77b0-4c2c-bf5b-e89ddcd156f8")
+                            UserRoleId = new Guid("82f2fdb8-4f10-41f7-abb1-c06f88cae53e"),
+                            RoleId = new Guid("36f4a336-5239-4519-8f53-0783d5fa7f27"),
+                            UserId = new Guid("4ba9e9b7-36ef-40da-8e3c-849c2673cf0f")
                         },
                         new
                         {
-                            Id = new Guid("c67bb54c-9b63-44d1-9d58-deed372902e7"),
-                            RoleId = new Guid("55e03c6e-1a5c-4400-bc93-89a335d65f36"),
-                            UserId = new Guid("b1678831-72e3-44e0-9756-de794763b95e")
+                            UserRoleId = new Guid("530a4517-764d-437f-9144-3bf9163bcf3a"),
+                            RoleId = new Guid("aed0a076-7111-4a5e-bfff-6055850a11cd"),
+                            UserId = new Guid("8e423e51-56e6-4ef5-85fa-6373c96269c5")
                         },
                         new
                         {
-                            Id = new Guid("98c0c635-66fe-4881-8d1d-24861cdb1d28"),
-                            RoleId = new Guid("55e03c6e-1a5c-4400-bc93-89a335d65f36"),
-                            UserId = new Guid("88370eb7-923e-4f27-8f28-3362851aae85")
+                            UserRoleId = new Guid("b59896fc-c433-4267-8a13-edacfa4233a4"),
+                            RoleId = new Guid("aed0a076-7111-4a5e-bfff-6055850a11cd"),
+                            UserId = new Guid("859c27dd-48b3-4512-80ad-c3c7a46118e4")
                         },
                         new
                         {
-                            Id = new Guid("110ef886-c129-41d9-9943-b14aa2be5cc1"),
-                            RoleId = new Guid("68337de8-4e74-46e4-8106-cbba7c5f1dd2"),
-                            UserId = new Guid("5cc65f3d-05be-45d2-9321-e126de4fb503")
+                            UserRoleId = new Guid("2251f609-dbbd-4055-841d-a2a89e934529"),
+                            RoleId = new Guid("36f4a336-5239-4519-8f53-0783d5fa7f27"),
+                            UserId = new Guid("78e16794-f853-445c-9879-f150f8f817be")
                         });
                 });
 

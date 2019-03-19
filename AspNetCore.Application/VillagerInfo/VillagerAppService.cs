@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using AspNetCore.Domain.VillagerInformation;
+using AspNetCore.Domain.VillagerInfo;
 using AspNetCore.Entity.Core;
 
-namespace AspNetCore.Application.VillagerInformation
+namespace AspNetCore.Application.VillagerInfo
 {
     public class VillagerAppService : IVillagerAppService
     {
@@ -12,12 +13,12 @@ namespace AspNetCore.Application.VillagerInformation
         {
             _domain = domain;
         }
-        public Villager Add(Villager villager)
+        public void Add(Villager villager)
         {
-           return  _domain.Add(villager);
+            _domain.Add(villager);
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             _domain.Delete(id);
         }
@@ -27,14 +28,14 @@ namespace AspNetCore.Application.VillagerInformation
             return _domain.Get();
         }
 
-        public Villager Get(int id)
+        public Villager Get(Guid id)
         {
             return _domain.GetById(id);
         }
 
-        public Villager Update(Villager villager)
+        public void Update(Villager villager)
         {
-            return _domain.Update(villager);
+            _domain.Update(villager);
         }
     }
 }

@@ -1,28 +1,31 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace AspNetCore.Entity.Core
 {
-    public class Villager
+    public class Villager:EntityBase
     {
-        /// <summary>
-        /// ID自动生成
-        /// </summary>
-        public int VillagerID { get; set; }
+    
+      
         /// <summary>
         /// 姓名
         /// </summary>
+        [Required]
         public string Name { get; set; }
         /// <summary>
         /// 出生日期
         /// </summary>
+        [Required]
         public DateTime Birthday { get; set; }
         /// <summary>
         /// 性别
         /// </summary>
+        [Required]
         public string Gender { get; set; }
         /// <summary>
         /// 家庭住址
         /// </summary>
+        [Required]
         public string HomeAddress { get; set; }
         /// <summary>
         /// 学历

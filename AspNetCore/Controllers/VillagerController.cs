@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AspNetCore.Application.VillagerInformation;
+using AspNetCore.Application.VillagerInfo;
 using AspNetCore.Entity.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +28,7 @@ namespace AspNetCore.Controllers
 
         // GET: api/Villager/5
         [HttpGet("{id}", Name = "Get")]
-        public Villager Get(int id)
+        public Villager Get(Guid id)
         {
             return _service.Get(id);
         }
@@ -49,7 +49,7 @@ namespace AspNetCore.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             _service.Delete(id);
         }
