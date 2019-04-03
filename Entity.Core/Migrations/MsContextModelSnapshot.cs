@@ -66,17 +66,17 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("68337de8-4e74-46e4-8106-cbba7c5f1dd2"),
+                            Id = new Guid("e51bb74d-4dad-4485-ac77-fb96e050ae81"),
                             RoleName = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("55e03c6e-1a5c-4400-bc93-89a335d65f36"),
+                            Id = new Guid("09fab3a8-3052-4ae6-9911-425a354732fc"),
                             RoleName = "Client"
                         },
                         new
                         {
-                            Id = new Guid("83dfab26-61d6-4217-961e-d851d4a84be9"),
+                            Id = new Guid("e6d92a3e-16bb-4bc1-8eeb-c388d1bb76d2"),
                             RoleName = "System"
                         });
                 });
@@ -101,25 +101,25 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("94af1519-77b0-4c2c-bf5b-e89ddcd156f8"),
+                            Id = new Guid("29055a06-9009-472f-8dfa-bcd27ea5b08a"),
                             Password = "admin",
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = new Guid("b1678831-72e3-44e0-9756-de794763b95e"),
+                            Id = new Guid("7fbf8d8e-0698-4fb5-9fb2-01146fdc53bf"),
                             Password = "user1",
                             UserName = "user1"
                         },
                         new
                         {
-                            Id = new Guid("88370eb7-923e-4f27-8f28-3362851aae85"),
+                            Id = new Guid("f4f0a9a3-fab6-4061-9ed2-d05a07209754"),
                             Password = "user2",
                             UserName = "user2"
                         },
                         new
                         {
-                            Id = new Guid("5cc65f3d-05be-45d2-9321-e126de4fb503"),
+                            Id = new Guid("fe7ad19b-c203-4215-9f79-c830bae1f120"),
                             Password = "user3",
                             UserName = "user3"
                         });
@@ -145,27 +145,27 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("182abc09-ec5b-4f42-98d0-3043fa0b8b7c"),
-                            RoleId = new Guid("68337de8-4e74-46e4-8106-cbba7c5f1dd2"),
-                            UserId = new Guid("94af1519-77b0-4c2c-bf5b-e89ddcd156f8")
+                            Id = new Guid("3d185dab-6510-4eb8-ad6a-069aba82bbe9"),
+                            RoleId = new Guid("e51bb74d-4dad-4485-ac77-fb96e050ae81"),
+                            UserId = new Guid("29055a06-9009-472f-8dfa-bcd27ea5b08a")
                         },
                         new
                         {
-                            Id = new Guid("c67bb54c-9b63-44d1-9d58-deed372902e7"),
-                            RoleId = new Guid("55e03c6e-1a5c-4400-bc93-89a335d65f36"),
-                            UserId = new Guid("b1678831-72e3-44e0-9756-de794763b95e")
+                            Id = new Guid("8809f73f-0b90-4851-bcbb-bb9cca4a148d"),
+                            RoleId = new Guid("09fab3a8-3052-4ae6-9911-425a354732fc"),
+                            UserId = new Guid("7fbf8d8e-0698-4fb5-9fb2-01146fdc53bf")
                         },
                         new
                         {
-                            Id = new Guid("98c0c635-66fe-4881-8d1d-24861cdb1d28"),
-                            RoleId = new Guid("55e03c6e-1a5c-4400-bc93-89a335d65f36"),
-                            UserId = new Guid("88370eb7-923e-4f27-8f28-3362851aae85")
+                            Id = new Guid("310839b4-84f8-4cfd-b2d0-15f954ddfa96"),
+                            RoleId = new Guid("09fab3a8-3052-4ae6-9911-425a354732fc"),
+                            UserId = new Guid("f4f0a9a3-fab6-4061-9ed2-d05a07209754")
                         },
                         new
                         {
-                            Id = new Guid("110ef886-c129-41d9-9943-b14aa2be5cc1"),
-                            RoleId = new Guid("68337de8-4e74-46e4-8106-cbba7c5f1dd2"),
-                            UserId = new Guid("5cc65f3d-05be-45d2-9321-e126de4fb503")
+                            Id = new Guid("48903c94-34b0-491e-92d2-28cd70f20664"),
+                            RoleId = new Guid("e51bb74d-4dad-4485-ac77-fb96e050ae81"),
+                            UserId = new Guid("fe7ad19b-c203-4215-9f79-c830bae1f120")
                         });
                 });
 

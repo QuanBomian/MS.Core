@@ -12,7 +12,7 @@ namespace AspNetCore.Entity.Context
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
-        private static  readonly string connString = "Host=localhost;Port=5432;Database=mstb;Username=postgres;Password=aohui123";
+        private static  readonly string connString = "Host=localhost;Port=5432;Database=mstb;Username=postgres;Password=12345";
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

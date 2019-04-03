@@ -14,32 +14,32 @@ namespace AspNetCore.Entity.Migrations
                 name: "Roles",
                 columns: table => new
                 {
-                    RoleId = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     RoleName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Roles", x => x.RoleId);
+                    table.PrimaryKey("PK_Roles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(nullable: false),
-                    UserName = table.Column<string>(nullable: false),
-                    Password = table.Column<string>(nullable: false)
+                    Id = table.Column<Guid>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 20, nullable: false),
+                    Password = table.Column<string>(maxLength: 40, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Villagers",
                 columns: table => new
                 {
-                    VillagerId = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Birthday = table.Column<DateTime>(nullable: false),
                     Gender = table.Column<string>(nullable: false),
@@ -52,64 +52,64 @@ namespace AspNetCore.Entity.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Villagers", x => x.VillagerId);
+                    table.PrimaryKey("PK_Villagers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "UserRoles",
                 columns: table => new
                 {
-                    UserRoleId = table.Column<Guid>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     UserId = table.Column<Guid>(nullable: false),
                     RoleId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserRoles", x => x.UserRoleId);
+                    table.PrimaryKey("PK_UserRoles", x => x.Id);
                     table.ForeignKey(
                         name: "FK_UserRoles_Roles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Roles",
-                        principalColumn: "RoleId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserRoles_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "Roles",
-                columns: new[] { "RoleId", "RoleName" },
+                columns: new[] { "Id", "RoleName" },
                 values: new object[,]
                 {
-                    { new Guid("36f4a336-5239-4519-8f53-0783d5fa7f27"), "Admin" },
-                    { new Guid("aed0a076-7111-4a5e-bfff-6055850a11cd"), "Client" },
-                    { new Guid("382417ca-b56d-47bc-8db2-e9c1930592c3"), "System" }
+                    { new Guid("e51bb74d-4dad-4485-ac77-fb96e050ae81"), "Admin" },
+                    { new Guid("09fab3a8-3052-4ae6-9911-425a354732fc"), "Client" },
+                    { new Guid("e6d92a3e-16bb-4bc1-8eeb-c388d1bb76d2"), "System" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "UserId", "Password", "UserName" },
+                columns: new[] { "Id", "Password", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("4ba9e9b7-36ef-40da-8e3c-849c2673cf0f"), "admin", "admin" },
-                    { new Guid("8e423e51-56e6-4ef5-85fa-6373c96269c5"), "user1", "user1" },
-                    { new Guid("859c27dd-48b3-4512-80ad-c3c7a46118e4"), "user2", "user2" },
-                    { new Guid("78e16794-f853-445c-9879-f150f8f817be"), "user3", "user3" }
+                    { new Guid("29055a06-9009-472f-8dfa-bcd27ea5b08a"), "admin", "admin" },
+                    { new Guid("7fbf8d8e-0698-4fb5-9fb2-01146fdc53bf"), "user1", "user1" },
+                    { new Guid("f4f0a9a3-fab6-4061-9ed2-d05a07209754"), "user2", "user2" },
+                    { new Guid("fe7ad19b-c203-4215-9f79-c830bae1f120"), "user3", "user3" }
                 });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
-                columns: new[] { "UserRoleId", "RoleId", "UserId" },
+                columns: new[] { "Id", "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { new Guid("82f2fdb8-4f10-41f7-abb1-c06f88cae53e"), new Guid("36f4a336-5239-4519-8f53-0783d5fa7f27"), new Guid("4ba9e9b7-36ef-40da-8e3c-849c2673cf0f") },
-                    { new Guid("530a4517-764d-437f-9144-3bf9163bcf3a"), new Guid("aed0a076-7111-4a5e-bfff-6055850a11cd"), new Guid("8e423e51-56e6-4ef5-85fa-6373c96269c5") },
-                    { new Guid("b59896fc-c433-4267-8a13-edacfa4233a4"), new Guid("aed0a076-7111-4a5e-bfff-6055850a11cd"), new Guid("859c27dd-48b3-4512-80ad-c3c7a46118e4") },
-                    { new Guid("2251f609-dbbd-4055-841d-a2a89e934529"), new Guid("36f4a336-5239-4519-8f53-0783d5fa7f27"), new Guid("78e16794-f853-445c-9879-f150f8f817be") }
+                    { new Guid("3d185dab-6510-4eb8-ad6a-069aba82bbe9"), new Guid("e51bb74d-4dad-4485-ac77-fb96e050ae81"), new Guid("29055a06-9009-472f-8dfa-bcd27ea5b08a") },
+                    { new Guid("8809f73f-0b90-4851-bcbb-bb9cca4a148d"), new Guid("09fab3a8-3052-4ae6-9911-425a354732fc"), new Guid("7fbf8d8e-0698-4fb5-9fb2-01146fdc53bf") },
+                    { new Guid("310839b4-84f8-4cfd-b2d0-15f954ddfa96"), new Guid("09fab3a8-3052-4ae6-9911-425a354732fc"), new Guid("f4f0a9a3-fab6-4061-9ed2-d05a07209754") },
+                    { new Guid("48903c94-34b0-491e-92d2-28cd70f20664"), new Guid("e51bb74d-4dad-4485-ac77-fb96e050ae81"), new Guid("fe7ad19b-c203-4215-9f79-c830bae1f120") }
                 });
 
             migrationBuilder.CreateIndex(
