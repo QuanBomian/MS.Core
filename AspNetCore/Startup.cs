@@ -137,6 +137,12 @@ namespace AspNetCore
                     })
                 .AddJwtBearer(o => { o.TokenValidationParameters = tokenValidationParameters; });
 
+            #region 缓存
+            services.AddDistributedRedisCache(
+               r => { r.Configuration = Configuration["Redis:ConnectionString"]; }
+               );
+            #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

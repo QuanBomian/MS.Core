@@ -11,11 +11,11 @@ namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VillagerController : ControllerBase
+    public class VillagersController : ControllerBase
     {
         private readonly IVillagerAppService _service;
 
-        public VillagerController(IVillagerAppService service)
+        public VillagersController(IVillagerAppService service)
         {
             _service = service;
         }

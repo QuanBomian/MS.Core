@@ -23,7 +23,7 @@ namespace AspNetCore.Application.Authorization
             var audienceConfig = _configuration.GetSection("JwtConfig");
 
             DateTime datetime = DateTime.UtcNow;
-            Claim[] claims = new Claim[]
+            List<Claim> claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, $"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}"),
@@ -31,8 +31,12 @@ namespace AspNetCore.Application.Authorization
                 new Claim(JwtRegisteredClaimNames.Exp, $"{new DateTimeOffset(DateTime.Now.AddMinutes(20)).ToUnixTimeSeconds()}"),
                 new Claim(JwtRegisteredClaimNames.Iss, audienceConfig["Issuer"]),
                 new Claim(JwtRegisteredClaimNames.Aud, audienceConfig["Audience"]),
-                new Claim(ClaimTypes.Role, token.Role),
+                //new Claim(ClaimTypes.Role, token.Role),
             };
+            foreach (var role in token.Role)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
             SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(audienceConfig["Secret"]));
             SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             JwtSecurityToken jwtToken = new JwtSecurityToken(

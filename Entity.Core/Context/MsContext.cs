@@ -39,7 +39,8 @@ namespace AspNetCore.Entity.Context
                 new {Id = Guid.NewGuid(), UserId = admin.Id, RoleId = roleAdmin.Id},
                 new {Id = Guid.NewGuid(), UserId = user1.Id, RoleId = roleClient.Id},
                 new {Id = Guid.NewGuid(), UserId = user2.Id, RoleId = roleClient.Id},
-                new {Id = Guid.NewGuid(), UserId = user3.Id, RoleId = roleAdmin.Id}
+                new {Id = Guid.NewGuid(), UserId = user3.Id, RoleId = roleAdmin.Id},
+                new {Id = Guid.NewGuid(),UserId = admin.Id,RoleId = roleSystem.Id}
             );
             
 
