@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AspNetCore.Domain.VillagerInfo.Dto;
 using AspNetCore.Entity.Core;
 
 namespace AspNetCore.Application.VillagerInfo
@@ -12,6 +13,6 @@ namespace AspNetCore.Application.VillagerInfo
         void Delete(Guid id);
         void Add(Villager villager);
         Villager Get(Guid id);
-
+        List<Villager> Search(VillagerQueryDto condition);
     }
 }

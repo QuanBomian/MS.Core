@@ -46,16 +46,19 @@ namespace AspNetCore.Domain.Repository
         public void Insert(TEntity entity)
         {
            _set.Add(entity);
+            _db.SaveChanges();
         }
 
         public void Insert(IEnumerable<TEntity> entities)
         {
            _set.AddRange(entities);
+            _db.SaveChanges();
         }
 
         public Task InsertAsync(TEntity entity)
         {
            return  _set.AddAsync(entity);
+       
         }
 
         public Task InsertAsync(IEnumerable<TEntity> entities)
@@ -68,31 +71,41 @@ namespace AspNetCore.Domain.Repository
             return _set.Where(expression);
         }
 
+        public IQueryable<TEntity> Query()
+        {
+            return _set.AsQueryable();
+        }
+
         public void Remove(TEntity entity)
         {
             _set.Remove(entity);
+            _db.SaveChanges();
         }
 
         public void Remove(TKey key)
         {
             var entity = _set.Find(key);
             _set.Remove(entity);
+            _db.SaveChanges();
         }
 
         public void Remove(Expression<Func<TEntity, bool>> expression)
         {
             var entities = _set.AsNoTracking().Where(expression).ToList();
             _set.RemoveRange(entities);
+            _db.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
             _set.Update(entity);
+            _db.SaveChanges();
         }
 
         public void Update(IEnumerable<TEntity> entities)
         {
             _set.UpdateRange(entities);
+            _db.SaveChanges();
         }
     }
 }

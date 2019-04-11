@@ -64,7 +64,7 @@ namespace AspNetCore.Controllers
         [Route("info")]
         [HttpGet]
 
-        public async Task<JsonResult> getUserInfoAsync(string token)
+        public async Task<JsonResult> GetUserInfoAsync(string token)
         {
             var jsonObj = await _cache.GetAsync(token);
             var decodedstr = Encoding.UTF8.GetString(jsonObj);
@@ -72,16 +72,22 @@ namespace AspNetCore.Controllers
             return new JsonResult(
                 new
                 {
+                    code = 20000,
                     userInfo
                 });
 
         }
         [HttpPost]
         [Route("logout")]
-        public async Task logoutAsync(string token)
+        public async Task<JsonResult> LogoutAsync(string token)
         {
             await _cache.RemoveAsync(token);
-
+            return new JsonResult(
+                new
+                {
+                    code = 20000,
+             
+                });
         }
     }
 

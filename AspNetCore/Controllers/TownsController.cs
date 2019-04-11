@@ -1,26 +1,23 @@
-﻿using System;
+﻿using AspNetCore.Application.TownInfo;
+using AspNetCore.Domain.TownInfo.Dto;
+using AspNetCore.Entity;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AspNetCore.Application.VillagerInfo;
-using AspNetCore.Domain.VillagerInfo.Dto;
-using AspNetCore.Entity.Core;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VillagersController : ControllerBase
+    public class TownsController:ControllerBase
     {
-        private readonly IVillagerAppService _service;
-
-        public VillagersController(IVillagerAppService service)
+        private readonly ITownAppService _service;
+        public TownsController(ITownAppService service)
         {
             _service = service;
         }
-        // GET: api/Villager
         [HttpGet]
 
         public async Task<JsonResult> GetAsync()
@@ -33,11 +30,11 @@ namespace AspNetCore.Controllers
             });
         }
         [HttpGet]
-       [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] VillagerQueryDto condition)
+        [Route("condition")]
+        public JsonResult GetByCondition([FromQuery] TownQueryDto condition)
         {
-            
-            var list =  _service.Search(condition);
+
+            var list = _service.Search(condition);
             return new JsonResult(new
             {
                 code = 20000,
@@ -45,17 +42,17 @@ namespace AspNetCore.Controllers
             });
         }
         // GET: api/Villager/5
-        [HttpGet("{id}", Name = "Get")]
-        public Villager Get(Guid id)
+        [HttpGet("{id}")]
+        public Town Get(Guid id)
         {
             return _service.Get(id);
         }
 
         // POST: api/Villager
         [HttpPost]
-        public JsonResult Post([FromBody] Villager villager)
+        public JsonResult Post([FromBody] Town town)
         {
-            _service.Add(villager);
+            _service.Add(town);
             return new JsonResult(new
             {
                 code = 20000
@@ -64,9 +61,9 @@ namespace AspNetCore.Controllers
 
         // PUT: api/Villager/5
         [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] Villager villager)
+        public JsonResult Put(Guid id, [FromBody] Town town)
         {
-            _service.Update(villager);
+            _service.Update(town);
             return new JsonResult(new
             {
                 code = 20000
@@ -83,5 +80,6 @@ namespace AspNetCore.Controllers
                 code = 20000
             });
         }
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AspNetCore.Domain.VillagerInfo;
+using AspNetCore.Domain.VillagerInfo.Dto;
 using AspNetCore.Entity.Core;
 
 namespace AspNetCore.Application.VillagerInfo
@@ -15,6 +16,7 @@ namespace AspNetCore.Application.VillagerInfo
         }
         public void Add(Villager villager)
         {
+            villager.Id = Guid.NewGuid();
             _domain.Add(villager);
         }
 
@@ -36,6 +38,11 @@ namespace AspNetCore.Application.VillagerInfo
         public void Update(Villager villager)
         {
             _domain.Update(villager);
+        }
+
+        public List<Villager> Search(VillagerQueryDto condition)
+        {
+            return _domain.Get(condition);
         }
     }
 }

@@ -42,6 +42,7 @@ namespace AspNetCore.Domain.Repository
         void Remove(TEntity entity);
         void Remove(TKey key);
         void Remove(Expression<Func<TEntity, bool>> expression);
+        IQueryable<TEntity> Query();
 
         #endregion
     }

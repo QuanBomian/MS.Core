@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using AspNetCore.Domain.VillagerInfo.Dto;
 using AspNetCore.Entity.Core;
-
 namespace AspNetCore.Domain.VillagerInfo
 {
-    public interface IVillagerDomain
+    public interface IVillagerDomain:IDomain<Villager,Guid>
     {
-        Task<List<Villager>> Get();
-        Villager GetById(Guid id);
-        void Update(Villager villager);
-        void  Delete(Guid id);
-        void Add(Villager villager);
+        List<Villager> Get(VillagerQueryDto queryDto);
     }
 }

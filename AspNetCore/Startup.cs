@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using AspNetCore.Application.Authorization;
+using AspNetCore.Application.TownInfo;
 using AspNetCore.Application.UserInfo;
 using AspNetCore.Application.VillagerInfo;
 using AspNetCore.Domain.Repository;
+using AspNetCore.Domain.TownInfo;
 using AspNetCore.Domain.UserInfo;
 using AspNetCore.Domain.VillagerInfo;
 using AspNetCore.Entity.Context;
@@ -94,6 +96,9 @@ namespace AspNetCore
             services.AddTransient<IUserRoleRepository, UserRoleRepository>();
             services.AddTransient<IUserInfoDomain, UserInfoDomain>();
             services.AddTransient<IUserInfoAppService, UserInfoAppService>();
+            services.AddTransient<ITownRepository, TownRepository>();
+            services.AddTransient<ITownDomain, TownDomain>();
+            services.AddTransient<ITownAppService, TownAppService>();
     
             services.AddTransient<IJwtAppService, JwtAppService>();
             services.AddDbContext<MsContext>();
