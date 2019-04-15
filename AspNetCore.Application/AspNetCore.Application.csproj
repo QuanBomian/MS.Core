@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AspNetCore.Domain\AspNetCore.Domain.csproj" />
+    <ProjectReference Include="..\AspNetCore.Infrastructure\AspNetCore.Infrastructure.csproj" />
     <ProjectReference Include="..\Entity.Core\AspNetCore.Entity.csproj" />
   </ItemGroup>
 

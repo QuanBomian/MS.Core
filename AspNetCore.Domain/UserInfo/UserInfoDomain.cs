@@ -21,30 +21,23 @@ namespace AspNetCore.Domain.UserInfo
             _userRepository = userRepository;
         }
 
-        public UserInfoDto GetUserInfo(string username,string password)
+        public User GetUserByPassword(string username)
         {
-            User u  =_userRepository.Query(user => user.UserName == username).ToList().First();
-            if (u.Password != password)
-            {
-                return new UserInfoDto
-                {
-                    Success = false
-                };
-            }
+            var user = _userRepository.Query(a => a.UserName == username).First();
+            return user;
 
-            var userRoles = _userRoleRepository.GetRolesByUserId(u.Id);
+        }
+
+        public List<string> GetUserInfo(Guid userId)
+        {
+            var userRoles = _userRoleRepository.GetRolesByUserId(userId);
             List<string> roles = new List<string>();
             foreach (var usr in userRoles)
             {
                 roles.Add(usr.Role.RoleName);
             }
-
-            return new UserInfoDto
-            {
-                Success = true,
-                UserId = u.Id,
-                RoleNames = roles
-            };
+            return roles;
+           
         }
     }
 }

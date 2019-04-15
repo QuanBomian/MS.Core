@@ -20,6 +20,214 @@ namespace AspNetCore.Entity.Migrations
                 .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            modelBuilder.Entity("AspNetCore.Entity.AdminDivision", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AreaNumber");
+
+                    b.Property<int>("CountyNumber");
+
+                    b.Property<int>("GovernmentLevel");
+
+                    b.Property<string>("GovernmentName");
+
+                    b.Property<string>("HighLevelAreaNumber");
+
+                    b.Property<int>("TownNumber");
+
+                    b.Property<int>("VillageGroupNumber");
+
+                    b.Property<int>("VillageNumber");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdminDivisions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("9adb5c91-04af-4bf1-bc30-ad23b612bd25"),
+                            AreaNumber = "320583000000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 3,
+                            GovernmentName = "昆山市",
+                            HighLevelAreaNumber = "",
+                            TownNumber = 0,
+                            VillageGroupNumber = 2205,
+                            VillageNumber = 10
+                        },
+                        new
+                        {
+                            Id = new Guid("f279d94f-8f2d-4b2c-8301-242072933824"),
+                            AreaNumber = "320583102000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "周市镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 240,
+                            VillageNumber = 29
+                        },
+                        new
+                        {
+                            Id = new Guid("f1bc197b-0ec2-481c-bdfc-c2676c550c7f"),
+                            AreaNumber = "320583400000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "开发区",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 12,
+                            VillageGroupNumber = 312,
+                            VillageNumber = 7
+                        },
+                        new
+                        {
+                            Id = new Guid("5ac70704-20c9-4879-8dcb-39b6b872fb55"),
+                            AreaNumber = "320583104000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "花桥镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 123,
+                            VillageNumber = 13
+                        },
+                        new
+                        {
+                            Id = new Guid("d0a219c4-ca5b-4b55-b09f-95ab8a6ec8eb"),
+                            AreaNumber = "320583106000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "张浦镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 221,
+                            VillageNumber = 12
+                        },
+                        new
+                        {
+                            Id = new Guid("3f7a9097-7ae1-4971-be42-6c647dfaf64b"),
+                            AreaNumber = "320583103000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "陆家镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 231,
+                            VillageNumber = 13
+                        },
+                        new
+                        {
+                            Id = new Guid("ad46b1db-7112-4958-a072-9c17dd0a408d"),
+                            AreaNumber = "320583101000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "巴城镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 216,
+                            VillageNumber = 13
+                        },
+                        new
+                        {
+                            Id = new Guid("fa5c32e7-3017-49c9-ac22-9c0d63e8f56f"),
+                            AreaNumber = "320583108000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "千灯镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 213,
+                            VillageNumber = 41
+                        },
+                        new
+                        {
+                            Id = new Guid("d26a7b4c-09c0-4cfe-98d7-5dbab49d8455"),
+                            AreaNumber = "320583105000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "淀山湖镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 173,
+                            VillageNumber = 11
+                        },
+                        new
+                        {
+                            Id = new Guid("2c58bda6-d059-454c-9521-bafc1abf1af5"),
+                            AreaNumber = "320583107000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "周庄镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 123,
+                            VillageNumber = 31
+                        },
+                        new
+                        {
+                            Id = new Guid("c54d0afb-7023-4c12-a10a-7742035cef43"),
+                            AreaNumber = "320583109000",
+                            CountyNumber = 0,
+                            GovernmentLevel = 4,
+                            GovernmentName = "锦溪镇",
+                            HighLevelAreaNumber = "320583000000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 256,
+                            VillageNumber = 22
+                        },
+                        new
+                        {
+                            Id = new Guid("e29bcbbc-dd41-466c-88ab-2679fc71a123"),
+                            AreaNumber = "320583106001",
+                            CountyNumber = 0,
+                            GovernmentLevel = 5,
+                            GovernmentName = "张浦社区",
+                            HighLevelAreaNumber = "320583106000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 12,
+                            VillageNumber = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("9e422e7e-27dc-4a05-ae67-9843923e462e"),
+                            AreaNumber = "320583106002",
+                            CountyNumber = 0,
+                            GovernmentLevel = 5,
+                            GovernmentName = "花园社区",
+                            HighLevelAreaNumber = "320583106000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 12,
+                            VillageNumber = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("a8196ea2-46ba-4072-b103-273e4a820160"),
+                            AreaNumber = "320583106003",
+                            CountyNumber = 0,
+                            GovernmentLevel = 5,
+                            GovernmentName = "振苏社区",
+                            HighLevelAreaNumber = "320583106000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 12,
+                            VillageNumber = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("10f9bae1-b039-4580-b456-8f0af49dd465"),
+                            AreaNumber = "320583106004",
+                            CountyNumber = 0,
+                            GovernmentLevel = 5,
+                            GovernmentName = "南港社区",
+                            HighLevelAreaNumber = "320583106000",
+                            TownNumber = 0,
+                            VillageGroupNumber = 12,
+                            VillageNumber = 0
+                        });
+                });
+
             modelBuilder.Entity("AspNetCore.Entity.Core.Villager", b =>
                 {
                     b.Property<Guid>("Id")
@@ -53,7 +261,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("77711553-3a33-466f-916c-0f45fb3995a0"),
+                            Id = new Guid("19dbcf6f-cb00-439b-9b0c-e896320b95cd"),
                             AnnualIncome = 20000,
                             Birthday = new DateTime(1984, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "高中",
@@ -66,7 +274,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dee89a1c-53a4-425c-b0c7-cfe309c66838"),
+                            Id = new Guid("11d26651-66b9-4503-b611-f08f0649898e"),
                             AnnualIncome = 17000,
                             Birthday = new DateTime(1972, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "初中",
@@ -79,7 +287,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fc514fd4-eca3-4d36-b97b-e790387e52a9"),
+                            Id = new Guid("262b9f4e-d947-428b-8c83-7dd272e45c45"),
                             AnnualIncome = 50000,
                             Birthday = new DateTime(1990, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "本科",
@@ -89,6 +297,619 @@ namespace AspNetCore.Entity.Migrations
                             HomeAddress = "向阳村1组2号",
                             MaritalStatus = "未婚",
                             Name = "马伦"
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.DataCategroy", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CategroyCode");
+
+                    b.Property<string>("CategroyName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DataCategroys");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("06b6f77b-0d8b-495d-b564-9877fa450f0a"),
+                            CategroyCode = "001",
+                            CategroyName = "城乡分类"
+                        },
+                        new
+                        {
+                            Id = new Guid("45ed8d3b-962d-46f0-a871-c86d88513389"),
+                            CategroyCode = "002",
+                            CategroyName = "行政级别"
+                        },
+                        new
+                        {
+                            Id = new Guid("e059c8be-1a01-4f88-88ee-53fded2a3b80"),
+                            CategroyCode = "003",
+                            CategroyName = "政治面貌"
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.DataItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CategroyCode");
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("ItemCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DataItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("cb3c4814-1806-4a2c-a84b-fdb823eecc57"),
+                            CategroyCode = "001",
+                            Content = "主城区",
+                            ItemCode = "001"
+                        },
+                        new
+                        {
+                            Id = new Guid("66218d42-e275-4009-a460-fff79b550fc7"),
+                            CategroyCode = "001",
+                            Content = "城乡结合区",
+                            ItemCode = "002"
+                        },
+                        new
+                        {
+                            Id = new Guid("7a57a89c-7dd1-4710-938c-b350fece9727"),
+                            CategroyCode = "001",
+                            Content = "镇中心区",
+                            ItemCode = "003"
+                        },
+                        new
+                        {
+                            Id = new Guid("bbe14267-db1d-44d3-a62b-528ee1cf48b8"),
+                            CategroyCode = "001",
+                            Content = "特殊区域",
+                            ItemCode = "004"
+                        },
+                        new
+                        {
+                            Id = new Guid("842f996d-1782-475f-9047-f295746af540"),
+                            CategroyCode = "001",
+                            Content = "乡中心区",
+                            ItemCode = "005"
+                        },
+                        new
+                        {
+                            Id = new Guid("101e371f-472d-4bef-b82d-234c61ddcd0a"),
+                            CategroyCode = "001",
+                            Content = "村庄",
+                            ItemCode = "006"
+                        },
+                        new
+                        {
+                            Id = new Guid("fca96751-b407-405d-ad62-2cbc368544bf"),
+                            CategroyCode = "002",
+                            Content = "省级行政区",
+                            ItemCode = "001"
+                        },
+                        new
+                        {
+                            Id = new Guid("77bda54c-7e6b-4333-bcd1-817680395a2d"),
+                            CategroyCode = "002",
+                            Content = "地级行政区",
+                            ItemCode = "001"
+                        },
+                        new
+                        {
+                            Id = new Guid("be5378e4-8e05-44b1-b706-5dfc9cf13ba6"),
+                            CategroyCode = "002",
+                            Content = "县级行政区",
+                            ItemCode = "003"
+                        },
+                        new
+                        {
+                            Id = new Guid("59e36f9d-0985-4576-ac5f-84184349a472"),
+                            CategroyCode = "002",
+                            Content = "乡级行政区",
+                            ItemCode = "004"
+                        },
+                        new
+                        {
+                            Id = new Guid("94362ac5-deca-48a7-ae04-a5e5ad1cc0df"),
+                            CategroyCode = "002",
+                            Content = "村级行政区",
+                            ItemCode = "005"
+                        },
+                        new
+                        {
+                            Id = new Guid("00bd246d-bd6b-40ea-9d2a-01f23ad1c42b"),
+                            CategroyCode = "003",
+                            Content = "中共党员",
+                            ItemCode = "001"
+                        },
+                        new
+                        {
+                            Id = new Guid("97ccceb3-5d33-4b5f-b770-80cb868d7455"),
+                            CategroyCode = "003",
+                            Content = "中共预备党员",
+                            ItemCode = "002"
+                        },
+                        new
+                        {
+                            Id = new Guid("97fdae8f-ca71-48d1-933c-f9e5e7973701"),
+                            CategroyCode = "003",
+                            Content = "共青团员",
+                            ItemCode = "003"
+                        },
+                        new
+                        {
+                            Id = new Guid("a64980b4-5d24-4350-94d7-d59590458fc1"),
+                            CategroyCode = "003",
+                            Content = "民革党员",
+                            ItemCode = "004"
+                        },
+                        new
+                        {
+                            Id = new Guid("9389087a-0ebf-49ae-b722-ff5e83415f60"),
+                            CategroyCode = "003",
+                            Content = "民盟盟员",
+                            ItemCode = "005"
+                        },
+                        new
+                        {
+                            Id = new Guid("5720cdfb-014f-4db0-a4c6-590272115a50"),
+                            CategroyCode = "003",
+                            Content = "民建会员",
+                            ItemCode = "006"
+                        },
+                        new
+                        {
+                            Id = new Guid("4ec18969-0e23-4ee9-aa1f-23d6b8c595c6"),
+                            CategroyCode = "003",
+                            Content = "民进会员",
+                            ItemCode = "007"
+                        },
+                        new
+                        {
+                            Id = new Guid("fe173dd3-d319-472f-a074-94188bc17d57"),
+                            CategroyCode = "003",
+                            Content = "农工党党员",
+                            ItemCode = "008"
+                        },
+                        new
+                        {
+                            Id = new Guid("af82eb7c-663e-40b2-8415-5f63fb2239d0"),
+                            CategroyCode = "003",
+                            Content = "致公党党员",
+                            ItemCode = "009"
+                        },
+                        new
+                        {
+                            Id = new Guid("eef20ffb-c25b-443c-8b30-0b2822179e35"),
+                            CategroyCode = "003",
+                            Content = "九三学社社员",
+                            ItemCode = "010"
+                        },
+                        new
+                        {
+                            Id = new Guid("5a66e3aa-b321-409d-988a-805c1dd8ba23"),
+                            CategroyCode = "003",
+                            Content = "台盟盟员",
+                            ItemCode = "011"
+                        },
+                        new
+                        {
+                            Id = new Guid("cf5d1eb7-04b2-4445-9e03-09f966e793be"),
+                            CategroyCode = "003",
+                            Content = "无党派人士",
+                            ItemCode = "012"
+                        },
+                        new
+                        {
+                            Id = new Guid("1040fd2e-521c-44c0-806f-85637087d133"),
+                            CategroyCode = "003",
+                            Content = "群众",
+                            ItemCode = "013"
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.Department", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("ContactPhone");
+
+                    b.Property<string>("DepartmentCode");
+
+                    b.Property<string>("DepartmentName");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Fax");
+
+                    b.Property<string>("Notes");
+
+                    b.Property<string>("PrincipalName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("865ffe4b-0342-4e9f-a19b-7310c61c536f"),
+                            Address = "京东路469号",
+                            ContactPhone = "0512-57623451",
+                            DepartmentCode = "001",
+                            DepartmentName = "张浦社区党支部委员会",
+                            Email = "zhenxinguo@kszpzp.gov.cn",
+                            Fax = "0512-54123412",
+                            Notes = "",
+                            PrincipalName = "郑兴国"
+                        },
+                        new
+                        {
+                            Id = new Guid("a00e7213-defc-40c1-a635-9d2475fd6c71"),
+                            Address = "京东路469号",
+                            ContactPhone = "0512-58289432",
+                            DepartmentCode = "002",
+                            DepartmentName = "张浦社区居民委员会",
+                            Email = "chenlecheng@kszpzp.gov.cn",
+                            Fax = "0512-59283414",
+                            Notes = "临时兼任",
+                            PrincipalName = "陈乐成"
+                        },
+                        new
+                        {
+                            Id = new Guid("3c9601d3-e14e-4ad2-ab02-bdbd989ef0d3"),
+                            Address = "花苑路与京东路交叉口西侧",
+                            ContactPhone = "0512-54128123",
+                            DepartmentCode = "003",
+                            DepartmentName = "花园社区党支部委员会",
+                            Email = "xugaoyi@kszpzp.gov.cn",
+                            Fax = "0512-564178314",
+                            PrincipalName = "许高义"
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.Family", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AccountCharacter");
+
+                    b.Property<int>("AverageAnnualIncome");
+
+                    b.Property<float>("AverageHousingArea");
+
+                    b.Property<string>("FamilyCode");
+
+                    b.Property<string>("Householder");
+
+                    b.Property<float>("HousingArea");
+
+                    b.Property<bool>("IsLowIncome");
+
+                    b.Property<bool>("IsPoor");
+
+                    b.Property<int>("PeopleNumber");
+
+                    b.Property<string>("VillageGroupCode");
+
+                    b.Property<string>("VillageName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Families");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("757c5a90-a638-4a19-a592-f28f789e67b9"),
+                            AccountCharacter = "非农业",
+                            AverageAnnualIncome = 5000,
+                            AverageHousingArea = 20.84f,
+                            FamilyCode = "001000",
+                            Householder = "秦博厚",
+                            HousingArea = 104.2f,
+                            IsLowIncome = false,
+                            IsPoor = false,
+                            PeopleNumber = 5,
+                            VillageGroupCode = "001"
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.Member", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Birthday");
+
+                    b.Property<string>("DepartmentCode");
+
+                    b.Property<string>("Education");
+
+                    b.Property<DateTime>("EntryTime");
+
+                    b.Property<string>("Gender");
+
+                    b.Property<string>("HomeAddress");
+
+                    b.Property<string>("IdCardNumber");
+
+                    b.Property<DateTime>("LeaveTime");
+
+                    b.Property<string>("LengthOfService");
+
+                    b.Property<string>("MaritalStatus");
+
+                    b.Property<string>("MemberCode");
+
+                    b.Property<string>("MemberName");
+
+                    b.Property<string>("Nationality");
+
+                    b.Property<string>("PersonnelNature");
+
+                    b.Property<string>("PoliticalStatus");
+
+                    b.Property<string>("Position");
+
+                    b.Property<string>("Status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Members");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("3afb42af-c8ae-4738-b5e7-c7f43e7b1155"),
+                            Birthday = new DateTime(1974, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DepartmentCode = "002",
+                            Education = "本科",
+                            EntryTime = new DateTime(2007, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Gender = "男",
+                            HomeAddress = "张浦镇江北新村14号",
+                            IdCardNumber = "320583197407056857",
+                            LeaveTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LengthOfService = "12年",
+                            MaritalStatus = "已婚",
+                            MemberCode = "002000",
+                            MemberName = "陈乐成",
+                            Nationality = "汉族",
+                            PoliticalStatus = "中共党员",
+                            Position = "主任",
+                            Status = "在职"
+                        },
+                        new
+                        {
+                            Id = new Guid("ff3cceea-3a9a-49ae-873d-c9b247aa478f"),
+                            Birthday = new DateTime(1977, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DepartmentCode = "002",
+                            Education = "本科",
+                            EntryTime = new DateTime(2002, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Gender = "男",
+                            HomeAddress = "张浦镇浦江北新村112号",
+                            IdCardNumber = "320583197707087692",
+                            LeaveTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LengthOfService = "17年",
+                            MaritalStatus = "已婚",
+                            MemberCode = "002001",
+                            MemberName = "姜兴安",
+                            Nationality = "汉族",
+                            PoliticalStatus = "中共党员",
+                            Position = "副主任",
+                            Status = "在职"
+                        },
+                        new
+                        {
+                            Id = new Guid("c98351ac-8ae3-4773-9c73-f928cf2b1a5d"),
+                            Birthday = new DateTime(1985, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DepartmentCode = "002",
+                            Education = "高中",
+                            EntryTime = new DateTime(2010, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Gender = "男",
+                            HomeAddress = "张浦镇江北新村56号",
+                            IdCardNumber = "320583198504178937",
+                            LeaveTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LengthOfService = "9年",
+                            MaritalStatus = "丧偶",
+                            MemberCode = "002002",
+                            MemberName = "于君昊",
+                            Nationality = "汉族",
+                            PoliticalStatus = "中共党员",
+                            Position = "治调委员",
+                            Status = "在职"
+                        },
+                        new
+                        {
+                            Id = new Guid("ae3e8c8d-df2c-4c04-bf84-c5dc6e1d55c5"),
+                            Birthday = new DateTime(1979, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DepartmentCode = "002",
+                            Education = "硕士研究生",
+                            EntryTime = new DateTime(2005, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Gender = "男",
+                            HomeAddress = "张浦镇江北新村12号",
+                            IdCardNumber = "320583197910154878",
+                            LeaveTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LengthOfService = "14年",
+                            MaritalStatus = "离异",
+                            MemberCode = "002003",
+                            MemberName = "康志国",
+                            Nationality = "汉族",
+                            PoliticalStatus = "群众",
+                            Position = "财经委员",
+                            Status = "在职"
+                        },
+                        new
+                        {
+                            Id = new Guid("58bde8f3-fb74-473e-88ae-8fd1f720ed72"),
+                            Birthday = new DateTime(1987, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DepartmentCode = "002",
+                            Education = "本科",
+                            EntryTime = new DateTime(2007, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Gender = "女",
+                            HomeAddress = "张浦镇江北新村17号",
+                            IdCardNumber = "320583198704187965",
+                            LeaveTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LengthOfService = "12年",
+                            MaritalStatus = "已婚",
+                            MemberCode = "002004",
+                            MemberName = "赵陈红",
+                            Nationality = "汉族",
+                            PoliticalStatus = "群众",
+                            Position = "妇女计生委员",
+                            Status = "在职"
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.NonOperatingAssets", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("LibaryCollectionsNumber");
+
+                    b.Property<int>("LibraryNumber");
+
+                    b.Property<float>("OfficeBuildingArea");
+
+                    b.Property<int>("OfficeBuildingNumber");
+
+                    b.Property<float>("SeniorCitizenCenterArea");
+
+                    b.Property<int>("SeniorCitizenCenterNumber");
+
+                    b.Property<int>("ServiceStationNumber");
+
+                    b.Property<float>("SportActivityRoomArea");
+
+                    b.Property<int>("SportsActivityRoomNumber");
+
+                    b.Property<float>("StaffQuarterArea");
+
+                    b.Property<int>("StaffQuartersNumber");
+
+                    b.Property<string>("VillageName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NonOperatingAssets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0fed56d5-8c4f-4bad-b095-b9dbf72f1583"),
+                            LibaryCollectionsNumber = 3000,
+                            LibraryNumber = 1,
+                            OfficeBuildingArea = 105f,
+                            OfficeBuildingNumber = 1,
+                            SeniorCitizenCenterArea = 450f,
+                            SeniorCitizenCenterNumber = 1,
+                            ServiceStationNumber = 4,
+                            SportActivityRoomArea = 1000f,
+                            SportsActivityRoomNumber = 2,
+                            StaffQuarterArea = 1000f,
+                            StaffQuartersNumber = 1,
+                            VillageName = "张浦社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("3c9a51d9-e972-4919-bcbd-b6a41e041e79"),
+                            LibaryCollectionsNumber = 2500,
+                            LibraryNumber = 1,
+                            OfficeBuildingArea = 172f,
+                            OfficeBuildingNumber = 1,
+                            SeniorCitizenCenterArea = 380f,
+                            SeniorCitizenCenterNumber = 1,
+                            ServiceStationNumber = 2,
+                            SportActivityRoomArea = 800f,
+                            SportsActivityRoomNumber = 1,
+                            StaffQuarterArea = 1200f,
+                            StaffQuartersNumber = 1,
+                            VillageName = "花园社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("669e6f26-dba7-4779-8507-712d0ab55a87"),
+                            LibaryCollectionsNumber = 5000,
+                            LibraryNumber = 1,
+                            OfficeBuildingArea = 250f,
+                            OfficeBuildingNumber = 2,
+                            SeniorCitizenCenterArea = 700f,
+                            SeniorCitizenCenterNumber = 2,
+                            ServiceStationNumber = 1,
+                            SportActivityRoomArea = 1500f,
+                            SportsActivityRoomNumber = 3,
+                            StaffQuarterArea = 2000f,
+                            StaffQuartersNumber = 2,
+                            VillageName = "振苏社区"
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.PartyMember", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Birthday");
+
+                    b.Property<string>("ContactPhone");
+
+                    b.Property<string>("DepartmentCode");
+
+                    b.Property<string>("Education");
+
+                    b.Property<string>("Gender");
+
+                    b.Property<bool?>("IsFullMember");
+
+                    b.Property<string>("MemberCode");
+
+                    b.Property<string>("Nationality");
+
+                    b.Property<string>("PartyMemberName");
+
+                    b.Property<string>("PartyOrganizationName");
+
+                    b.Property<string>("PartyPosition");
+
+                    b.Property<string>("VillageName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PartyMembers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("028167a2-4479-4eee-a8ec-d6f6966a2d10"),
+                            Birthday = new DateTime(1974, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ContactPhone = "13057134712",
+                            DepartmentCode = "001",
+                            Education = "本科",
+                            Gender = "男",
+                            IsFullMember = true,
+                            MemberCode = "001000",
+                            Nationality = "汉族",
+                            PartyMemberName = "陈乐成",
+                            PartyOrganizationName = "张浦社区党支部委员会",
+                            PartyPosition = "无",
+                            VillageName = "张浦社区"
                         });
                 });
 
@@ -107,17 +928,17 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("99240aa0-cab9-4f1c-b8bb-425ad3ae14ed"),
+                            Id = new Guid("db604db4-8909-496c-9196-9a7af294692b"),
                             RoleName = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("13c4d819-125d-4eb0-b8f8-11729aeb0e86"),
+                            Id = new Guid("80c72432-24e4-4d17-af06-0706b5a187e8"),
                             RoleName = "Client"
                         },
                         new
                         {
-                            Id = new Guid("fc12f373-d6bc-4bf3-8755-9d20ea51ba2f"),
+                            Id = new Guid("9c08f59d-1ef5-414a-96e8-db27c252165f"),
                             RoleName = "System"
                         });
                 });
@@ -129,9 +950,13 @@ namespace AspNetCore.Entity.Migrations
 
                     b.Property<string>("Address");
 
+                    b.Property<string>("AreaNumber");
+
                     b.Property<string>("ChairmanName");
 
                     b.Property<string>("ContactPhone");
+
+                    b.Property<int>("GovernmentLevel");
 
                     b.Property<string>("MayorName");
 
@@ -146,110 +971,120 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ea602d6e-c89f-4b39-ae6a-c01943664261"),
+                            Id = new Guid("3923badb-620e-4319-b5fe-f607a8cb43f6"),
                             Address = "前进西路168号",
+                            AreaNumber = "320583102000",
                             ChairmanName = "祖冲之",
-                            ContactPhone = "0512-53387154",
+                            ContactPhone = "0512-57621053",
+                            GovernmentLevel = 4,
                             MayorName = "陆机",
                             SecretaryName = "陆云",
-                            TownName = "昆山市高新区"
-                        },
-                        new
-                        {
-                            Id = new Guid("65664686-89c6-40f5-9e36-ea0dd7caab55"),
-                            Address = "前进东路",
-                            ChairmanName = "邢栋祥",
-                            ContactPhone = "0512-32416432",
-                            MayorName = "逢建德",
-                            SecretaryName = "匡俊智",
-                            TownName = "昆山开发区"
-                        },
-                        new
-                        {
-                            Id = new Guid("14883e40-8340-4b2f-b374-745c311d7350"),
-                            Address = "花溪路358号",
-                            ChairmanName = "武财章",
-                            ContactPhone = "0512-34872987",
-                            MayorName = "王班",
-                            SecretaryName = "吴启河",
-                            TownName = "昆山花桥经济开发区"
-                        },
-                        new
-                        {
-                            Id = new Guid("31eddee4-39e7-4c56-86f4-649cb3294fbf"),
-                            Address = "宝觉街与茶风街交叉口北50米",
-                            ChairmanName = "冯崇霆",
-                            ContactPhone = "0521-84729179",
-                            MayorName = "武财章",
-                            SecretaryName = "李泰桓",
-                            TownName = "张浦镇"
-                        },
-                        new
-                        {
-                            Id = new Guid("d64853a5-7feb-43e0-99a1-2f83ccf2c369"),
-                            Address = "华杨路188号",
-                            ChairmanName = "成梦昆",
-                            ContactPhone = "0512-34813245",
-                            MayorName = "刘赫伯",
-                            SecretaryName = "蒋信迟",
                             TownName = "周市镇"
                         },
                         new
                         {
-                            Id = new Guid("65b6c3fb-ef80-45f7-bdbe-aa356bbb3caa"),
+                            Id = new Guid("a25ff6ba-e06e-4c40-938a-ec09a35ed8b6"),
+                            Address = "前进东路",
+                            AreaNumber = "320583400000",
+                            ChairmanName = "邢栋祥",
+                            ContactPhone = "0512-57329416",
+                            GovernmentLevel = 4,
+                            MayorName = "逢建德",
+                            SecretaryName = "匡俊智",
+                            TownName = "开发区"
+                        },
+                        new
+                        {
+                            Id = new Guid("648b250f-39de-4e73-b2ae-3bcacd957563"),
+                            Address = "花溪路358号",
+                            AreaNumber = "320583104000",
+                            ChairmanName = "武财章",
+                            ContactPhone = "0512-57698733",
+                            GovernmentLevel = 4,
+                            MayorName = "王班",
+                            SecretaryName = "吴启河",
+                            TownName = "花桥镇"
+                        },
+                        new
+                        {
+                            Id = new Guid("ec6f3210-b145-4b5a-a611-25cdc1b2e6bd"),
+                            Address = "华杨路188号",
+                            AreaNumber = "320583106000",
+                            ChairmanName = "成梦昆",
+                            ContactPhone = "0512-57452503",
+                            GovernmentLevel = 4,
+                            MayorName = "刘赫伯",
+                            SecretaryName = "蒋信迟",
+                            TownName = "张浦镇"
+                        },
+                        new
+                        {
+                            Id = new Guid("02ba1f67-204f-41ce-8615-2cbf231a730d"),
                             Address = "菉溪路22号",
+                            AreaNumber = "	320583103000",
                             ChairmanName = "李迪尉",
-                            ContactPhone = "0512-38274812",
+                            ContactPhone = "0512-57671003",
+                            GovernmentLevel = 4,
                             MayorName = "梁灶慈",
                             SecretaryName = "刘群胜",
                             TownName = "陆家镇"
                         },
                         new
                         {
-                            Id = new Guid("8414bcfc-169c-46a5-9035-57614c813845"),
+                            Id = new Guid("a08fd085-5866-44a7-8f85-62401e8db84a"),
                             Address = "新澄路918号",
+                            AreaNumber = "320583101000",
                             ChairmanName = "周伟",
-                            ContactPhone = "0521-76421843",
+                            ContactPhone = "0521-57656330",
+                            GovernmentLevel = 4,
                             MayorName = "李迪尉",
                             SecretaryName = "钟开桦",
                             TownName = "巴城镇"
                         },
                         new
                         {
-                            Id = new Guid("d5389ccb-4bb5-458d-9672-a0b59e5fcb8f"),
+                            Id = new Guid("98b9510e-1d58-472f-8b9e-5fa018f0590a"),
                             Address = "炎东路",
+                            AreaNumber = "320583108000",
                             ChairmanName = "林修胜",
-                            ContactPhone = "0512-28413451",
+                            ContactPhone = "0512-36620396",
+                            GovernmentLevel = 4,
                             MayorName = "张弥成",
                             SecretaryName = "时可北",
                             TownName = "千灯镇"
                         },
                         new
                         {
-                            Id = new Guid("49e6ac7b-f26b-491f-bdbe-8f0a9292739e"),
+                            Id = new Guid("77dca5dd-8015-4692-a9aa-87de682047f3"),
                             Address = "府前路78号",
+                            AreaNumber = "320583105000",
                             ChairmanName = "常般业",
-                            ContactPhone = "0512-83497432",
+                            ContactPhone = "0512-57488358",
+                            GovernmentLevel = 4,
                             MayorName = "冯便磊",
                             SecretaryName = "颜尚冲",
                             TownName = "淀山湖镇"
                         },
                         new
                         {
-                            Id = new Guid("7514439e-6e6c-441f-b17d-ec86254ace19"),
+                            Id = new Guid("e90a00c5-d7f0-4772-829f-317d347df363"),
                             Address = "淀南路100号",
+                            AreaNumber = "320583107000",
                             ChairmanName = "陆先",
-                            ContactPhone = "0521-42124521",
+                            ContactPhone = "0521-57211236",
+                            GovernmentLevel = 4,
                             MayorName = "王翱桦",
                             SecretaryName = "江衷力",
                             TownName = "周庄镇"
                         },
                         new
                         {
-                            Id = new Guid("4a46b593-8206-4c1c-a8ed-b4b103da1fc0"),
+                            Id = new Guid("ad3509e8-a75f-4d3b-8fa9-0b2fd14d36cf"),
                             Address = "普庆路1号",
+                            AreaNumber = "320583109000",
                             ChairmanName = "邹鉴夕",
-                            ContactPhone = "0521-32188912",
+                            ContactPhone = "0521-57231290",
+                            GovernmentLevel = 4,
                             MayorName = "倪御奋",
                             SecretaryName = "姬道生",
                             TownName = "锦溪镇"
@@ -263,7 +1098,7 @@ namespace AspNetCore.Entity.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(40);
+                        .HasMaxLength(150);
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -276,26 +1111,26 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("da0e7338-d7b3-4a57-abf6-44d67a3c4503"),
-                            Password = "admin",
+                            Id = new Guid("aa63046d-9e9f-43da-afe3-739c8c297121"),
+                            Password = "fu1Enyt+Hrdo9BNpDnSy5qb0tM7noN4WtRZwYUtkfpc=",
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = new Guid("f177ccf3-d80a-4652-9e15-9f50e2e0edb8"),
-                            Password = "user1",
+                            Id = new Guid("53be9c70-bfe5-4759-8352-974e9e107ed8"),
+                            Password = "/uQH4FsnsFGBmvRluYOYHKDjUWimJiwnOV9WCRuEHQE=",
                             UserName = "user1"
                         },
                         new
                         {
-                            Id = new Guid("2bc08067-9b7d-44b0-8449-7da2bdb4239c"),
-                            Password = "user2",
+                            Id = new Guid("0cb002e9-a78a-4d5e-85f3-c4c88462d1c9"),
+                            Password = "vuQZWjwJouGCACBNyNwxQoSZc+8sK51nsCv34XSgelE=",
                             UserName = "user2"
                         },
                         new
                         {
-                            Id = new Guid("01f6375b-d229-466f-b9eb-4a472d52e425"),
-                            Password = "user3",
+                            Id = new Guid("467a3054-8d4f-4fb3-a202-26e664440b7e"),
+                            Password = "h3fPS6qc1oAs9EImA3iGSZ9fH6Zl1yZJtFa6T3tiQko=",
                             UserName = "user3"
                         });
                 });
@@ -320,33 +1155,581 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("bce71577-ef53-4687-a258-c253f2e2d3f2"),
-                            RoleId = new Guid("99240aa0-cab9-4f1c-b8bb-425ad3ae14ed"),
-                            UserId = new Guid("da0e7338-d7b3-4a57-abf6-44d67a3c4503")
+                            Id = new Guid("a5e94289-b9e7-4f44-bed8-d8c3c9726892"),
+                            RoleId = new Guid("db604db4-8909-496c-9196-9a7af294692b"),
+                            UserId = new Guid("aa63046d-9e9f-43da-afe3-739c8c297121")
                         },
                         new
                         {
-                            Id = new Guid("3eec8571-5991-4361-85ca-7a9b584d02d4"),
-                            RoleId = new Guid("13c4d819-125d-4eb0-b8f8-11729aeb0e86"),
-                            UserId = new Guid("f177ccf3-d80a-4652-9e15-9f50e2e0edb8")
+                            Id = new Guid("becc205b-d990-411b-935e-f946141b408f"),
+                            RoleId = new Guid("80c72432-24e4-4d17-af06-0706b5a187e8"),
+                            UserId = new Guid("53be9c70-bfe5-4759-8352-974e9e107ed8")
                         },
                         new
                         {
-                            Id = new Guid("7d909ad8-a5fb-4a72-a5e4-f4872322487d"),
-                            RoleId = new Guid("13c4d819-125d-4eb0-b8f8-11729aeb0e86"),
-                            UserId = new Guid("2bc08067-9b7d-44b0-8449-7da2bdb4239c")
+                            Id = new Guid("e73af239-3daf-4710-b48e-536b6da29a80"),
+                            RoleId = new Guid("80c72432-24e4-4d17-af06-0706b5a187e8"),
+                            UserId = new Guid("0cb002e9-a78a-4d5e-85f3-c4c88462d1c9")
                         },
                         new
                         {
-                            Id = new Guid("2d7fecee-364e-4a64-b942-5b67d6f8cebb"),
-                            RoleId = new Guid("99240aa0-cab9-4f1c-b8bb-425ad3ae14ed"),
-                            UserId = new Guid("01f6375b-d229-466f-b9eb-4a472d52e425")
+                            Id = new Guid("15a0a1c7-7499-419b-b818-80e920d16409"),
+                            RoleId = new Guid("db604db4-8909-496c-9196-9a7af294692b"),
+                            UserId = new Guid("467a3054-8d4f-4fb3-a202-26e664440b7e")
                         },
                         new
                         {
-                            Id = new Guid("961c4cb3-50cf-4398-bc5c-89faaed9a966"),
-                            RoleId = new Guid("fc12f373-d6bc-4bf3-8755-9d20ea51ba2f"),
-                            UserId = new Guid("da0e7338-d7b3-4a57-abf6-44d67a3c4503")
+                            Id = new Guid("da89970c-bc6f-4c73-808e-3a0e8689b71c"),
+                            RoleId = new Guid("9c08f59d-1ef5-414a-96e8-db27c252165f"),
+                            UserId = new Guid("aa63046d-9e9f-43da-afe3-739c8c297121")
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.Village", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("AreaNumber");
+
+                    b.Property<string>("ContactPhone");
+
+                    b.Property<int>("GovernmentLevel");
+
+                    b.Property<int?>("GroupCount");
+
+                    b.Property<string>("HighLevelAreaNumber");
+
+                    b.Property<string>("SecretaryName");
+
+                    b.Property<int>("UrbanRuralClassification");
+
+                    b.Property<string>("VillageHeadName");
+
+                    b.Property<string>("VillageName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Villages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("1dff05b8-79c0-408c-a129-8b6dab926f91"),
+                            Address = "京东路469号",
+                            AreaNumber = "320583106001",
+                            ContactPhone = "0512-57441175",
+                            GovernmentLevel = 5,
+                            GroupCount = 12,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "尹乐和",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "赵乐欣",
+                            VillageName = "张浦社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("4167304d-8bf2-4f4a-8607-a527e006dfeb"),
+                            Address = "花苑路与京东路交叉口西侧",
+                            AreaNumber = "320583106002",
+                            ContactPhone = "0512-36863123",
+                            GovernmentLevel = 5,
+                            GroupCount = 26,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "汤振海",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "杜向阳",
+                            VillageName = "花园社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("4a6729cc-e652-4bb2-9639-ef896a1f1b89"),
+                            Address = "振苏六村",
+                            AreaNumber = "320583106003",
+                            ContactPhone = "0512-55270465",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "廖景天",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "崔泰宁",
+                            VillageName = "振苏社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("4cf84f84-ceeb-4209-8942-a156567eb152"),
+                            Address = "震阳路126号",
+                            AreaNumber = "320583106004",
+                            ContactPhone = "0512-57428835",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "阎乐池",
+                            UrbanRuralClassification = 121,
+                            VillageHeadName = "尹和蔼",
+                            VillageName = "南港社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("14816456-1a5b-42e1-8006-1a7cf8902e7d"),
+                            Address = "淞沪西路36号",
+                            AreaNumber = "320583106005",
+                            ContactPhone = "0512-57256550",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "许宏畅",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "薛兴为",
+                            VillageName = "大市社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("51aa31c6-9875-4960-88f8-97b5665ed807"),
+                            Address = "俱巷路894号",
+                            AreaNumber = "320583106006",
+                            ContactPhone = "0512-36691258",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "孔浩思",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "王康胜",
+                            VillageName = "新巷社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("2fbfd9b0-7777-467c-b6d2-9dedfd424efe"),
+                            Address = "商秧路178号",
+                            AreaNumber = "320583106007",
+                            ContactPhone = "0512-55272500",
+                            GovernmentLevel = 5,
+                            GroupCount = 26,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "吴俊晤",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "石欣德",
+                            VillageName = "新吴社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("25067ae7-0192-4b4f-aa08-6c2792e58105"),
+                            Address = "大直路504号",
+                            AreaNumber = "320583106008",
+                            ContactPhone = "0512-55272500",
+                            GovernmentLevel = 5,
+                            GroupCount = 23,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "梁奇希",
+                            UrbanRuralClassification = 112,
+                            VillageHeadName = "吕勇男",
+                            VillageName = "大直社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("5fcab327-abe7-4e0f-a3ad-cba86bf2cf4c"),
+                            Address = "周巷路",
+                            AreaNumber = "320583106009",
+                            ContactPhone = "0512-57294577",
+                            GovernmentLevel = 5,
+                            GroupCount = 40,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "姜永昌",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "吴凯凯",
+                            VillageName = "周巷社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("08305337-3386-4af0-b266-cfecd9615349"),
+                            Address = "京东路588号",
+                            AreaNumber = "320583106012",
+                            ContactPhone = "0512-57883298",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "龙澔",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "汤烨磊",
+                            VillageName = "亲和社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("b33aa979-ac6b-413c-900d-a339ab06d592"),
+                            Address = "京东路731号",
+                            AreaNumber = "320583106013",
+                            ContactPhone = "0512-57278938",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "李段",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "吕尊",
+                            VillageName = "锦和社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("8917a50c-1a2f-48fb-a672-cae6d9b9bc5c"),
+                            Address = "金华路1号",
+                            AreaNumber = "320583106200",
+                            ContactPhone = "0512-57293702",
+                            GovernmentLevel = 5,
+                            GroupCount = 26,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "宋翰学",
+                            UrbanRuralClassification = 112,
+                            VillageHeadName = "龙昊焱",
+                            VillageName = "金华村"
+                        },
+                        new
+                        {
+                            Id = new Guid("dccf12ac-200b-4f5b-9822-6c47526f00bb"),
+                            Address = "商鞅路1号",
+                            AreaNumber = "320583106204",
+                            ContactPhone = "0512-50310612",
+                            GovernmentLevel = 5,
+                            GroupCount = 20,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "汤明亮",
+                            UrbanRuralClassification = 112,
+                            VillageHeadName = "吴咏德",
+                            VillageName = "七桥村"
+                        },
+                        new
+                        {
+                            Id = new Guid("4b669f43-5f21-4e1c-9857-9daee25b18aa"),
+                            Address = "机场路与兴陵路交叉口往南200米",
+                            AreaNumber = "320583106205",
+                            ContactPhone = "0512-57441476",
+                            GovernmentLevel = 5,
+                            GroupCount = 27,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "邹俊雄",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "程飞虎",
+                            VillageName = "赵陵村"
+                        },
+                        new
+                        {
+                            Id = new Guid("09fb803f-557e-4633-97d2-6f1926db171d"),
+                            Address = "川浩路22号",
+                            AreaNumber = "320583106206",
+                            ContactPhone = "0512-57441101",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "丁弘亮",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "龚炎彬",
+                            VillageName = "吴加村"
+                        },
+                        new
+                        {
+                            Id = new Guid("98814b95-3a10-4bcf-9ba2-cfb727e62f4f"),
+                            Address = "港浦东路8号",
+                            AreaNumber = "320583106207",
+                            ContactPhone = "0512-5736863220",
+                            GovernmentLevel = 5,
+                            GroupCount = 33,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "史光临",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "陈浦和",
+                            VillageName = "三家村"
+                        },
+                        new
+                        {
+                            Id = new Guid("0c0d9218-bfbf-4e0e-86a2-61958a8ba44a"),
+                            Address = "盛巷花园门卫北侧",
+                            AreaNumber = "320583106209",
+                            ContactPhone = "0512-57441616",
+                            GovernmentLevel = 5,
+                            GroupCount = 20,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "韩华藏",
+                            UrbanRuralClassification = 111,
+                            VillageHeadName = "萧泰河",
+                            VillageName = "新塘村"
+                        },
+                        new
+                        {
+                            Id = new Guid("58d1974d-1e1c-4f47-850e-16bedfd6d121"),
+                            Address = "震阳路与双娄路交叉口",
+                            AreaNumber = "320583106210",
+                            ContactPhone = "0512-57421150",
+                            GovernmentLevel = 5,
+                            GroupCount = 35,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "贺博艺",
+                            UrbanRuralClassification = 122,
+                            VillageHeadName = "冯鹏赋",
+                            VillageName = "星金村"
+                        },
+                        new
+                        {
+                            Id = new Guid("26e30c8f-4bd2-49ae-86c4-f61ac49b2a09"),
+                            Address = "陈邱家浜58号",
+                            AreaNumber = "320583106211",
+                            ContactPhone = "0512-50331469",
+                            GovernmentLevel = 5,
+                            GroupCount = 44,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "孙明杰",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "谭睿诚",
+                            VillageName = "新龙村"
+                        },
+                        new
+                        {
+                            Id = new Guid("ac6b5eeb-31e3-4539-ab8f-b058ad250a71"),
+                            Address = "建林路往北到底向西100米",
+                            AreaNumber = "320583106212",
+                            ContactPhone = "0512-57120550",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "万安怡",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "萧波峻",
+                            VillageName = "白米村"
+                        },
+                        new
+                        {
+                            Id = new Guid("d146077e-2875-4f35-bf74-c44973e79f35"),
+                            Address = "南港文体站",
+                            AreaNumber = "320583106214",
+                            ContactPhone = "0512-57428327",
+                            GovernmentLevel = 5,
+                            GroupCount = 28,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "蒋英卓",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "冯兴庆",
+                            VillageName = "林庄村"
+                        },
+                        new
+                        {
+                            Id = new Guid("38cb28a6-0196-4631-8b17-1f1fcc95e666"),
+                            Address = "安头村公交站台往南60米处",
+                            AreaNumber = "320583106215",
+                            ContactPhone = "0512-57428927",
+                            GovernmentLevel = 5,
+                            GroupCount = 25,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "郝嘉慕",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "史意蕴",
+                            VillageName = "安头村"
+                        },
+                        new
+                        {
+                            Id = new Guid("6d7a1b4d-688c-46cb-87d7-86c3d7a52126"),
+                            Address = "江浦南路与C325交叉处",
+                            AreaNumber = "320583106219",
+                            ContactPhone = "0512-57272133",
+                            GovernmentLevel = 5,
+                            GroupCount = 23,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "漕文彦",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "许高岑",
+                            VillageName = "姜杭村"
+                        },
+                        new
+                        {
+                            Id = new Guid("668a960d-9de1-44b3-9eb3-d27ce1511627"),
+                            Address = "长江南路东侧与锦溪北交界",
+                            AreaNumber = "320583106220",
+                            ContactPhone = "0512-57256590",
+                            GovernmentLevel = 5,
+                            GroupCount = 21,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "汤英耀",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "蒋嘉许",
+                            VillageName = "尚明甸村"
+                        },
+                        new
+                        {
+                            Id = new Guid("49324c00-0059-41f6-9cb7-169bf1d8fe5e"),
+                            Address = "姚家港北首",
+                            AreaNumber = "320583106221",
+                            ContactPhone = "0512-57117756",
+                            GovernmentLevel = 5,
+                            GroupCount = 22,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "杨成仁",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "谢高义",
+                            VillageName = "南姚村"
+                        },
+                        new
+                        {
+                            Id = new Guid("58257e46-78f1-4b3a-89d6-53159e94d066"),
+                            Address = "淞沪西路与江浦南路交叉口",
+                            AreaNumber = "320583106226",
+                            ContactPhone = "0512-57255236",
+                            GovernmentLevel = 5,
+                            GroupCount = 49,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "顾绍祺",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "金和怡",
+                            VillageName = "大市村"
+                        },
+                        new
+                        {
+                            Id = new Guid("aee6d412-1f09-4b4f-a46b-670218aa3a43"),
+                            Address = "淞沪东路12号",
+                            AreaNumber = "320583106227",
+                            ContactPhone = "0512-57251131",
+                            GovernmentLevel = 5,
+                            HighLevelAreaNumber = "320583106000",
+                            SecretaryName = "朱嘉石",
+                            UrbanRuralClassification = 220,
+                            VillageHeadName = "顾飞羽",
+                            VillageName = "南吉山村"
+                        });
+                });
+
+            modelBuilder.Entity("AspNetCore.Entity.VillagerGroup", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("MemberNumber");
+
+                    b.Property<string>("PrincipalAddress");
+
+                    b.Property<string>("PrincipalEmail");
+
+                    b.Property<string>("PrincipalName");
+
+                    b.Property<string>("PrincipalPhone");
+
+                    b.Property<string>("VillageGroupCode");
+
+                    b.Property<string>("VillageName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VillagerGroups");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("89532a2d-9da3-46f7-a202-ecf99bb2389e"),
+                            MemberNumber = 356,
+                            PrincipalAddress = "张浦镇望江新村6幢206室",
+                            PrincipalEmail = "wuxuefei@kszpwz.gov.cn",
+                            PrincipalName = "吴雪峰",
+                            PrincipalPhone = "0512-57841234",
+                            VillageGroupCode = "001",
+                            VillageName = "南港社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("59821f45-e003-4698-85d6-f103ce738a51"),
+                            MemberNumber = 412,
+                            PrincipalAddress = "张浦镇富都新村3幢204室",
+                            PrincipalEmail = "fangjitong@kszpfd.gov.cn",
+                            PrincipalName = "方季同",
+                            VillageGroupCode = "002",
+                            VillageName = "南港社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("3ed455b7-4462-47b0-a58c-99f54b29a808"),
+                            MemberNumber = 532,
+                            PrincipalAddress = "张浦镇茶风新村1幢206室",
+                            PrincipalEmail = "caogao@kszpcf.gov.cn",
+                            PrincipalName = "蔡高",
+                            VillageGroupCode = "003",
+                            VillageName = "花园社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("de9afa41-4737-46f1-9ead-f46920d96983"),
+                            MemberNumber = 253,
+                            PrincipalAddress = "张浦镇富仁小区5幢102室",
+                            PrincipalEmail = "changgaohan@kszpfr.gov.cn",
+                            PrincipalName = "常高翰",
+                            VillageGroupCode = "004",
+                            VillageName = "大市社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("562b9524-9625-4848-b6e0-992621eeef82"),
+                            MemberNumber = 512,
+                            PrincipalAddress = "张浦镇风和日丽5幢1102室",
+                            PrincipalEmail = "qianyancheng@kszpfhrl.gov.cn",
+                            PrincipalName = "钱阳成",
+                            VillageGroupCode = "005",
+                            VillageName = "南港社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("4e4ceb04-602f-4f47-baac-02ffafe859f5"),
+                            MemberNumber = 567,
+                            PrincipalAddress = "张浦镇枫情佳苑3幢306室",
+                            PrincipalEmail = "kongzhiwen@kszpfqjy.gov.cn",
+                            PrincipalName = "孔志文",
+                            VillageGroupCode = "006",
+                            VillageName = "新吴社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("cf5e5d78-30af-4ac3-a7f4-d3e04ef95b5a"),
+                            MemberNumber = 476,
+                            PrincipalAddress = "张浦镇张浦村14号",
+                            PrincipalEmail = "huhaorang@kszpzp.gov.cn",
+                            PrincipalName = "胡浩壤",
+                            VillageGroupCode = "007",
+                            VillageName = "张浦社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("74a8828e-4986-4d91-8cbd-1e11cc5ca011"),
+                            MemberNumber = 345,
+                            PrincipalAddress = "张浦镇张浦村142号",
+                            PrincipalEmail = "xuexiuxian@kszpzp.gov.cn",
+                            PrincipalName = "薛修贤",
+                            VillageGroupCode = "008",
+                            VillageName = "张浦社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("f22086db-0726-4cbc-a2cd-118b8023fe07"),
+                            MemberNumber = 452,
+                            PrincipalAddress = "张浦镇银鹿新城3幢802室",
+                            PrincipalEmail = "heliren@kszpylxc.gov.cn",
+                            PrincipalName = "何立人",
+                            VillageGroupCode = "009",
+                            VillageName = "张浦社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("2b777b43-1c6f-43f3-8b22-102f93ff1656"),
+                            MemberNumber = 662,
+                            PrincipalAddress = "张浦镇牡丹苑7幢502",
+                            PrincipalEmail = "zhongjunde@kszpmdy.gov.cn",
+                            PrincipalName = "钟俊德",
+                            VillageGroupCode = "010",
+                            VillageName = "周巷社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("17ef436e-fff4-4460-a67a-3ee04c17de9e"),
+                            MemberNumber = 341,
+                            PrincipalAddress = "张浦镇江南春堤14号",
+                            PrincipalEmail = "jiatianzong@kszpjnkd.gov.cn",
+                            PrincipalName = "贾天纵",
+                            VillageGroupCode = "011",
+                            VillageName = "新巷社区"
+                        },
+                        new
+                        {
+                            Id = new Guid("c75acd2b-6e76-490d-bad9-30770be9b4ea"),
+                            MemberNumber = 543,
+                            PrincipalAddress = "张浦镇安居小区24号",
+                            PrincipalEmail = "duanxuehai@kszpanxq.gov.cn",
+                            PrincipalName = "段学海",
+                            VillageGroupCode = "012",
+                            VillageName = "大市社区"
                         });
                 });
 

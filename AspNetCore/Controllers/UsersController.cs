@@ -47,6 +47,7 @@ namespace AspNetCore.Controllers
                 return new JsonResult(new
                 {
                     code = 20000,
+                    username = userInfo.Username,
                     roles = userInfo.RoleNames,
                     token = jwtStr
                 });
@@ -57,7 +58,7 @@ namespace AspNetCore.Controllers
             {
                 return new JsonResult(new
                 {
-                    success = false
+                    code=50008
                 });
             }
         }

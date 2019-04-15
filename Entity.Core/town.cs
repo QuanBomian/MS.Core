@@ -11,6 +11,8 @@ namespace AspNetCore.Entity
         /// </summary>
         public string TownName { get; set; }
 
+        public string AreaNumber { get; set; }
+        public int GovernmentLevel { get; set; }
         /// <summary>
         /// 地址
         /// </summary>

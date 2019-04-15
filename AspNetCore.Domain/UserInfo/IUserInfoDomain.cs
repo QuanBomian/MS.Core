@@ -1,9 +1,13 @@
 ﻿using AspNetCore.Domain.UserInfo.Dto;
+using AspNetCore.Entity;
+using System;
+using System.Collections.Generic;
 
 namespace AspNetCore.Domain.UserInfo
 {
     public interface IUserInfoDomain
     {
-        UserInfoDto GetUserInfo(string username,string password);
+        List<string> GetUserInfo(Guid id);
+        User GetUserByPassword(string username);
     }
 }

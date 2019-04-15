@@ -10,6 +10,9 @@ namespace AspNetCore.Domain.TownInfo.Dto
 
         public String Address { get; set; }
 
+        public String AreaNumber { get; set; }
+        public int? GovernmentLevel { get; set; }
+
         public String MayorName { get; set; }
 
         public String SecretaryName { get; set; }

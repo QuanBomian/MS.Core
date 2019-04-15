@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace AspNetCore.Domain
@@ -11,5 +13,7 @@ namespace AspNetCore.Domain
         void Update(T entity);
         void Delete(TKey id);
         void Add(T entity);
+        IQueryable<T> Query();
+        IQueryable<T> Query(Expression<Func<T, bool>> expression);
     }
 }

@@ -15,7 +15,7 @@ namespace AspNetCore.Entity
         public string UserName { get; set; }
         [Required]
         [MinLength(8)]
-        [MaxLength(40)]
+        [MaxLength(150)]
         public string Password { get; set; }
     }
 }

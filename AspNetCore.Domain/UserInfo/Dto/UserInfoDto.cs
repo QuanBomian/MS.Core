@@ -9,6 +9,8 @@ namespace AspNetCore.Domain.UserInfo.Dto
     {
         public bool Success { get; set; }
         public Guid UserId { get; set; }
+
+        public string Username { get; set; }
         public List<string> RoleNames { get; set;}
 
     }

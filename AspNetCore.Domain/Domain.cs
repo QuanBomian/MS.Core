@@ -2,12 +2,14 @@
 using AspNetCore.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AspNetCore.Domain
 {
-    public class Domain<TEntity,TKey>: IDomain<TEntity,TKey>
+     public class Domain<TEntity,TKey>: IDomain<TEntity,TKey>
         where TEntity:EntityBase<TKey>
         
     {
@@ -35,6 +37,16 @@ namespace AspNetCore.Domain
         public TEntity GetById(TKey id)
         {
             return _repository.GetByKey(id);
+        }
+
+        public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> expression)
+        {
+            return _repository.Query(expression);
+        }
+
+        public IQueryable<TEntity> Query()
+        {
+            return _repository.Query();
         }
 
         public void Update(TEntity entity)
