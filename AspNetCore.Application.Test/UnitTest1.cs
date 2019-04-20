@@ -1,4 +1,4 @@
-using AspNetCore.Application.UserInfo;
+using AspNetCore.Application.LoginInfo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AspNetCore.Application.Test

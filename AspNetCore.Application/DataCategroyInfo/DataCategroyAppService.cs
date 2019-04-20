@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AspNetCore.Domain.DataCategroyInfo;
+using AspNetCore.Domain.DataCategroyInfo.Dto;
 using AspNetCore.Entity;
 
 namespace AspNetCore.Application.DataCategroyInfo
@@ -39,6 +40,9 @@ namespace AspNetCore.Application.DataCategroyInfo
             _domain.Update(DataCategroy);
         }
 
-     
+        public List<DataCategroy> Search(DataCategroyQueryDto condition)
+        {
+            return _domain.Get(condition);
+        }
     }
 }

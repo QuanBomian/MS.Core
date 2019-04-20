@@ -61,7 +61,7 @@ namespace AspNetCore.Controllers
 
         // PUT: api/NonOperatingAssetsr/5
         [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] NonOperatingAssets NonOperatingAssets)
+        public JsonResult Put([FromBody] NonOperatingAssets NonOperatingAssets)
         {
             _service.Update(NonOperatingAssets);
             return new JsonResult(new

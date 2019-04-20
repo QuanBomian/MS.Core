@@ -1,4 +1,5 @@
 ﻿using AspNetCore.Application.DataCategroyInfo;
+using AspNetCore.Domain.DataCategroyInfo.Dto;
 using AspNetCore.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,14 +20,26 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] DataCategroyQueryDto condition)
         {
-            var items = await _service.GetAll();
-            return new JsonResult(new
+            if (condition.CategroyCode ==null && condition.CategroyName ==null)
             {
-                code = 20000,
-                items
-            });
+                var items = await _service.GetAll();
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
+            else
+            {
+                var list = _service.Search(condition);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    list
+                });
+            }
         }
        
         // GET: api/DataCategroyr/5
@@ -48,8 +61,8 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/DataCategroyr/5
-        [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] DataCategroy DataCategroy)
+        [HttpPut]
+        public JsonResult Put([FromBody] DataCategroy DataCategroy)
         {
             _service.Update(DataCategroy);
             return new JsonResult(new

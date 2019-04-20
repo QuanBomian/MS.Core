@@ -9,5 +9,7 @@ namespace AspNetCore.Domain.DataItemInfo.Dto
         public string ItemCode { get; set; }
         public string CategroyCode { get; set; }
         public string Content { get; set; }
+
+        public string Key { get; set; }
     }
 }

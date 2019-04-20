@@ -17,7 +17,7 @@ namespace AspNetCore.Infrastructure.Secret
             prf: KeyDerivationPrf.HMACSHA1,
             iterationCount: 10000,
             numBytesRequested: 256 / 8));
-            Console.WriteLine($"Hashed: {hashed}");
+     
             return hashed;
         }
 
@@ -29,7 +29,6 @@ namespace AspNetCore.Infrastructure.Secret
                 rng.GetBytes(salt);
 
                 var saltstring = Convert.ToBase64String(salt);
-                Console.WriteLine($"Salt: {saltstring}");
                
             }
             return salt;

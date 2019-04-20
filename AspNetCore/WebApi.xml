@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AspNetCore</name>
+    </assembly>
+    <members>
+        <member name="F:AspNetCore.Controllers.SecretController._jwtApp">
+            <summary>
+            Jwt 服务
+            </summary>
+        </member>
+        <member name="F:AspNetCore.Controllers.SecretController._loginApp">
+            <summary>
+            日志记录服务
+            </summary>
+        </member>
+        <member name="P:AspNetCore.Controllers.SecretController._configuration">
+            <summary>
+            配置信息
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Controllers.SecretController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,AspNetCore.Application.Authorization.IJwtAppService,AspNetCore.Application.LoginInfo.ILoginInfoAppService)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="configuration"></param>
+            <param name="jwtApp"></param>
+            <param name="logininfoApp"></param>
+        </member>
+        <member name="M:AspNetCore.Controllers.SecretController.CancelAccessToken">
+            <summary>
+            停用 Jwt 授权数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AspNetCore.Controllers.SecretController.LoginAsync(AspNetCore.Application.Authorization.Dto.SecretDto)">
+            <summary>
+            获取 Jwt 授权数据
+            </summary>
+            <param name="dto">授权用户信息</param>
+        </member>
+        <member name="M:AspNetCore.Controllers.SecretController.RefreshAccessTokenAsync(AspNetCore.Application.Authorization.Dto.SecretDto)">
+            <summary>
+            刷新 Jwt 授权数据
+            </summary>
+            <param name="dto">刷新授权用户信息</param>
+            <returns></returns>
+        </member>
+        <member name="P:AspNetCore.Handlers.PolicyHandler.Schemes">
+            <summary>
+            授权方式（cookie, bearer, oauth, openid）
+            </summary>
+        </member>
+        <member name="F:AspNetCore.Handlers.PolicyHandler._jwtApp">
+            <summary>
+            jwt 服务
+            </summary>
+        </member>
+        <member name="M:AspNetCore.Handlers.PolicyHandler.#ctor(Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,AspNetCore.Application.Authorization.IJwtAppService,AspNetCore.Application.MenuInfo.IMenuAppService)">
+            <summary>
+            ctor
+            </summary>
+            <param name="schemes"></param>
+            <param name="jwtApp"></param>
+            <param name="menuApp"></param>
+        </member>
+    </members>
+</doc>

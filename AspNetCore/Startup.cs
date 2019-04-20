@@ -12,7 +12,7 @@ using AspNetCore.Application.MemberInfo;
 using AspNetCore.Application.NonOperatingAssetsInfo;
 using AspNetCore.Application.PartyMemberInfo;
 using AspNetCore.Application.TownInfo;
-using AspNetCore.Application.UserInfo;
+using AspNetCore.Application.LoginInfo;
 using AspNetCore.Application.VillageInfo;
 using AspNetCore.Application.VillagerGroupInfo;
 using AspNetCore.Application.VillagerInfo;
@@ -40,6 +40,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
+using AspNetCore.Domain.UserRoleInfo;
+using AspNetCore.Application.UserRoleInfo;
+using AspNetCore.Domain.RoleInfo;
+using AspNetCore.Application.RoleInfo;
+using AspNetCore.Application.UserInfo;
+using System.Threading.Tasks;
+using AspNetCore.Handlers;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using System.IO;
+using AspNetCore.Domain.MenuInfo;
+using AspNetCore.Application.MenuInfo;
 
 namespace AspNetCore
 {
@@ -68,6 +80,10 @@ namespace AspNetCore
                     TermsOfService = "None",
                     Contact = new Swashbuckle.AspNetCore.Swagger.Contact { Name = "民情档案管理系统", Email = "731988353@qq.com", Url = "https://quanbomian.github.io/" }
                 });
+
+                var basePath = Path.GetDirectoryName(AppContext.BaseDirectory);
+                var apiPath = Path.Combine(basePath, "WebApi.xml");
+                c.IncludeXmlComments(apiPath, true);
                 #region Token绑定到ConfigureServices
                 //添加header验证信息
                 //c.OperationFilter<SwaggerHeader>();
@@ -86,19 +102,6 @@ namespace AspNetCore
 
             #endregion
 
-            #region Token服务注册
-            services.AddSingleton<IMemoryCache>(factory =>
-            {
-                var cache = new MemoryCache(new MemoryCacheOptions());
-                return cache;
-            });
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());
-                options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
-                options.AddPolicy("SystemOrAdmin", policy => policy.RequireRole("Admin", "System").Build());
-            });
-            #endregion
 
             /*#region 数据库上下文
 
@@ -116,7 +119,7 @@ namespace AspNetCore
             services.AddTransient<IRoleRepository, RoleRepository>();
             services.AddTransient<IUserRoleRepository, UserRoleRepository>();
             services.AddTransient<IUserInfoDomain, UserInfoDomain>();
-            services.AddTransient<IUserInfoAppService, UserInfoAppService>();
+            services.AddTransient<ILoginInfoAppService, LoginInfoAppService>();
             services.AddTransient<ITownRepository, TownRepository>();
             services.AddTransient<ITownDomain, TownDomain>();
             services.AddTransient<ITownAppService, TownAppService>();
@@ -150,8 +153,20 @@ namespace AspNetCore
             services.AddTransient<IDataCategroyRepository, DataCategroyRepository>();
             services.AddTransient<IDataCategroyDomain, DataCategroyDomain>();
             services.AddTransient<IDataCategroyAppService, DataCategroyAppService>();
+            services.AddTransient<IUserRoleRepository, UserRoleRepository>();
+            services.AddTransient<IUserRoleDomain, UserRoleDomain>();
+            services.AddTransient<IUserRoleAppService, UserRoleAppService>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
+            services.AddTransient<IRoleDomain, RoleDomain>();
+            services.AddTransient<IRoleAppService, RoleAppService>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserDomain, UserDomain>();
+            services.AddTransient<IUserAppService, UserAppService>();
+            services.AddTransient<IMenuRepository, MenuRepository>();
+            services.AddTransient<IMenuDomain, MenuDomain>();
+            services.AddTransient<IMenuAppService, MenuAppService>();
             services.AddTransient<IJwtAppService, JwtAppService>();
-
+            services.AddHttpContextAccessor();
 
             //string assemblies = Configuration["Assembly:FunctionAssembly"];
 
@@ -187,31 +202,52 @@ namespace AspNetCore
                             AllowCredentials()));
 
             #endregion
+            #region jwt 授权
+            string issuer = Configuration["Jwt:Issuer"];
+            string audience = Configuration["Jwt:Audience"];
+            string expire = Configuration["Jwt:ExpireMinutes"];
+            TimeSpan expiration = TimeSpan.FromMinutes(Convert.ToDouble(expire));
+            SecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecurityKey"]));
 
-            var audienceConfig = Configuration.GetSection("JwtConfig");
-            string symmetricKey = audienceConfig["Secret"];
-            byte[] keyArrayBytes = Encoding.ASCII.GetBytes(symmetricKey);
-            SymmetricSecurityKey sigingKey = new SymmetricSecurityKey(keyArrayBytes);
-            var tokenValidationParameters = new TokenValidationParameters
+            services.AddAuthorization(options =>
             {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = audienceConfig["Issuer"],
-                ValidAudience = audienceConfig["Audience"],
-                ValidateLifetime = true,
-                IssuerSigningKey = sigingKey,
-                ClockSkew = TimeSpan.Zero,
-                RequireExpirationTime = true
-
-            };
-            services.AddAuthentication(
-                    options =>
+                //1、Definition authorization policy
+                options.AddPolicy("Permission",
+                   policy => policy.Requirements.Add(new PolicyRequirement()));
+            }).AddAuthentication(s =>
+            {
+                //2、Authentication
+                s.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                s.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                s.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(s =>
+            {
+                //3、Use Jwt bearer 
+                s.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = issuer,
+                    ValidAudience = audience,
+                    IssuerSigningKey = key,
+                    ClockSkew = expiration,
+                    ValidateLifetime = true
+                };
+                s.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
                     {
-                        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                    })
-                .AddJwtBearer(o => { o.TokenValidationParameters = tokenValidationParameters; });
+                        //Token expired
+                        if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                        {
+                            context.Response.Headers.Add("Token-Expired", "true");
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
+            });
+            services.AddScoped<IAuthorizationHandler, PolicyHandler>();
+
+            #endregion
+
 
             #region 缓存
             services.AddDistributedRedisCache(

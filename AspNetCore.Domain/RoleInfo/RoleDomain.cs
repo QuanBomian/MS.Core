@@ -16,9 +16,9 @@ namespace AspNetCore.Domain.RoleInfo
         public List<Role> Get(RoleQueryDto queryDto)
         {
             IQueryable<Role> query = _repository.Query();
-            if (queryDto.Name != null && queryDto.Name != "")
+            if (queryDto.RoleName != null && queryDto.RoleName != "")
             {
-                query = query.Where(Role => Role.RoleName.Contains(queryDto.Name));
+                query = query.Where(Role => Role.RoleName.Contains(queryDto.RoleName));
             }
      
             return query.ToList();

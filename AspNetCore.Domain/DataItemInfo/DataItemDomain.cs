@@ -16,14 +16,23 @@ namespace AspNetCore.Domain.DataItemInfo
         public List<DataItem> Get(DataItemQueryDto queryDto)
         {
             IQueryable<DataItem> query = _repository.Query();
-            if (queryDto.ItemCode != null && queryDto.ItemCode != "")
-            {
-                query = query.Where(DataItem => DataItem.ItemCode.Contains(queryDto.ItemCode));
-            }
             if (queryDto.CategroyCode != null && queryDto.CategroyCode != "")
             {
                 query = query.Where(DataItem => DataItem.CategroyCode.Contains(queryDto.CategroyCode));
             }
+            if (queryDto.Key != null&&queryDto.Key != null)
+            {
+                query = query.Where(DataItem => DataItem.ItemCode.Contains(queryDto.Key)
+                || DataItem.CategroyCode.Contains(queryDto.Key)
+                || DataItem.Content.Contains(queryDto.Key));
+                return query.ToList();
+            }
+        
+            if (queryDto.ItemCode != null && queryDto.ItemCode != "")
+            {
+                query = query.Where(DataItem => DataItem.ItemCode.Contains(queryDto.ItemCode));
+            }
+           
             if (queryDto.Content != null && queryDto.Content != "")
             {
                 query = query.Where(DataItem => DataItem.Content.Contains(queryDto.Content));

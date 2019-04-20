@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AspNetCore.Domain.MemberInfo.Dto
 {
@@ -22,7 +20,9 @@ namespace AspNetCore.Domain.MemberInfo.Dto
 
         public string Position { get; set; }
 
-        public DateTime Birthday { get; set; }
+        public DateTime? BirthdayFrom { get; set; }
+
+        public DateTime? BirthdayTo { get; set; }
 
         public string Education { get; set; }
 
@@ -34,9 +34,11 @@ namespace AspNetCore.Domain.MemberInfo.Dto
 
         public string Status { get; set; }
 
-        public DateTime EntryTime { get; set; }
+        public DateTime? EntryTimeFrom { get; set; }
+        public DateTime? EntryTimeTo { get; set; }
 
-        public DateTime LeaveTime { get; set; }
+        public DateTime? LeaveTimeFrom { get; set; }
+        public DateTime? LeaveTimeTo { get; set; }
 
 
         public string LengthOfService { get; set; }

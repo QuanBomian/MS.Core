@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{EEFBEE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.Domain", "AspNetCore.Domain\AspNetCore.Domain.csproj", "{BBD25CB8-59C5-4488-9404-3C29913F2A9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.Application.Test", "AspNetCore.Application.Test\AspNetCore.Application.Test.csproj", "{29BE7CE8-7237-4EF6-B0E2-7EC013259792}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore.Application.Test", "AspNetCore.Application.Test\AspNetCore.Application.Test.csproj", "{29BE7CE8-7237-4EF6-B0E2-7EC013259792}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

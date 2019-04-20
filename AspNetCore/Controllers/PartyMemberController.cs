@@ -61,7 +61,7 @@ namespace AspNetCore.Controllers
 
         // PUT: api/PartyMemberr/5
         [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] PartyMember PartyMember)
+        public JsonResult Put( [FromBody] PartyMember PartyMember)
         {
             _service.Update(PartyMember);
             return new JsonResult(new

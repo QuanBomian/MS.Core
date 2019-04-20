@@ -23,7 +23,7 @@ namespace AspNetCore.Domain.UserInfo
 
         public User GetUserByPassword(string username)
         {
-            var user = _userRepository.Query(a => a.UserName == username).First();
+            var user = _userRepository.Query(a => a.UserName == username).FirstOrDefault();
             return user;
 
         }

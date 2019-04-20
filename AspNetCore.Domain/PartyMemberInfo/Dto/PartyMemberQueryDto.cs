@@ -17,7 +17,9 @@ namespace AspNetCore.Domain.PartyMemberInfo.Dto
 
         public string Education { get; set; }
 
-        public DateTime Birthday { get; set; }
+        public DateTime? BirthdayFrom { get; set; }
+
+        public DateTime? BirthdayTo { get; set; }
 
         public string VillageName { get; set; }
 

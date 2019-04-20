@@ -61,7 +61,7 @@ namespace AspNetCore.Controllers
 
         // PUT: api/Familyr/5
         [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] Family Family)
+        public JsonResult Put([FromBody] Family Family)
         {
             _service.Update(Family);
             return new JsonResult(new

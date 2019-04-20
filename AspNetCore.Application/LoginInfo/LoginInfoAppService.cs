@@ -1,40 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AspNetCore.Application.Authorization.Dto;
 using AspNetCore.Domain.UserInfo;
 using AspNetCore.Domain.UserInfo.Dto;
 using AspNetCore.Entity;
 using AspNetCore.Infrastructure.Secret;
 
-namespace AspNetCore.Application.UserInfo
+namespace AspNetCore.Application.LoginInfo
 {
-    public class UserInfoAppService : IUserInfoAppService
+    public class LoginInfoAppService : ILoginInfoAppService
     {
         
         private readonly IUserInfoDomain _domain;
-        public UserInfoAppService(IUserInfoDomain domain)
+        public LoginInfoAppService(IUserInfoDomain domain)
         {
             _domain = domain;
         }
 
-        public UserInfoDto GetUserInfo(string username, string password)
+        public UserDto GetUserInfo(string username, string password)
         {
             var user = ValidatePassword(username, password);
             if (user==null)
             {
-                return new UserInfoDto
-                {
-                    Success = false
-                };
+                return null;
             }
             else
             {
-                return new UserInfoDto
+                return new UserDto
                 {
-                    Success = true,
-                    Username = username,
-                    UserId = user.Id,
-                    RoleNames = _domain.GetUserInfo(user.Id)
+          
+                    UserName = username,
+                    Id = user.Id,
+                    RoleName = _domain.GetUserInfo(user.Id)
                 };
             }
             } 
@@ -42,6 +40,8 @@ namespace AspNetCore.Application.UserInfo
         public User ValidatePassword(string username, string password)
         {
             var user = _domain.GetUserByPassword(username);
+            if (user == null)
+                return null;
             var hashed = SecretHelper.GenerateHashSecret(password);
             if (user.Password == hashed)
                 return user;

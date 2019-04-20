@@ -26,7 +26,7 @@ namespace AspNetCore.Domain.PartyMemberInfo
             }
             if (condition.MemberCode != null && condition.MemberCode.Trim() != "")
             {
-                query = query.Where(PartyMember => PartyMember.MemberCode.Contains(condition.MemberCode));
+                query = query.Where(PartyMember => PartyMember.PartyMemberCode.Contains(condition.MemberCode));
             }
             if (condition.Gender != null && condition.Gender.Trim() != "")
             {
@@ -62,11 +62,15 @@ namespace AspNetCore.Domain.PartyMemberInfo
                 query = query.Where(PartyMember => PartyMember.ContactPhone.Contains(condition.ContactPhone));
             }
        
-            if (condition.Birthday != null)
+            if (condition.BirthdayFrom != null)
             {
-                query = query.Where(PartyMember => PartyMember.Birthday == condition.Birthday);
+                query = query.Where(PartyMember => PartyMember.Birthday >= condition.BirthdayFrom);
             }
-          
+            if (condition.BirthdayTo != null)
+            {
+                query = query.Where(PartyMember => PartyMember.Birthday <= condition.BirthdayFrom);
+            }
+
 
             return query.ToList();
         }

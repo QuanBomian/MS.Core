@@ -63,8 +63,8 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/Villager/5
-        [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] Villager villager)
+        [HttpPut]
+        public JsonResult Put([FromBody] Villager villager)
         {
             _service.Update(villager);
             return new JsonResult(new

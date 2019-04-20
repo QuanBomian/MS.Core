@@ -50,12 +50,14 @@ namespace AspNetCore.Domain.MemberInfo
             if (condition.Status != null && condition.Status.Trim() != "")
             {
                 query = query.Where(Member => Member.Status.Contains(condition.Status));
-
-               
-
-                
             }
-            if (condition.Gender != null && condition.Gender.Trim() != "")
+
+                if (condition.PersonnelNature != null && condition.PersonnelNature.Trim() != "")
+                {
+                    query = query.Where(Member => Member.PersonnelNature.Contains(condition.PersonnelNature));
+
+                }
+                if (condition.Gender != null && condition.Gender.Trim() != "")
             {
                 query = query.Where(Member => Member.Gender.Contains(condition.Gender));
             }
@@ -63,18 +65,31 @@ namespace AspNetCore.Domain.MemberInfo
             {
                 query = query.Where(Member => Member.LengthOfService.Contains(condition.LengthOfService));
             }
-            if (condition.Birthday != null)
+            if (condition.BirthdayFrom != null)
             {
-                query = query.Where(Member => Member.Birthday == condition.Birthday);
+                query = query.Where(Member => Member.Birthday >= condition.BirthdayFrom);
             }
-            if (condition.EntryTime != null)
+            if (condition.BirthdayTo != null)
             {
-                query = query.Where(Member => Member.EntryTime == condition.EntryTime);
+                query = query.Where(Member => Member.Birthday <= condition.BirthdayTo);
             }
-            if (condition.LeaveTime != null)
+            if (condition.LeaveTimeFrom != null)
             {
-                query = query.Where(Member => Member.LeaveTime == condition.LeaveTime);
+                query = query.Where(Member => Member.LeaveTime >= condition.LeaveTimeFrom);
             }
+            if (condition.LeaveTimeTo != null)
+            {
+                query = query.Where(Member => Member.LeaveTime <= condition.LeaveTimeFrom);
+            }
+            if (condition.EntryTimeFrom != null)
+            {
+                query = query.Where(Member => Member.EntryTime >= condition.EntryTimeFrom);
+            }
+            if (condition.EntryTimeTo != null)
+            {
+                query = query.Where(Member => Member.EntryTime <= condition.EntryTimeTo);
+            }
+
             return query.ToList();
 
 

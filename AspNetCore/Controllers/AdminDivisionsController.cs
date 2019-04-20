@@ -1,5 +1,6 @@
 ﻿using AspNetCore.Application.AdminDivisionInfo;
 using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Policy = "Permission")]
     public class AdminDivisionsController
     {
         private readonly IAdminDivisionAppService _adminDivisionAppService;
@@ -53,8 +55,8 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/AdminDivisionr/5
-        [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] AdminDivision AdminDivision)
+        [HttpPut]
+        public JsonResult Put([FromBody] AdminDivision AdminDivision)
         {
             _adminDivisionAppService.Update(AdminDivision);
             return new JsonResult(new

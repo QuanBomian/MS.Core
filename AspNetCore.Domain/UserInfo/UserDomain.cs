@@ -25,6 +25,15 @@ namespace AspNetCore.Domain.UserInfo
             return query.ToList();
         }
 
+        public  User GetUserForLoginAsync(string account)
+        {
+            return   _repository.Query(a => a.UserName == account).FirstOrDefault();
+            
+        }
 
+        public Task<User> GetUserForLoginAsync(string account, string password)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

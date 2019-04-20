@@ -20,26 +20,26 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] DataItemQueryDto condition)
         {
-            var items = await _service.GetAll();
-            return new JsonResult(new
+            if (condition.CategroyCode == null&&condition.Content==null&&condition.ItemCode==null&&condition.Key==null)
             {
-                code = 20000,
-                items
-            });
-        }
-        [HttpGet]
-        [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] DataItemQueryDto condition)
-        {
-
-            var list = _service.Search(condition);
-            return new JsonResult(new
+                var items = await _service.GetAll();
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
+            else
             {
-                code = 20000,
-                list
-            });
+                var list = _service.Search(condition);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    list
+                });
+            }
         }
         // GET: api/DataItemr/5
         [HttpGet("{id}")]
@@ -61,7 +61,7 @@ namespace AspNetCore.Controllers
 
         // PUT: api/DataItemr/5
         [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] DataItem DataItem)
+        public JsonResult Put([FromBody] DataItem DataItem)
         {
             _service.Update(DataItem);
             return new JsonResult(new

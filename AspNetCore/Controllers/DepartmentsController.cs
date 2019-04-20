@@ -61,7 +61,7 @@ namespace AspNetCore.Controllers
 
         // PUT: api/Departmentr/5
         [HttpPut("{id}")]
-        public JsonResult Put(Guid id, [FromBody] Department Department)
+        public JsonResult Put([FromBody] Department Department)
         {
             _service.Update(Department);
             return new JsonResult(new

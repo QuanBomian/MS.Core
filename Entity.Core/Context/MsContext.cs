@@ -14,6 +14,8 @@ namespace AspNetCore.Entity.Context
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
 
+        public DbSet<Menu> Menus { get; set; }
+
         public DbSet<Town> Towns { get; set; }
 
         public DbSet<Village> Villages { get; set; }
@@ -62,6 +64,8 @@ namespace AspNetCore.Entity.Context
                 roleAdmin, roleClient, roleSystem);
             #endregion
             #region 用户角色表
+            modelBuilder.Entity<UserRole>().HasOne(ur => ur.User);
+            modelBuilder.Entity<UserRole>().HasOne(ur => ur.Role);
             modelBuilder.Entity<UserRole>().HasData(
 
                 new { Id = Guid.NewGuid(), UserId = admin.Id, RoleId = roleAdmin.Id },
@@ -70,6 +74,117 @@ namespace AspNetCore.Entity.Context
                 new { Id = Guid.NewGuid(), UserId = user3.Id, RoleId = roleAdmin.Id },
                 new { Id = Guid.NewGuid(), UserId = admin.Id, RoleId = roleSystem.Id }
             );
+
+            modelBuilder.Entity<Menu>().HasData(
+                new Menu
+                {
+                    Id= Guid.NewGuid(),
+                    Url="/api/AdminDivisions",
+                    RoleName="System"
+                },
+                new Menu
+                {
+                    Id = Guid.NewGuid(),
+                    Url = "/api/DataCategroys",
+                    RoleName = "System"
+                },
+                new Menu
+                {
+                    Id = Guid.NewGuid(),
+                    Url="/api/DataItems",
+                    RoleName = "System"
+                },
+                new Menu
+                {
+                    Id = Guid.NewGuid(),
+                    Url="/api/Villagers",
+                    RoleName="Admmin"
+                },
+                new Menu
+                {
+                    Id = Guid.NewGuid(),
+                    Url="/api/Villages",
+                    RoleName ="Admin"
+                },
+                 new Menu
+                 {
+                     Id = Guid.NewGuid(),
+                     Url = "/api/VillagerGroups",
+                     RoleName = "Admin"
+                 },
+                  new Menu
+                  {
+                      Id = Guid.NewGuid(),
+                      Url = "/api/Towns",
+                      RoleName = "Admin"
+                  },
+                   new Menu
+                   {
+                       Id = Guid.NewGuid(),
+                       Url = "/api/PartyMembers",
+                       RoleName = "Admin"
+                   },
+                    new Menu
+                    {
+                        Id = Guid.NewGuid(),
+                        Url = "/api/Departments",
+                        RoleName = "Admin"
+                    },
+                     new Menu
+                     {
+                         Id = Guid.NewGuid(),
+                         Url = "/api/Members",
+                         RoleName = "Admin"
+                     },
+                      new Menu
+                      {
+                          Id = Guid.NewGuid(),
+                          Url = "/api/Familys",
+                          RoleName = "Admin"
+                      },
+                       new Menu
+                       {
+                           Id = Guid.NewGuid(),
+                           Url = "/api/NonOperatingAssetss",
+                           RoleName = "Admin"
+                       },
+                        new Menu
+                        {
+                            Id = Guid.NewGuid(),
+                            Url = "/api/Users",
+                            RoleName = "System"
+                        },
+                         new Menu
+                         {
+                             Id = Guid.NewGuid(),
+                             Url = "/api/Roles",
+                             RoleName = "System"
+                         },
+                          new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/UserRoles",
+                              RoleName = "System"
+                          },
+                          new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url="/api/Secret/deactivate",
+                              RoleName="Admin"
+                          },
+                          new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Secret/refresh",
+                              RoleName = "Admin"
+                          },
+                          new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url="/api/Secret/userInfo",
+                              RoleName="Admin"
+                          }
+                );
             #endregion
             #region 村民
             modelBuilder.Entity<Villager>().HasData(
@@ -369,6 +484,7 @@ namespace AspNetCore.Entity.Context
                     PrincipalName= "方季同",
                     PrincipalAddress= "张浦镇富都新村3幢204室",
                     PrincipalEmail="fangjitong@kszpfd.gov.cn",
+                    PrincipalPhone="0512-42345124",
                     VillageName="南港社区",
                     MemberNumber = 412
                 },
@@ -377,7 +493,8 @@ namespace AspNetCore.Entity.Context
                     Id = Guid.NewGuid(),
                     VillageGroupCode = "003",
                     PrincipalName= "蔡高",
-                    PrincipalAddress= "张浦镇茶风新村1幢206室",
+                    PrincipalPhone = "0512-42345244",
+                    PrincipalAddress = "张浦镇茶风新村1幢206室",
                     PrincipalEmail="caogao@kszpcf.gov.cn",
                     VillageName="花园社区",
                     MemberNumber= 532
@@ -388,7 +505,8 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode = "004",
                     PrincipalName= "常高翰",
                     PrincipalAddress = "张浦镇富仁小区5幢102室",
-                    PrincipalEmail="changgaohan@kszpfr.gov.cn",
+                    PrincipalPhone = "0512-421235124",
+                    PrincipalEmail ="changgaohan@kszpfr.gov.cn",
                     VillageName= "大市社区",
                     MemberNumber=253
                 },
@@ -398,7 +516,8 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode = "005",
                     PrincipalName= "钱阳成",
                     PrincipalAddress= "张浦镇风和日丽5幢1102室",
-                    PrincipalEmail="qianyancheng@kszpfhrl.gov.cn",
+                    PrincipalPhone = "0512-52341124",
+                    PrincipalEmail ="qianyancheng@kszpfhrl.gov.cn",
                     VillageName= "南港社区",
                     MemberNumber = 512
                 },
@@ -408,7 +527,8 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode = "006",
                     PrincipalName= "孔志文",
                     PrincipalAddress= "张浦镇枫情佳苑3幢306室",
-                    PrincipalEmail="kongzhiwen@kszpfqjy.gov.cn",
+                    PrincipalPhone = "0512-42323124",
+                    PrincipalEmail ="kongzhiwen@kszpfqjy.gov.cn",
                     VillageName= "新吴社区",
                     MemberNumber=567
                 },
@@ -418,7 +538,8 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode = "007",
                     PrincipalName= "胡浩壤",
                     PrincipalAddress= "张浦镇张浦村14号",
-                    PrincipalEmail="huhaorang@kszpzp.gov.cn",
+                    PrincipalPhone = "0512-42341124",
+                    PrincipalEmail ="huhaorang@kszpzp.gov.cn",
                     VillageName="张浦社区",
                     MemberNumber=476
                 },
@@ -428,7 +549,8 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode ="008",
                     PrincipalName= "薛修贤",
                     PrincipalAddress="张浦镇张浦村142号",
-                    PrincipalEmail="xuexiuxian@kszpzp.gov.cn",
+                    PrincipalPhone = "0512-423125124",
+                    PrincipalEmail ="xuexiuxian@kszpzp.gov.cn",
                     VillageName="张浦社区",
                     MemberNumber=345
                 },
@@ -438,6 +560,7 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode ="009",
                     PrincipalName= "何立人",
                     PrincipalAddress= "张浦镇银鹿新城3幢802室",
+                    PrincipalPhone = "0512-523125124",
                     PrincipalEmail ="heliren@kszpylxc.gov.cn",
                     VillageName="张浦社区",
                     MemberNumber=452
@@ -448,7 +571,8 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode ="010",
                     PrincipalName= "钟俊德",
                     PrincipalAddress= "张浦镇牡丹苑7幢502",
-                    PrincipalEmail="zhongjunde@kszpmdy.gov.cn",
+                    PrincipalPhone = "0512-12345124",
+                    PrincipalEmail ="zhongjunde@kszpmdy.gov.cn",
                     VillageName= "周巷社区",
                     MemberNumber=662
                 },
@@ -458,7 +582,8 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode ="011",
                     PrincipalName= "贾天纵",
                     PrincipalAddress= "张浦镇江南春堤14号",
-                    PrincipalEmail="jiatianzong@kszpjnkd.gov.cn",
+                    PrincipalPhone = "0512-43423124",
+                    PrincipalEmail ="jiatianzong@kszpjnkd.gov.cn",
                     VillageName= "新巷社区",
                     MemberNumber=341
                 },
@@ -468,7 +593,8 @@ namespace AspNetCore.Entity.Context
                     VillageGroupCode ="012",
                     PrincipalName= "段学海",
                     PrincipalAddress= "张浦镇安居小区24号",
-                    PrincipalEmail="duanxuehai@kszpanxq.gov.cn",
+                    PrincipalPhone = "0512-12455124",
+                    PrincipalEmail ="duanxuehai@kszpanxq.gov.cn",
                     VillageName= "大市社区",
                     MemberNumber=543
                 }
@@ -619,7 +745,7 @@ namespace AspNetCore.Entity.Context
                 new PartyMember
                 {
                     Id = Guid.NewGuid(),
-                    MemberCode="001000",
+                    PartyMemberCode="001000",
                     PartyMemberName= "陈乐成",
                     Gender="男",
                     Nationality="汉族",
@@ -699,6 +825,7 @@ namespace AspNetCore.Entity.Context
                     Id = Guid.NewGuid(),
                     FamilyCode = "001000",
                     Householder = "秦博厚",
+                    VillageName="张浦社区",
                     PeopleNumber = 5,
                     AccountCharacter = "非农业",
                     VillageGroupCode = "001",
@@ -710,7 +837,7 @@ namespace AspNetCore.Entity.Context
                 }
                 );
             #endregion
-            #region
+            #region 数据类别
             modelBuilder.Entity<DataCategroy>().HasData(
                 new DataCategroy
                 {

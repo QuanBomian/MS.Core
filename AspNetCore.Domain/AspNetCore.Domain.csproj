@@ -8,8 +8,4 @@
     <ProjectReference Include="..\Entity.Core\AspNetCore.Entity.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UserRoleInfo\" />
-  </ItemGroup>
-
 </Project>
