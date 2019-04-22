@@ -14,6 +14,6 @@ namespace AspNetCore.Application.RoleInfo
         void Delete(Guid id);
         void Add(Role Role);
         Role Get(Guid id);
-     
+        List<Role> Search(RoleQueryDto condition);
     }
 }

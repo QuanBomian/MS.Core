@@ -20,8 +20,17 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery]RoleQueryDto condition)
         {
+            if(condition.RoleName != null)
+            {
+                var list = _service.Search(condition);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    list
+                });
+            }
             var items = await _service.GetAll();
             return new JsonResult(new
             {

@@ -60,7 +60,7 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/VillagerGroupr/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public JsonResult Put([FromBody] VillagerGroup VillagerGroup)
         {
             _service.Update(VillagerGroup);

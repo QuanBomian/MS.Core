@@ -60,7 +60,7 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/Memberr/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public JsonResult Put([FromBody] Member Member)
         {
             _service.Update(Member);

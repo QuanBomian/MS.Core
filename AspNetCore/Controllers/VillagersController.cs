@@ -23,8 +23,19 @@ namespace AspNetCore.Controllers
         // GET: api/Villager
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] VillagerQueryDto condition)
         {
+            if(condition.AnnualIncomeFrom!=null||condition.AnnualIncomeTo!=null||condition.BirthdayFrom!=null
+                ||condition.BirthdayTo!=null||condition.Education!=null||condition.Gender!=null||condition.HavingCriminalRecord!=null||
+                condition.HavingIllegalRecord != null || condition.HomeAddress != null || condition.MaritalStatus != null || condition.Name != null)
+            {
+                var list = _service.Search(condition);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    list
+                });
+            }
             var items = await _service.GetAll();
             return new JsonResult(new
             {
@@ -32,18 +43,7 @@ namespace AspNetCore.Controllers
                 items
             });
         }
-        [HttpGet]
-       [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] VillagerQueryDto condition)
-        {
-            
-            var list =  _service.Search(condition);
-            return new JsonResult(new
-            {
-                code = 20000,
-                list
-            });
-        }
+
         // GET: api/Villager/5
         [HttpGet("{id}", Name = "Get")]
         public Villager Get(Guid id)

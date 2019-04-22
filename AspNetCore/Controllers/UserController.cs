@@ -20,25 +20,23 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] UserQueryDto condition)
         {
+            if (condition.UserName != null)
+            {
+                var list = _service.Search(condition);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    list
+                });
+
+            }
             var items = await _service.GetAll();
             return new JsonResult(new
             {
                 code = 20000,
                 items
-            });
-        }
-        [HttpGet]
-        [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] UserQueryDto condition)
-        {
-
-            var list = _service.Search(condition);
-            return new JsonResult(new
-            {
-                code = 20000,
-                list
             });
         }
         // GET: api/Userr/5
@@ -60,7 +58,7 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/Userr/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public JsonResult Put([FromBody] User User)
         {
             _service.Update(User);

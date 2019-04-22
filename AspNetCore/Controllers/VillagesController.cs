@@ -20,25 +20,24 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] VillageQueryDto condition)
         {
+            if(condition.Address!=null||condition.AreaNumber!=null||condition.ContactPhone!=null
+                ||condition.GovernmentLevel!=null||condition.GroupCount!=null||condition.SecretaryName!=null
+                || condition.UrbanRuralClassification != null || condition.VillageHeadName != null || condition.VillageName != null)
+            {
+                var list = _service.Search(condition);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    list
+                });
+            }
             var items = await _service.GetAll();
             return new JsonResult(new
             {
                 code = 20000,
                 items
-            });
-        }
-        [HttpGet]
-        [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] VillageQueryDto condition)
-        {
-
-            var list = _service.Search(condition);
-            return new JsonResult(new
-            {
-                code = 20000,
-                list
             });
         }
         // GET: api/Villager/5
@@ -60,7 +59,7 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/Villager/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public JsonResult Put([FromBody] Village Village)
         {
             _service.Update(Village);

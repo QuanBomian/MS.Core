@@ -1,4 +1,5 @@
 ﻿using AspNetCore.Application.UserRoleInfo;
+using AspNetCore.Domain.UserInfo.Dto;
 using AspNetCore.Domain.UserRoleInfo.Dto;
 using AspNetCore.Entity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,8 +21,13 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync(UserRoleQueryDto condition)
         {
+            //if (condition. != null)
+            //{
+            //    var list = _service.Get(condition);
+
+            //}
             var items = await _service.GetAll();
             return new JsonResult(new
             {
@@ -48,7 +54,7 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/UserRoler/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public JsonResult Put([FromBody] UserRole UserRole)
         {
             _service.Update(UserRole);

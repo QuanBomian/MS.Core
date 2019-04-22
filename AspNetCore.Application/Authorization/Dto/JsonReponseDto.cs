@@ -8,6 +8,9 @@
 // Description: Jwt 响应对象
 //-----------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
 namespace AspNetCore.Application.Authorization.Dto
 {
     public class JwtResponseDto
@@ -37,7 +40,14 @@ namespace AspNetCore.Application.Authorization.Dto
         /// 姓名
         /// </summary>
         public string UserName { get; set; }
-
+        /// <summary>
+        /// ID
+        /// </summary>
+        public Guid UserId { get; set; }
+        /// <summary>
+        /// 用户的角色
+        /// </summary>
+        public List<string> RoleNames { get; set; }
         /// <summary>
         /// 授权时间戳
         /// </summary>

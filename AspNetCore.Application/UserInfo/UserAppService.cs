@@ -41,6 +41,7 @@ namespace AspNetCore.Application.UserInfo
 
         public void Update(User User)
         {
+            User.Password = SecretHelper.GenerateHashSecret(User.Password);
             _domain.Update(User);
         }
 

@@ -60,7 +60,7 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/Familyr/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public JsonResult Put([FromBody] Family Family)
         {
             _service.Update(Family);

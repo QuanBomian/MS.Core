@@ -143,8 +143,11 @@ namespace AspNetCore.Controllers
             {
                 Access = jwt.Token,
                 Type = "Bearer",
+              
                 Profile = new Profile
                 {
+                    RoleNames = user.RoleName,
+                    UserId = user.Id,
                     UserName = user.UserName,
                     Auths = jwt.AuthTime,
                     Expires = jwt.ExpTime
@@ -174,18 +177,6 @@ namespace AspNetCore.Controllers
                 Id = userProfile.UserId,
                 RoleName = userProfile.RoleNames
             };
-            //if (user == null)
-            //    return Ok(new JwtResponseDto
-            //    {
-            //        Access = "无权访问",
-            //        Type = "Bearer",
-            //        Profile = new Profile
-            //        {
-            //            UserName = dto.UserName,
-            //            Auths = 0,
-            //            Expires = 0
-            //        }
-            //    });
 
             var jwt = await _jwtApp.RefreshAsync(dto.Token, user);
             var data = new JwtResponseDto
@@ -194,6 +185,8 @@ namespace AspNetCore.Controllers
                 Type = "Bearer",
                 Profile = new Profile
                 {
+                    RoleNames = user.RoleName,
+                    UserId = user.Id,
                     UserName = user.UserName,
                     Auths = jwt.Success ? jwt.AuthTime : 0,
                     Expires = jwt.Success ? jwt.ExpTime : 0
