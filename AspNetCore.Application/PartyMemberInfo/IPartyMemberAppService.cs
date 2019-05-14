@@ -15,5 +15,6 @@ namespace AspNetCore.Application.PartyMemberInfo
         void Add(PartyMember PartyMember);
         PartyMember Get(Guid id);
         List<PartyMember> Search(PartyMemberQueryDto condition);
+        Task<Infrastructure.Pagination.PaginatedList<PartyMember>> GetPaginationAsync(int pageIndex, int pageSize);
     }
 }

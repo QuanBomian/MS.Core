@@ -9,6 +9,7 @@ namespace AspNetCore.Entity.Context
 {
     public class MsContext : DbContext
     {
+        #region 实体
         public DbSet<Villager> Villagers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -37,13 +38,10 @@ namespace AspNetCore.Entity.Context
         public DbSet<DataCategroy> DataCategroys { get; set; }
 
         public DbSet<DataItem> DataItems { get; set; }
-        private static readonly string connString = "Host=localhost;Port=5432;Database=mstb;Username=postgres;Password=12345";
+        #endregion
+        //private static readonly string connString = "Host=localhost;Port=5432;Database=mstb;Username=postgres;Password=12345";
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql(connString);
-
-        }
+       public MsContext(DbContextOptions options):base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasPostgresExtension("uuid-ossp");
@@ -98,7 +96,7 @@ namespace AspNetCore.Entity.Context
                 {
                     Id = Guid.NewGuid(),
                     Url="/api/Villagers",
-                    RoleName="Admmin"
+                    RoleName="Admin"
                 },
                 new Menu
                 {
@@ -166,29 +164,124 @@ namespace AspNetCore.Entity.Context
                               Url = "/api/UserRoles",
                               RoleName = "System"
                           },
+                           new Menu
+                           {
+                               Id = Guid.NewGuid(),
+                               Url = "/api/Menus",
+                               RoleName = "System"
+                           },
                           new Menu
                           {
                               Id = Guid.NewGuid(),
                               Url="/api/Secret/deactivate",
                               RoleName="Admin"
                           },
+                           new Menu
+                           {
+                               Id = Guid.NewGuid(),
+                               Url = "/api/Secret/deactivate",
+                               RoleName = "System"
+                           },
+                            new Menu
+                            {
+                                Id = Guid.NewGuid(),
+                                Url = "/api/Secret/deactivate",
+                                RoleName = "Client"
+                            },
                           new Menu
                           {
                               Id = Guid.NewGuid(),
                               Url = "/api/Secret/refresh",
                               RoleName = "Admin"
                           },
+                           new Menu
+                           {
+                               Id = Guid.NewGuid(),
+                               Url = "/api/Secret/refresh",
+                               RoleName = "System"
+                           },
+                            new Menu
+                            {
+                                Id = Guid.NewGuid(),
+                                Url = "/api/Secret/refresh",
+                                RoleName = "Client"
+                            },
                           new Menu
                           {
                               Id = Guid.NewGuid(),
                               Url="/api/Secret/userInfo",
                               RoleName="Admin"
+                          },
+                          new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Secret/userInfo",
+                              RoleName = "System"
+                          },
+                          new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Secret/userInfo",
+                              RoleName = "Client"
+                          }, new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Villagers/excel",
+                              RoleName = "Client"
+                          }
+                          , new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Towns/excel",
+                              RoleName = "Client"
+                          }
+                          , new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Villages/excel",
+                              RoleName = "Client"
+                          }
+                          , new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/VillagerGroups/excel",
+                              RoleName = "Client"
+                          }
+                          , new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Members/excel",
+                              RoleName = "Client"
+                          }
+                          , new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/PartyMembers/excel",
+                              RoleName = "Client"
+                          }
+                          , new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/NonOperatingAssetss/excel",
+                              RoleName = "Client"
+                          },
+                          new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Departments/excel",
+                              RoleName = "Client"
+                          },
+                          new Menu
+                          {
+                              Id = Guid.NewGuid(),
+                              Url = "/api/Familys/excel",
+                              RoleName = "Client"
                           }
                 );
             #endregion
             #region 村民
             modelBuilder.Entity<Villager>().HasData(
-                new
+                new Villager
                 {
                     Id = Guid.NewGuid(),
                     Name = "张东",
@@ -201,7 +294,7 @@ namespace AspNetCore.Entity.Context
                     HavingIllegalRecord = false,
                     HavingCriminalRecord = false
                 },
-                new
+                new Villager
                 {
                     Id = Guid.NewGuid(),
                     Name = "刘项",
@@ -214,7 +307,7 @@ namespace AspNetCore.Entity.Context
                     HavingIllegalRecord = false,
                     HavingCriminalRecord = false
                 },
-                new
+                new Villager
                 {
                     Id = Guid.NewGuid(),
                     Name = "马伦",
@@ -226,7 +319,435 @@ namespace AspNetCore.Entity.Context
                     MaritalStatus = "未婚",
                     HavingIllegalRecord = false,
                     HavingCriminalRecord = false
-                }
+                },
+                new Villager
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "蔡贤亿",
+                    Birthday = new DateTime(1976, 3, 4),
+                    Gender = "男",
+                    HomeAddress = "九扬香郡4幢1204号",
+                    AnnualIncome = 720000,
+                    Education = "硕士研究生",
+                    MaritalStatus = "已婚",
+                    HavingCriminalRecord = false,
+                    HavingIllegalRecord = false,
+
+                },
+                new Villager
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "张珐希",
+                    Birthday = new DateTime(1982, 6, 12),
+                    Gender = "男",
+                    HomeAddress = "九扬香郡8幢2502号",
+                    AnnualIncome = 120000,
+                    MaritalStatus = "未婚",
+                    Education = "本科",
+                    HavingCriminalRecord = false,
+                    HavingIllegalRecord = false
+                },
+                new Villager
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "邓以璐",
+                    Birthday = new DateTime(1992, 5, 3),
+                    Gender = "女",
+                    HomeAddress = "九扬香郡12幢702号",
+                    AnnualIncome = 12000,
+                    MaritalStatus = "未婚",
+                    Education = "本科",
+                    HavingCriminalRecord = false,
+                    HavingIllegalRecord=false,
+                },
+                 new Villager
+                 {
+                     Id = Guid.NewGuid(),
+                     Name = "陈娟",
+                     Birthday = new DateTime(1972, 12, 7),
+                     Gender = "女",
+                     HomeAddress = "罗马假日2幢306号",
+                     AnnualIncome = 170000,
+                     MaritalStatus = "丧偶",
+                     Education = "高中",
+                     HavingCriminalRecord = false,
+                     HavingIllegalRecord = false,
+                 },
+                 new Villager
+                 {
+                     Id = Guid.NewGuid(),
+                     Name = "魏容婕",
+                     Birthday = new DateTime(1991,3, 12),
+                     Gender = "女",
+                     HomeAddress = "罗马假日22幢1102号",
+                     AnnualIncome = 114000,
+                     MaritalStatus = "未婚",
+                     Education = "博士研究生",
+                     HavingCriminalRecord = false,
+                     HavingIllegalRecord = false,
+                 }, 
+                 new Villager
+                 {
+                     Id = Guid.NewGuid(),
+                     Name = "王皑玫",
+                     Birthday = new DateTime(1987, 6, 28),
+                     Gender = "女",
+                     HomeAddress = "罗马假日2幢306号",
+                     AnnualIncome = 72550,
+                     MaritalStatus = "离异",
+                     Education = "高中",
+                     HavingCriminalRecord = false,
+                     HavingIllegalRecord = false,
+                 },
+                  new Villager
+                  {
+                      Id = Guid.NewGuid(),
+                      Name = "彭票汶",
+                      Birthday = new DateTime(1992, 2, 12),
+                      Gender = "女",
+                      HomeAddress = "亲水佳苑3幢303号",
+                      AnnualIncome = 14150,
+                      MaritalStatus = "未婚",
+                      Education = "本科",
+                      HavingCriminalRecord = false,
+                      HavingIllegalRecord = true,
+                  },
+                   new Villager
+                   {
+                       Id = Guid.NewGuid(),
+                       Name = "王巍惠",
+                       Birthday = new DateTime(1964, 2, 1),
+                       Gender = "女",
+                       HomeAddress = "益闵花园27幢406号",
+                       AnnualIncome = 123550,
+                       MaritalStatus = "已婚",
+                       Education = "小学",
+                       HavingCriminalRecord = false,
+                       HavingIllegalRecord = false,
+                   },
+                    new Villager
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = "齐纯金",
+                        Birthday = new DateTime(1983, 9, 22),
+                        Gender = "女",
+                        HomeAddress = "锦绣港湾5幢702号",
+                        AnnualIncome = 53210,
+                        MaritalStatus = "未婚",
+                        Education = "本科",
+                        HavingCriminalRecord = false,
+                        HavingIllegalRecord = false,
+                    },
+                     new Villager
+                     {
+                         Id = Guid.NewGuid(),
+                         Name = "钱亨美",
+                         Birthday = new DateTime(1987, 6, 28),
+                         Gender = "女",
+                         HomeAddress = "富都新村2幢504号",
+                         AnnualIncome = 450000,
+                         MaritalStatus = "未婚",
+                         Education = "硕士研究生",
+                         HavingCriminalRecord = false,
+                         HavingIllegalRecord = false,
+                     },
+                      new Villager
+                      {
+                          Id = Guid.NewGuid(),
+                          Name = "任原匡",
+                          Birthday = new DateTime(1983, 11, 11),
+                          Gender = "男",
+                          HomeAddress = "丽水湾小区12幢701号",
+                          AnnualIncome = 173050,
+                          MaritalStatus = "未婚",
+                          Education = "本科",
+                          HavingCriminalRecord = false,
+                          HavingIllegalRecord = false,
+                      },
+                       new Villager
+                       {
+                           Id = Guid.NewGuid(),
+                           Name = "陈奥游",
+                           Birthday = new DateTime(1972, 3, 12),
+                           Gender = "男",
+                           HomeAddress = "丽水湾小区7幢102号",
+                           AnnualIncome = 170000,
+                           MaritalStatus = "丧偶",
+                           Education = "高中",
+                           HavingCriminalRecord = false,
+                           HavingIllegalRecord = false,
+                       },
+                        new Villager
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = "温尘爽",
+                            Birthday = new DateTime(1987, 6, 28),
+                            Gender = "男",
+                            HomeAddress = "富仁小区12幢706号",
+                            AnnualIncome = 50000,
+                            MaritalStatus = "已婚",
+                            Education = "高中",
+                            HavingCriminalRecord = false,
+                            HavingIllegalRecord = false,
+                        },
+                         new Villager
+                         {
+                             Id = Guid.NewGuid(),
+                             Name = "康基前",
+                             Birthday = new DateTime(1992, 7, 11),
+                             Gender = "男",
+                             HomeAddress = "富仁小区6幢1104号",
+                             AnnualIncome = 80000,
+                             MaritalStatus = "未婚",
+                             Education = "高中",
+                             HavingCriminalRecord = false,
+                             HavingIllegalRecord = false,
+                         },
+                          new Villager
+                          {
+                              Id = Guid.NewGuid(),
+                              Name = "章清堂",
+                              Birthday = new DateTime(1997, 7, 4),
+                              Gender = "男",
+                              HomeAddress = "舜江碧水豪园1幢406号",
+                              AnnualIncome = 45000,
+                              MaritalStatus = "未婚",
+                              Education = "本科",
+                              HavingCriminalRecord = false,
+                              HavingIllegalRecord = false,
+                          },
+                           new Villager
+                           {
+                               Id = Guid.NewGuid(),
+                               Name = "彭谷弈",
+                               Birthday = new DateTime(1967, 3, 7),
+                               Gender = "男",
+                               HomeAddress = "舜江碧水豪园12幢408号",
+                               AnnualIncome = 120000,
+                               MaritalStatus = "离异",
+                               Education = "博士研究生",
+                               HavingCriminalRecord = false,
+                               HavingIllegalRecord = false,
+                           },
+                             new Villager
+                             {
+                                 Id = Guid.NewGuid(),
+                                 Name = "姜名悦",
+                                 Birthday = new DateTime(1967, 3, 7),
+                                 Gender = "男",
+                                 HomeAddress = "舜江碧水豪园12幢408号",
+                                 AnnualIncome = 120000,
+                                 MaritalStatus = "离异",
+                                 Education = "博士研究生",
+                                 HavingCriminalRecord = false,
+                                 HavingIllegalRecord = false,
+                             },  new Villager
+                           {
+                               Id = Guid.NewGuid(),
+                               Name = "车晖水",
+                               Birthday = new DateTime(1967, 3, 7),
+                               Gender = "男",
+                               HomeAddress = "舜江碧水豪园12幢408号",
+                               AnnualIncome = 120000,
+                               MaritalStatus = "离异",
+                               Education = "博士研究生",
+                               HavingCriminalRecord = false,
+                               HavingIllegalRecord = false,
+                           }, new Villager
+                           {
+                               Id = Guid.NewGuid(),
+                               Name = "王恋仲",
+                               Birthday = new DateTime(1967, 3, 7),
+                               Gender = "男",
+                               HomeAddress = "舜江碧水豪园12幢408号",
+                               AnnualIncome = 120000,
+                               MaritalStatus = "离异",
+                               Education = "博士研究生",
+                               HavingCriminalRecord = false,
+                               HavingIllegalRecord = false,
+                           }, new Villager
+                           {
+                               Id = Guid.NewGuid(),
+                               Name = "伍皆偌",
+                               Birthday = new DateTime(1967, 3, 7),
+                               Gender = "男",
+                               HomeAddress = "舜江碧水豪园12幢408号",
+                               AnnualIncome = 120000,
+                               MaritalStatus = "离异",
+                               Education = "博士研究生",
+                               HavingCriminalRecord = false,
+                               HavingIllegalRecord = false,
+                           }, new Villager
+                           {
+                               Id = Guid.NewGuid(),
+                               Name = "郭跋新",
+                               Birthday = new DateTime(1967, 3, 7),
+                               Gender = "男",
+                               HomeAddress = "舜江碧水豪园12幢408号",
+                               AnnualIncome = 120000,
+                               MaritalStatus = "离异",
+                               Education = "博士研究生",
+                               HavingCriminalRecord = false,
+                               HavingIllegalRecord = false,
+                           }, new Villager
+                           {
+                               Id = Guid.NewGuid(),
+                               Name = "连卫锦",
+                               Birthday = new DateTime(1967, 3, 7),
+                               Gender = "男",
+                               HomeAddress = "舜江碧水豪园12幢408号",
+                               AnnualIncome = 120000,
+                               MaritalStatus = "离异",
+                               Education = "博士研究生",
+                               HavingCriminalRecord = false,
+                               HavingIllegalRecord = false,
+                           }, new Villager
+                           {
+                               Id = Guid.NewGuid(),
+                               Name = "林敞河",
+                               Birthday = new DateTime(1967, 3, 7),
+                               Gender = "男",
+                               HomeAddress = "舜江碧水豪园12幢408号",
+                               AnnualIncome = 120000,
+                               MaritalStatus = "离异",
+                               Education = "博士研究生",
+                               HavingCriminalRecord = false,
+                               HavingIllegalRecord = false,
+                           }
+                           , new Villager
+                           {
+                               Id = Guid.NewGuid(),
+                               Name = "陆曦常",
+                               Birthday = new DateTime(1967, 3, 7),
+                               Gender = "男",
+                               HomeAddress = "舜江碧水豪园12幢408号",
+                               AnnualIncome = 120000,
+                               MaritalStatus = "离异",
+                               Education = "博士研究生",
+                               HavingCriminalRecord = false,
+                               HavingIllegalRecord = false,
+                           }
+                            , new Villager
+                            {
+                                Id = Guid.NewGuid(),
+                                Name = "陆曦常",
+                                Birthday = new DateTime(1967, 3, 7),
+                                Gender = "男",
+                                HomeAddress = "舜江碧水豪园12幢408号",
+                                AnnualIncome = 120000,
+                                MaritalStatus = "离异",
+                                Education = "博士研究生",
+                                HavingCriminalRecord = false,
+                                HavingIllegalRecord = false,
+                            }
+                             , new Villager
+                             {
+                                 Id = Guid.NewGuid(),
+                                 Name = "高致环",
+                                 Birthday = new DateTime(1967, 3, 7),
+                                 Gender = "男",
+                                 HomeAddress = "舜江碧水豪园12幢408号",
+                                 AnnualIncome = 120000,
+                                 MaritalStatus = "离异",
+                                 Education = "博士研究生",
+                                 HavingCriminalRecord = false,
+                                 HavingIllegalRecord = false,
+                             }
+                              , new Villager
+                              {
+                                  Id = Guid.NewGuid(),
+                                  Name = "连侠聪",
+                                  Birthday = new DateTime(1967, 3, 7),
+                                  Gender = "男",
+                                  HomeAddress = "舜江碧水豪园12幢408号",
+                                  AnnualIncome = 120000,
+                                  MaritalStatus = "离异",
+                                  Education = "博士研究生",
+                                  HavingCriminalRecord = false,
+                                  HavingIllegalRecord = false,
+                              }
+                               , new Villager
+                               {
+                                   Id = Guid.NewGuid(),
+                                   Name = "蔡进尉",
+                                   Birthday = new DateTime(1967, 3, 7),
+                                   Gender = "男",
+                                   HomeAddress = "舜江碧水豪园12幢408号",
+                                   AnnualIncome = 120000,
+                                   MaritalStatus = "离异",
+                                   Education = "博士研究生",
+                                   HavingCriminalRecord = false,
+                                   HavingIllegalRecord = false,
+                               }
+                               , new Villager
+                               {
+                                   Id = Guid.NewGuid(),
+                                   Name = "陈淡睦",
+                                   Birthday = new DateTime(1967, 3, 7),
+                                   Gender = "男",
+                                   HomeAddress = "舜江碧水豪园12幢408号",
+                                   AnnualIncome = 120000,
+                                   MaritalStatus = "离异",
+                                   Education = "博士研究生",
+                                   HavingCriminalRecord = false,
+                                   HavingIllegalRecord = false,
+                               }
+                               , new Villager
+                               {
+                                   Id = Guid.NewGuid(),
+                                   Name = "郭跋新",
+                                   Birthday = new DateTime(1967, 3, 7),
+                                   Gender = "男",
+                                   HomeAddress = "舜江碧水豪园12幢408号",
+                                   AnnualIncome = 120000,
+                                   MaritalStatus = "离异",
+                                   Education = "博士研究生",
+                                   HavingCriminalRecord = false,
+                                   HavingIllegalRecord = false,
+                               }
+                               , new Villager
+                               {
+                                   Id = Guid.NewGuid(),
+                                   Name = "陈有",
+                                   Birthday = new DateTime(1967, 3, 7),
+                                   Gender = "男",
+                                   HomeAddress = "舜江碧水豪园12幢408号",
+                                   AnnualIncome = 120000,
+                                   MaritalStatus = "离异",
+                                   Education = "博士研究生",
+                                   HavingCriminalRecord = false,
+                                   HavingIllegalRecord = false,
+                               }
+                               , new Villager
+                               {
+                                   Id = Guid.NewGuid(),
+                                   Name = "席锡粟",
+                                   Birthday = new DateTime(1967, 3, 7),
+                                   Gender = "男",
+                                   HomeAddress = "舜江碧水豪园12幢408号",
+                                   AnnualIncome = 120000,
+                                   MaritalStatus = "离异",
+                                   Education = "博士研究生",
+                                   HavingCriminalRecord = false,
+                                   HavingIllegalRecord = false,
+                               }
+                               , new Villager
+                               {
+                                   Id = Guid.NewGuid(),
+                                   Name = "殷莉大",
+                                   Birthday = new DateTime(1967, 3, 7),
+                                   Gender = "男",
+                                   HomeAddress = "舜江碧水豪园12幢408号",
+                                   AnnualIncome = 120000,
+                                   MaritalStatus = "离异",
+                                   Education = "博士研究生",
+                                   HavingCriminalRecord = false,
+                                   HavingIllegalRecord = false,
+                               }
+
+
+
+
             );
             #endregion
 
@@ -411,6 +932,7 @@ namespace AspNetCore.Entity.Context
                   }
                 );
             #endregion
+
             #region 镇
             modelBuilder.Entity<Town>().HasData(
              new Town { Id = Guid.NewGuid(),TownName = "周市镇", AreaNumber = "320583102000",GovernmentLevel=4, MayorName = "陆机", SecretaryName = "陆云", ChairmanName = "祖冲之", Address = "前进西路168号", ContactPhone = "0512-57621053" },
@@ -657,7 +1179,7 @@ namespace AspNetCore.Entity.Context
                     PoliticalStatus="中共党员",
                     Birthday=new DateTime(1974,7,5),
                     Education="本科",
-                    Status="在职",
+                    Status="在职在岗",
                     EntryTime= new DateTime(2007,2,4),
                     LengthOfService="12年",
                     MaritalStatus="已婚"
@@ -676,7 +1198,7 @@ namespace AspNetCore.Entity.Context
                     PoliticalStatus = "中共党员",
                     Birthday = new DateTime(1977, 7, 8),
                     Education = "本科",
-                    Status = "在职",
+                    Status = "在职在岗",
                     EntryTime = new DateTime(2002, 4, 1),
                     LengthOfService = "17年",
                     MaritalStatus="已婚"
@@ -694,7 +1216,7 @@ namespace AspNetCore.Entity.Context
                     PoliticalStatus = "中共党员",
                     Birthday = new DateTime(1985, 4, 17),
                     Education = "高中",
-                    Status = "在职",
+                    Status = "在职在岗",
                     EntryTime = new DateTime(2010, 3, 4),
                     LengthOfService = "9年",
                     MaritalStatus="丧偶"
@@ -713,7 +1235,7 @@ namespace AspNetCore.Entity.Context
                     PoliticalStatus = "群众",
                     Birthday = new DateTime(1979, 10, 15),
                     Education="硕士研究生",
-                    Status="在职",
+                    Status= "在职在岗",
                     EntryTime=new DateTime(2005,7,12),
                     LengthOfService="14年",
                     MaritalStatus="离异",
@@ -731,7 +1253,7 @@ namespace AspNetCore.Entity.Context
                     Position= "妇女计生委员",
                     Birthday=new DateTime(1987,4,18),
                     Education="本科",
-                    Status="在职",
+                    Status= "在职在岗",
                     EntryTime=new DateTime(2007,1,4),
                     LengthOfService = "12年",
                     MaritalStatus="已婚"
@@ -837,6 +1359,7 @@ namespace AspNetCore.Entity.Context
                 }
                 );
             #endregion
+
             #region 数据类别
             modelBuilder.Entity<DataCategroy>().HasData(
                 new DataCategroy

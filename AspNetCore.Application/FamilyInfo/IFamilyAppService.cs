@@ -15,5 +15,6 @@ namespace AspNetCore.Application.FamilyInfo
         void Add(Family Family);
         Family Get(Guid id);
         List<Family> Search(FamilyQueryDto condition);
+        Task<Infrastructure.Pagination.PaginatedList<Family>> GetPaginationAsync(int pageIndex, int pageSize);
     }
 }

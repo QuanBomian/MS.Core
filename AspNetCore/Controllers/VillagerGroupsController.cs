@@ -1,6 +1,8 @@
-﻿using AspNetCore.Application.VillagerGroupInfo;
+﻿using AspNetCore.Application.Excel;
+using AspNetCore.Application.VillagerGroupInfo;
 using AspNetCore.Domain.VillagerGroupInfo.Dto;
 using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ using System.Threading.Tasks;
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Policy = "Permission")]
     [ApiController]
     public class VillagerGroupsController : ControllerBase
     {
@@ -18,29 +21,64 @@ namespace AspNetCore.Controllers
         {
             _service = service;
         }
-        [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        [HttpGet]
+        [Route("excel")]
+        public async Task<IActionResult> GetExcel(int isProtected = 0)
         {
-            var items = await _service.GetAll();
-            return new JsonResult(new
-            {
-                code = 20000,
-                items
-            });
+            var result = await _service.GetAll();
+            var columns = new Dictionary<string, string>() {
+        { "Id","序号"},
+        { "VillagerGroupCode","村民小组编码"},
+        { "PrincipalName","负责人姓名"},
+        {"PrincipalAddress","负责人家庭住址" },
+        { "PrincipalEmail", "负责人电子邮箱" },
+        {"PrincipalPhone","负责人联系电话" },
+        { "VillageName","所属村名"},
+        {"MemberNumber","成员数量" }
+       
+    };
+            var fs = ExcelHelper.GetByteToExportExcel(result, columns, new List<string>(), "Sheet1", "", isProtected);
+            return File(fs, "application/vnd.android.package-archive", $"村民小组信息.xlsx");
         }
         [HttpGet]
-        [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] VillagerGroupQueryDto condition)
-        {
 
-            var list = _service.Search(condition);
-            return new JsonResult(new
+        public async Task<JsonResult> GetAsync([FromQuery] VillagerGroupQueryDto condition, int? pageIndex, int? pageSize)
+        {
+            if (pageIndex == null || pageSize == null)
             {
-                code = 20000,
-                list
-            });
+                if (condition.MemberNumber != null ||
+                condition.PrincipalAddress != null ||
+                condition.PrincipalEmail != null ||
+                condition.PrincipalPhone != null ||
+                condition.VillageGroupCode != null ||
+                condition.VillageName != null)
+                {
+                    var list = _service.Search(condition);
+                    return new JsonResult(new
+                    {
+                        code = 20000,
+                        list
+                    });
+                }
+                var items = await _service.GetAll();
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
+            else
+            {
+                var items = await _service.GetPaginationAsync(pageIndex.Value, pageSize.Value);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
         }
+  
         // GET: api/VillagerGroupr/5
         [HttpGet("{id}")]
         public VillagerGroup Get(Guid id)

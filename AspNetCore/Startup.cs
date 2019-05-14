@@ -52,6 +52,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.IO;
 using AspNetCore.Domain.MenuInfo;
 using AspNetCore.Application.MenuInfo;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCore
 {
@@ -103,15 +104,15 @@ namespace AspNetCore
             #endregion
 
 
-            /*#region 数据库上下文
+            #region 数据库上下文
 
             services.AddDbContext<MsContext>(
                 options => options.UseNpgsql(Configuration.GetConnectionString("NpgSql")));
 
-            #endregion*/
+            #endregion
 
             #region 依赖注入
-            services.AddDbContext<MsContext>();
+            //services.AddDbContext<MsContext>();
             services.AddTransient<IVillagerAppService, VillagerAppService>();
             services.AddTransient<IVillagerDomain, VillagerDomain>();
             services.AddTransient<IVillagerRepository, VillagerRepository>();
@@ -196,7 +197,7 @@ namespace AspNetCore
             services.AddCors(options =>
                 options.AddPolicy("VuePolicy",
                     builder =>
-                        builder.WithOrigins("http://localhost:9528").
+                        builder.WithOrigins("http://localhost:9528").WithOrigins("http://47.103.121.14:8000").
                             AllowAnyHeader().
                             AllowAnyMethod().
                             AllowCredentials()));

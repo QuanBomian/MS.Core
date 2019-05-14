@@ -15,5 +15,6 @@ namespace AspNetCore.Application.DepartmentInfo
         void Add(Department Department);
         Department Get(Guid id);
         List<Department> Search(DepartmentQueryDto condition);
+        Task<Infrastructure.Pagination.PaginatedList<Department>> GetPaginationAsync(int pageIndex, int pageSize);
     }
 }

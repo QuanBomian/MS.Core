@@ -78,7 +78,7 @@ namespace AspNetCore.Handlers
                     //
                     var url = httpContext.Request.Path.Value;
                     var role = httpContext.User.Claims.Where(c => c.Type == ClaimTypes.Role).Select(x=>x.Value).ToList();
-                    var menu = list.Where(x => url.Contains(x.Url)).FirstOrDefault();
+                    var menu = list.Where(x => url.Contains(x.Url)&&role.Contains(x.RoleName)).FirstOrDefault();
 
                     if (menu == null)
                     {
@@ -86,11 +86,6 @@ namespace AspNetCore.Handlers
                         return;
                     }
                   
-                    if (!role.Contains(menu.RoleName))
-                    {
-                        context.Fail();
-                        return;
-                    }
                     
                   /*  var menu = list.Where(x => x.Role.Equals(role) && x.Url.ToLower().Equals(url)).FirstOrDefault()*/;
 

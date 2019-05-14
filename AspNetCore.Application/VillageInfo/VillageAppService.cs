@@ -2,6 +2,8 @@
 using AspNetCore.Domain.VillageInfo;
 using AspNetCore.Domain.VillageInfo.Dto;
 using AspNetCore.Entity;
+using AspNetCore.Entity.Core;
+using AspNetCore.Infrastructure.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,6 +47,11 @@ namespace AspNetCore.Application.VillageInfo
         public List<Village> Search(VillageQueryDto condition)
         {
             return _domain.Get(condition);
+        }
+        public async Task<PaginatedList<Village>> GetPaginationAsync(int pageIndex, int pageSize)
+        {
+            var query = _domain.Query();
+            return await PaginatedList<Village>.CreateAsync(query, pageIndex, pageSize);
         }
     }
 }

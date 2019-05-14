@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AspNetCore.Domain.VillagerInfo;
 using AspNetCore.Domain.VillagerInfo.Dto;
 using AspNetCore.Entity.Core;
+using AspNetCore.Infrastructure.Pagination;
 
 namespace AspNetCore.Application.VillagerInfo
 {
@@ -43,6 +44,12 @@ namespace AspNetCore.Application.VillagerInfo
         public List<Villager> Search(VillagerQueryDto condition)
         {
             return _domain.Get(condition);
+        }
+
+        public async Task<PaginatedList<Villager>> GetPaginationAsync(int pageIndex,int pageSize)
+        {
+            var query = _domain.Query();
+            return await PaginatedList<Villager>.CreateAsync(query, pageIndex, pageSize);
         }
     }
 }

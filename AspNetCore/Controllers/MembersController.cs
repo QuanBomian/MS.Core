@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Application.MemberInfo;
 using AspNetCore.Domain.MemberInfo.Dto;
 using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Policy = "Permission")]
     [ApiController]
     public class MembersController : ControllerBase
     {
@@ -20,27 +22,53 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] MemberQueryDto condition, int? pageIndex, int? pageSize)
         {
-            var items = await _service.GetAll();
-            return new JsonResult(new
+            if (pageIndex == null || pageSize == null)
             {
-                code = 20000,
-                items
-            });
-        }
-        [HttpGet]
-        [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] MemberQueryDto condition)
-        {
-
-            var list = _service.Search(condition);
-            return new JsonResult(new
+                if (condition.BirthdayFrom != null
+                || condition.BirthdayTo != null
+                || condition.DepartmentCode != null
+                || condition.Education != null
+                || condition.EntryTimeFrom != null
+                || condition.EntryTimeTo != null
+                || condition.Gender != null
+                || condition.HomeAddress != null
+                || condition.LengthOfService != null
+                || condition.MaritalStatus != null
+                || condition.MemberCode != null
+                || condition.Nationality != null
+                || condition.PersonnelNature != null
+                || condition.PoliticalStatus != null
+                || condition.Position != null
+                || condition.Status != null
+                )
+                {
+                    var list = _service.Search(condition);
+                    return new JsonResult(new
+                    {
+                        code = 20000,
+                        list
+                    });
+                }
+                var items = await _service.GetAll();
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
+            else
             {
-                code = 20000,
-                list
-            });
+                var items = await _service.GetPaginationAsync(pageIndex.Value, pageSize.Value);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
         }
+   
         // GET: api/Memberr/5
         [HttpGet("{id}")]
         public Member Get(Guid id)

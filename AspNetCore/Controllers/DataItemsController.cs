@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Application.DataItemInfo;
 using AspNetCore.Domain.DataItemInfo.Dto;
 using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Policy = "Permission")]
     [ApiController]
     public class DataItemsController : ControllerBase
     {
@@ -60,7 +62,7 @@ namespace AspNetCore.Controllers
         }
 
         // PUT: api/DataItemr/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public JsonResult Put([FromBody] DataItem DataItem)
         {
             _service.Update(DataItem);

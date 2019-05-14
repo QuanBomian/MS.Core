@@ -3,15 +3,17 @@ using System;
 using AspNetCore.Entity.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AspNetCore.Entity.Migrations
 {
     [DbContext(typeof(MsContext))]
-    partial class MsContextModelSnapshot : ModelSnapshot
+    [Migration("20190513083000_Migration23")]
+    partial class Migration23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7b21ea7c-0a56-42aa-8813-dffa62a62c66"),
+                            Id = new Guid("9324c070-5ea7-4d49-8197-5db6fe2cc46a"),
                             AreaNumber = "320583000000",
                             CountyNumber = 0,
                             GovernmentLevel = 3,
@@ -63,7 +65,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("824d1b84-d820-4466-8790-01f5cb29fb4c"),
+                            Id = new Guid("f53a912c-67f8-4b4b-bd3c-7f70dbfaf3d1"),
                             AreaNumber = "320583102000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -75,7 +77,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("402eed28-7872-4131-abbd-8e29ef11b3ec"),
+                            Id = new Guid("6f444adb-5bf9-43f3-9c9a-3eb097a08e89"),
                             AreaNumber = "320583400000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -87,7 +89,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("21f566e6-3e7e-4fe5-bd7e-463aa65cc5d2"),
+                            Id = new Guid("9b2cd909-117d-42cf-863e-b332dff4263b"),
                             AreaNumber = "320583104000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -99,7 +101,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b56f74ea-c620-450e-91d5-c1a7504efa7c"),
+                            Id = new Guid("426878f9-4e07-4fed-a80a-a53d3501d723"),
                             AreaNumber = "320583106000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -111,7 +113,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("81cb8719-ea68-406c-a75a-c3bc7d00f36b"),
+                            Id = new Guid("86d2379f-9f44-43aa-8d97-fd612f11ddd8"),
                             AreaNumber = "320583103000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -123,7 +125,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f3817b99-1562-4c8d-acc8-bca250e1a784"),
+                            Id = new Guid("80696733-5176-4996-80fe-c6163f10e49a"),
                             AreaNumber = "320583101000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -135,7 +137,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("53fdd1e0-3d3b-4c7a-9142-37c3051a6f66"),
+                            Id = new Guid("b95cbb0e-c205-402b-b651-7de719f27dfa"),
                             AreaNumber = "320583108000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -147,7 +149,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ff68909d-c28b-4295-bafc-9b18d737c412"),
+                            Id = new Guid("956b6067-cc2c-4ecf-b009-46638e2e4c27"),
                             AreaNumber = "320583105000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -159,7 +161,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("25be7da6-3c27-459e-bc63-49213f6617b3"),
+                            Id = new Guid("07c5d544-d1ae-4437-bf5a-680c383254a8"),
                             AreaNumber = "320583107000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -171,7 +173,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("40835e30-f975-4f18-a6d9-4696e9ad141e"),
+                            Id = new Guid("ec662f18-f578-4b88-a7b9-1b8a8b48c76e"),
                             AreaNumber = "320583109000",
                             CountyNumber = 0,
                             GovernmentLevel = 4,
@@ -183,7 +185,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a68ebc4d-e0f3-44b1-9a91-e29a915c343c"),
+                            Id = new Guid("c86463c8-6473-4620-a5a9-37dd0890f6f0"),
                             AreaNumber = "320583106001",
                             CountyNumber = 0,
                             GovernmentLevel = 5,
@@ -195,7 +197,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("32448c97-816f-4577-93cf-76ca988a9f80"),
+                            Id = new Guid("92b7dccf-e315-492b-989b-a6a5bd39b0fd"),
                             AreaNumber = "320583106002",
                             CountyNumber = 0,
                             GovernmentLevel = 5,
@@ -207,7 +209,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1e97e923-7306-4056-bb9e-673716d438cc"),
+                            Id = new Guid("f5d10c05-09ee-4468-bca4-123735441bb2"),
                             AreaNumber = "320583106003",
                             CountyNumber = 0,
                             GovernmentLevel = 5,
@@ -219,7 +221,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ce4321a8-1329-4b6d-8b99-225ece88ed23"),
+                            Id = new Guid("1c07d89e-c285-4558-80af-740397477b00"),
                             AreaNumber = "320583106004",
                             CountyNumber = 0,
                             GovernmentLevel = 5,
@@ -270,7 +272,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("096c9d57-8193-46dd-8868-637620252e2b"),
+                            Id = new Guid("fa6c3b48-f476-4278-804a-fb165556132f"),
                             AnnualIncome = 20000,
                             Birthday = new DateTime(1984, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "高中",
@@ -283,7 +285,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("aa44e5db-2bcb-4081-a0e7-70704a93602d"),
+                            Id = new Guid("f6754028-2fa2-40fc-8340-54cdfc04c026"),
                             AnnualIncome = 17000,
                             Birthday = new DateTime(1972, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "初中",
@@ -296,7 +298,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("38d7b505-a72c-4237-8830-a146425cac47"),
+                            Id = new Guid("6d958d6d-46a4-4085-bf2c-cc1528c2cc8c"),
                             AnnualIncome = 50000,
                             Birthday = new DateTime(1990, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "本科",
@@ -309,10 +311,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("619f14c5-49dc-4161-91ce-c74bde27f5a5"),
+                            Id = new Guid("4860dc66-e25a-4825-ba0d-f5ce259e219f"),
                             AnnualIncome = 720000,
                             Birthday = new DateTime(1976, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "硕士研究生",
+                            Education = "硕士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -322,7 +324,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("854193b8-3952-4a6e-86d1-ba5470c65802"),
+                            Id = new Guid("6e72b4d1-7331-4671-99ee-d708e433f8d5"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1982, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "本科",
@@ -335,7 +337,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("58be538b-5f8f-40c9-aeec-077c6aeff528"),
+                            Id = new Guid("d28ae5ef-edf8-4c03-b9e7-e12c8975165d"),
                             AnnualIncome = 12000,
                             Birthday = new DateTime(1992, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "本科",
@@ -348,7 +350,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("663260a9-e53c-451d-9419-a8f17c1a5157"),
+                            Id = new Guid("8f63c7ae-feab-41e0-b7a5-586d6888efef"),
                             AnnualIncome = 170000,
                             Birthday = new DateTime(1972, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "高中",
@@ -361,10 +363,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e35e053a-b539-4fb4-a62a-2f5b0b710cc7"),
+                            Id = new Guid("16201050-6695-4d97-9ac6-b66e126b36c3"),
                             AnnualIncome = 114000,
                             Birthday = new DateTime(1991, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "女",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -374,7 +376,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("af45745a-552f-4fec-af42-f7acb630075a"),
+                            Id = new Guid("916b36b5-fb6c-4a0d-9452-3fb10da9f690"),
                             AnnualIncome = 72550,
                             Birthday = new DateTime(1987, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "高中",
@@ -387,7 +389,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("25c32792-9707-4ec3-824e-f9b6ae51bb77"),
+                            Id = new Guid("c5338e2e-7251-48dd-9cbb-320e330cf8ab"),
                             AnnualIncome = 14150,
                             Birthday = new DateTime(1992, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "本科",
@@ -400,7 +402,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fb18f1d4-b165-446c-8bcb-50b6ff74308e"),
+                            Id = new Guid("9e7e904c-7cf5-4a26-90ae-fb37f5afc749"),
                             AnnualIncome = 123550,
                             Birthday = new DateTime(1964, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "小学",
@@ -413,7 +415,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6efa0197-8ca2-4e65-ad41-de14ae134591"),
+                            Id = new Guid("feec64d5-02b5-466f-948d-8deb06722997"),
                             AnnualIncome = 53210,
                             Birthday = new DateTime(1983, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "本科",
@@ -426,10 +428,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2d32c6b5-cf55-45af-95ca-b12c54a66f09"),
+                            Id = new Guid("a3ac0c13-a026-4cbf-80a7-41cd56e66365"),
                             AnnualIncome = 450000,
                             Birthday = new DateTime(1987, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "硕士研究生",
+                            Education = "硕士",
                             Gender = "女",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -439,7 +441,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f5a81e91-afa3-4137-ba45-fcde76ce7787"),
+                            Id = new Guid("2225880e-5c3e-4c47-99db-d293a4e7c6ce"),
                             AnnualIncome = 173050,
                             Birthday = new DateTime(1983, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "本科",
@@ -452,7 +454,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4768635f-5fe0-4bf1-98d4-fe1364eca41a"),
+                            Id = new Guid("ab8240e3-b5de-4d24-bd0e-847f5b8f4139"),
                             AnnualIncome = 170000,
                             Birthday = new DateTime(1972, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "高中",
@@ -465,7 +467,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("be092377-0112-4679-b539-d62a41e0d15e"),
+                            Id = new Guid("41aa7af2-e24e-40b1-9d1b-5c35af54a5d4"),
                             AnnualIncome = 50000,
                             Birthday = new DateTime(1987, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "高中",
@@ -478,7 +480,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a98b579e-867d-4aed-a436-179958a913f7"),
+                            Id = new Guid("05d8b479-e30c-407d-8012-b5a38732cf8d"),
                             AnnualIncome = 80000,
                             Birthday = new DateTime(1992, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "高中",
@@ -491,7 +493,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3de9a1c5-f843-4a1a-a2bf-8a813ab1cbd9"),
+                            Id = new Guid("fb206a4d-3da6-4170-8762-9b973ce921b0"),
                             AnnualIncome = 45000,
                             Birthday = new DateTime(1997, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Education = "本科",
@@ -504,10 +506,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("58553cb0-e8c6-40b0-902f-3c5bffb91195"),
+                            Id = new Guid("a68b2a3f-fab3-4680-934e-fc169ee20463"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -517,10 +519,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("baa2bc16-2ea6-403a-b429-9f2806f6648c"),
+                            Id = new Guid("f2ed6de4-7ea8-46f2-9746-3c0fdbcca3d2"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -530,10 +532,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4e1febaf-af7e-4768-a89e-c4b184f8641a"),
+                            Id = new Guid("c13763ca-54fa-4224-b1d7-f59fcbdbc748"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -543,10 +545,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("493a0263-fbdb-4b1f-9887-fb37b8d38a4b"),
+                            Id = new Guid("558d3cf5-7e1c-4488-977e-4db89958337a"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -556,10 +558,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a7f14f0f-a8cf-4149-bc19-ea95236e93bc"),
+                            Id = new Guid("f565051c-3f52-4100-a18f-e129735d997f"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -569,10 +571,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("09c02966-9abf-42f1-a180-84aa8e5b5ede"),
+                            Id = new Guid("3840c585-aea7-4a0b-acd3-9326977e4d05"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -582,10 +584,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ea38945e-950b-4ae2-a5f8-3038f3aee415"),
+                            Id = new Guid("2c1bd1a8-eb77-480c-842c-e5457951b85c"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -595,10 +597,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c7c78ffc-db67-467d-858a-ffe1626fc53b"),
+                            Id = new Guid("f5f2c1de-2fdd-4a8e-b3af-14bb6c25c88e"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -608,10 +610,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cd93d6b5-9727-432a-a3c3-64d61d1c8d1b"),
+                            Id = new Guid("3ea206db-3f7e-4116-8939-6e4ea48c12a8"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -621,10 +623,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("937b6e4d-cbc5-495c-b861-fb016984f278"),
+                            Id = new Guid("516852df-42ce-4429-aa5f-29c16ef2bb62"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -634,10 +636,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e90928de-3cc6-42ea-9ac7-a16f80b23a70"),
+                            Id = new Guid("1e8c50bd-0d68-4f1b-875b-6a781f929656"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -647,10 +649,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d30cc707-ced1-4600-9cbd-362e23ef6ca3"),
+                            Id = new Guid("6dfcc0ce-bb6c-456f-9582-abc49cd9c211"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -660,10 +662,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("299dfff8-68bf-4dd4-a5cb-3c1dc24bc4ed"),
+                            Id = new Guid("229c1358-66de-4795-9d87-e237045cdb78"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -673,10 +675,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4a4e1edb-646f-4d11-872c-872e4630764b"),
+                            Id = new Guid("7a458232-ab2a-4603-a011-e66104899759"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -686,10 +688,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b9e2ce40-946c-40b3-81de-ce542e6a8fb4"),
+                            Id = new Guid("e16314f3-b9e9-41cb-adce-2013f60af143"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -699,10 +701,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("70cf41ef-13e5-45b7-bc42-66a449c63f7a"),
+                            Id = new Guid("82c55d23-7eae-4b8f-ba1e-16e5b9d02ecd"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -712,10 +714,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("652fb93d-da5e-4f8f-9b14-7b491993bd28"),
+                            Id = new Guid("367175c5-5485-427f-bbc9-c5c11ee39e44"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -725,10 +727,10 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a9353489-7d7c-44e8-af89-4762325c7b68"),
+                            Id = new Guid("7bef60b6-2c9f-4eee-8212-6581dd5fd10d"),
                             AnnualIncome = 120000,
                             Birthday = new DateTime(1967, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Education = "博士研究生",
+                            Education = "博士",
                             Gender = "男",
                             HavingCriminalRecord = false,
                             HavingIllegalRecord = false,
@@ -757,19 +759,19 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("60952fff-1ee2-4ab3-8094-0f43805dbb43"),
+                            Id = new Guid("a47de66a-e0d8-42b2-925f-59a51c4ab1f6"),
                             CategroyCode = "001",
                             CategroyName = "城乡分类"
                         },
                         new
                         {
-                            Id = new Guid("b0a94862-8592-41a3-b7ac-8d198395d82d"),
+                            Id = new Guid("55881229-b827-4722-8fd5-dd43b47afbaa"),
                             CategroyCode = "002",
                             CategroyName = "行政级别"
                         },
                         new
                         {
-                            Id = new Guid("0276d304-d104-453a-908f-8701b16408f5"),
+                            Id = new Guid("69009fdf-8e22-48c9-9b7e-dc536b4c2182"),
                             CategroyCode = "003",
                             CategroyName = "政治面貌"
                         });
@@ -798,168 +800,168 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("479a17dc-e061-4087-8e5f-6b62934cefa1"),
+                            Id = new Guid("359fbac2-a0b1-4e2a-a9ec-c59abde956d1"),
                             CategroyCode = "001",
                             Content = "主城区",
                             ItemCode = "001"
                         },
                         new
                         {
-                            Id = new Guid("7dfa6675-807c-452c-811a-211917217897"),
+                            Id = new Guid("2abecccb-8aeb-4692-b8b0-f01b9efedf87"),
                             CategroyCode = "001",
                             Content = "城乡结合区",
                             ItemCode = "002"
                         },
                         new
                         {
-                            Id = new Guid("decdc46a-ee69-45f2-b2e7-7ee4cf52c106"),
+                            Id = new Guid("66d35397-dde3-4290-a5d1-30f86b286281"),
                             CategroyCode = "001",
                             Content = "镇中心区",
                             ItemCode = "003"
                         },
                         new
                         {
-                            Id = new Guid("84970eee-251f-45a3-ae2a-c431ba7a58e8"),
+                            Id = new Guid("0fb4731d-5908-4d46-827c-2ea1935c839b"),
                             CategroyCode = "001",
                             Content = "特殊区域",
                             ItemCode = "004"
                         },
                         new
                         {
-                            Id = new Guid("f24179f4-fe04-4351-9b5d-def735ad5365"),
+                            Id = new Guid("778a9817-279a-4541-a621-419040d90afa"),
                             CategroyCode = "001",
                             Content = "乡中心区",
                             ItemCode = "005"
                         },
                         new
                         {
-                            Id = new Guid("eb8f569c-c691-46b7-9873-cb434b04df53"),
+                            Id = new Guid("9d5d1b1c-fdf2-44c8-a4f0-ccab97b31b82"),
                             CategroyCode = "001",
                             Content = "村庄",
                             ItemCode = "006"
                         },
                         new
                         {
-                            Id = new Guid("b2067265-12d3-4d9c-9d10-a5f219428a45"),
+                            Id = new Guid("b0193eac-6533-4447-8aca-ff506724e81b"),
                             CategroyCode = "002",
                             Content = "省级行政区",
                             ItemCode = "001"
                         },
                         new
                         {
-                            Id = new Guid("647c57c3-9484-4cdb-9785-154649405eac"),
+                            Id = new Guid("2d22ef3e-9e79-4b1d-b3ee-b33c2615ec49"),
                             CategroyCode = "002",
                             Content = "地级行政区",
                             ItemCode = "001"
                         },
                         new
                         {
-                            Id = new Guid("152c342e-6f29-42db-9bc2-cbca79e8462d"),
+                            Id = new Guid("c6c4f6b7-4c28-4ca2-af2b-0bdf3c18ad17"),
                             CategroyCode = "002",
                             Content = "县级行政区",
                             ItemCode = "003"
                         },
                         new
                         {
-                            Id = new Guid("e98d626e-81c1-4c15-9071-f81abb1faad7"),
+                            Id = new Guid("c79f2df6-8fbe-4cb7-98d6-031d8dee4802"),
                             CategroyCode = "002",
                             Content = "乡级行政区",
                             ItemCode = "004"
                         },
                         new
                         {
-                            Id = new Guid("a2477ca9-09f5-4e52-a4c8-5d0799437b98"),
+                            Id = new Guid("8317da1f-03f1-4606-9d9f-67485bbf4640"),
                             CategroyCode = "002",
                             Content = "村级行政区",
                             ItemCode = "005"
                         },
                         new
                         {
-                            Id = new Guid("7988e96a-0feb-46d2-bf4c-b435797819c4"),
+                            Id = new Guid("c99e6aec-6124-4fc4-95dd-37b01c86f876"),
                             CategroyCode = "003",
                             Content = "中共党员",
                             ItemCode = "001"
                         },
                         new
                         {
-                            Id = new Guid("f91bfce9-f441-42c7-9e8d-6336e9f1e207"),
+                            Id = new Guid("f4c19c9f-0b97-498a-bdd5-f1480629dd43"),
                             CategroyCode = "003",
                             Content = "中共预备党员",
                             ItemCode = "002"
                         },
                         new
                         {
-                            Id = new Guid("1db17454-4489-4e59-9fe3-106d1a12a043"),
+                            Id = new Guid("b6a1606d-6884-4816-9383-fb7690b99fe1"),
                             CategroyCode = "003",
                             Content = "共青团员",
                             ItemCode = "003"
                         },
                         new
                         {
-                            Id = new Guid("cb39febf-da00-419e-be55-687089d9c529"),
+                            Id = new Guid("5aac61e1-cb93-40d8-bf38-55b0882b2363"),
                             CategroyCode = "003",
                             Content = "民革党员",
                             ItemCode = "004"
                         },
                         new
                         {
-                            Id = new Guid("10454d64-89ea-4acb-951a-66c37ac486c1"),
+                            Id = new Guid("129e1127-af22-41c5-93ec-82998d947482"),
                             CategroyCode = "003",
                             Content = "民盟盟员",
                             ItemCode = "005"
                         },
                         new
                         {
-                            Id = new Guid("7592a317-3ed4-4444-adb7-92874a2cee55"),
+                            Id = new Guid("068002bf-c396-4352-bf95-7f506cf66869"),
                             CategroyCode = "003",
                             Content = "民建会员",
                             ItemCode = "006"
                         },
                         new
                         {
-                            Id = new Guid("1ea5dba6-1cde-423d-b8a8-d3bf3b154fca"),
+                            Id = new Guid("5b188db8-b312-4a0a-b052-d8ceae246c00"),
                             CategroyCode = "003",
                             Content = "民进会员",
                             ItemCode = "007"
                         },
                         new
                         {
-                            Id = new Guid("5908b6ea-3880-4b36-9905-b79029ffb2eb"),
+                            Id = new Guid("7a58c7ec-569a-4849-805f-3cde8d6d115c"),
                             CategroyCode = "003",
                             Content = "农工党党员",
                             ItemCode = "008"
                         },
                         new
                         {
-                            Id = new Guid("ff02b5d4-9692-448e-a4df-4dcd8a4ca5ce"),
+                            Id = new Guid("6a74c9f8-e9c2-4dfb-8ed1-3ea0b1ca2fe7"),
                             CategroyCode = "003",
                             Content = "致公党党员",
                             ItemCode = "009"
                         },
                         new
                         {
-                            Id = new Guid("6ec42a68-1762-4686-a307-f73f8a8cb6e2"),
+                            Id = new Guid("5fdae31c-3434-473a-bd57-809e3143b126"),
                             CategroyCode = "003",
                             Content = "九三学社社员",
                             ItemCode = "010"
                         },
                         new
                         {
-                            Id = new Guid("39a1efe7-897e-4a2a-b0bc-beabedc155eb"),
+                            Id = new Guid("b1cd6da9-4800-43c9-a252-262b8b75f221"),
                             CategroyCode = "003",
                             Content = "台盟盟员",
                             ItemCode = "011"
                         },
                         new
                         {
-                            Id = new Guid("2f69758c-93cc-4bfe-aac1-824d1143c25c"),
+                            Id = new Guid("910a9352-3da5-40d6-9406-a50fccaf11ec"),
                             CategroyCode = "003",
                             Content = "无党派人士",
                             ItemCode = "012"
                         },
                         new
                         {
-                            Id = new Guid("66dcb6e4-9084-4b60-a472-82b525f9b280"),
+                            Id = new Guid("ec9fc1a9-218f-46d7-b4d6-7ab6916b2514"),
                             CategroyCode = "003",
                             Content = "群众",
                             ItemCode = "013"
@@ -1005,7 +1007,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1fcc9add-fd1a-44ee-bb60-51f869b3be38"),
+                            Id = new Guid("61f4925f-3614-4d27-b45d-b03cc9bcff15"),
                             Address = "京东路469号",
                             ContactPhone = "0512-57623451",
                             DepartmentCode = "001",
@@ -1017,7 +1019,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("78598fac-24a4-4c79-9f50-fc090647a29a"),
+                            Id = new Guid("bce604ed-55cb-4591-b622-5c8393be1e63"),
                             Address = "京东路469号",
                             ContactPhone = "0512-58289432",
                             DepartmentCode = "002",
@@ -1029,7 +1031,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("601aebcb-12a6-41d5-aac8-a3c16c525e2e"),
+                            Id = new Guid("a8ab57d2-5737-4da2-b3bc-195756f83fe7"),
                             Address = "花苑路与京东路交叉口西侧",
                             ContactPhone = "0512-54128123",
                             DepartmentCode = "003",
@@ -1082,7 +1084,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("296cd1fa-4c1c-43ac-9eff-100af9f3d22d"),
+                            Id = new Guid("24c8bc58-aacf-40b1-bc4b-a779b37123b7"),
                             AccountCharacter = "非农业",
                             AverageAnnualIncome = 5000,
                             AverageHousingArea = 20.84f,
@@ -1169,7 +1171,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("bf30d2ff-dffe-4fd3-afdb-366411329f89"),
+                            Id = new Guid("12871914-4324-4380-a6ac-185501a9a205"),
                             Birthday = new DateTime(1974, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentCode = "002",
                             Education = "本科",
@@ -1185,11 +1187,11 @@ namespace AspNetCore.Entity.Migrations
                             Nationality = "汉族",
                             PoliticalStatus = "中共党员",
                             Position = "主任",
-                            Status = "在职在岗"
+                            Status = "在职"
                         },
                         new
                         {
-                            Id = new Guid("fb6a327b-09d3-425b-8df3-76cbe03aaba1"),
+                            Id = new Guid("ca27cc3c-64aa-4671-afdd-359799386ebb"),
                             Birthday = new DateTime(1977, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentCode = "002",
                             Education = "本科",
@@ -1205,11 +1207,11 @@ namespace AspNetCore.Entity.Migrations
                             Nationality = "汉族",
                             PoliticalStatus = "中共党员",
                             Position = "副主任",
-                            Status = "在职在岗"
+                            Status = "在职"
                         },
                         new
                         {
-                            Id = new Guid("53d71b74-d92a-4e49-b70f-f3995e40a6e4"),
+                            Id = new Guid("867fec47-1eaf-46de-b37a-5f8de976dfaf"),
                             Birthday = new DateTime(1985, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentCode = "002",
                             Education = "高中",
@@ -1225,11 +1227,11 @@ namespace AspNetCore.Entity.Migrations
                             Nationality = "汉族",
                             PoliticalStatus = "中共党员",
                             Position = "治调委员",
-                            Status = "在职在岗"
+                            Status = "在职"
                         },
                         new
                         {
-                            Id = new Guid("56f38907-3dfe-454e-8fdf-e7e247e9f004"),
+                            Id = new Guid("c70669ee-399b-419c-a2c2-273da0a30934"),
                             Birthday = new DateTime(1979, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentCode = "002",
                             Education = "硕士研究生",
@@ -1245,11 +1247,11 @@ namespace AspNetCore.Entity.Migrations
                             Nationality = "汉族",
                             PoliticalStatus = "群众",
                             Position = "财经委员",
-                            Status = "在职在岗"
+                            Status = "在职"
                         },
                         new
                         {
-                            Id = new Guid("fbdf869d-cba7-45ea-915a-57fd78256ad1"),
+                            Id = new Guid("867e1c61-d1d6-4ddc-b7ef-3e3350d3c388"),
                             Birthday = new DateTime(1987, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DepartmentCode = "002",
                             Education = "本科",
@@ -1265,7 +1267,7 @@ namespace AspNetCore.Entity.Migrations
                             Nationality = "汉族",
                             PoliticalStatus = "群众",
                             Position = "妇女计生委员",
-                            Status = "在职在岗"
+                            Status = "在职"
                         });
                 });
 
@@ -1287,207 +1289,153 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("79799c1e-06bf-4770-8b67-9877259ac32a"),
+                            Id = new Guid("69c6db5b-d6a6-414b-a701-6ecc8d622f17"),
                             RoleName = "System",
                             Url = "/api/AdminDivisions"
                         },
                         new
                         {
-                            Id = new Guid("194f7afa-d191-447e-ab92-fc4ad59c2f55"),
+                            Id = new Guid("cc2aea0e-0daa-4094-940d-ea609cf45af3"),
                             RoleName = "System",
                             Url = "/api/DataCategroys"
                         },
                         new
                         {
-                            Id = new Guid("5284d02f-38e8-43a1-bd7d-d07fe3ebdea7"),
+                            Id = new Guid("6df4f75a-e909-4e86-b3f6-d7edab4e4c01"),
                             RoleName = "System",
                             Url = "/api/DataItems"
                         },
                         new
                         {
-                            Id = new Guid("ae99f2ad-db67-4b7b-bf62-c18e00713df9"),
-                            RoleName = "Admin",
+                            Id = new Guid("24d2f8f5-78ff-4cbe-88a8-faee75a584ac"),
+                            RoleName = "Admmin",
                             Url = "/api/Villagers"
                         },
                         new
                         {
-                            Id = new Guid("d970e51c-3356-418b-aa3e-f9516c256738"),
+                            Id = new Guid("2bae1502-af47-4873-9403-a54cadd78000"),
                             RoleName = "Admin",
                             Url = "/api/Villages"
                         },
                         new
                         {
-                            Id = new Guid("b92800b2-4aa8-46f4-8123-6bbe0c071089"),
+                            Id = new Guid("901bc739-6ba3-4fb8-94a8-2fedfe24029e"),
                             RoleName = "Admin",
                             Url = "/api/VillagerGroups"
                         },
                         new
                         {
-                            Id = new Guid("e47439e5-7665-495d-b1f7-f1a141129450"),
+                            Id = new Guid("e1c28680-abf5-4669-b61b-e96ecbd70b24"),
                             RoleName = "Admin",
                             Url = "/api/Towns"
                         },
                         new
                         {
-                            Id = new Guid("7f088497-5741-4658-8acb-c98611427cb5"),
+                            Id = new Guid("d24cd7b0-9e99-44f8-b8ba-b827cdb0c94c"),
                             RoleName = "Admin",
                             Url = "/api/PartyMembers"
                         },
                         new
                         {
-                            Id = new Guid("489af364-dd81-46d4-909a-180b55a4e3ef"),
+                            Id = new Guid("07fefb68-68a0-4476-b51d-72a56fddb205"),
                             RoleName = "Admin",
                             Url = "/api/Departments"
                         },
                         new
                         {
-                            Id = new Guid("75b2e01a-0ce7-4717-bddb-84ccbe0d6cc6"),
+                            Id = new Guid("b313356f-ccb6-4d0f-8b80-fed4d957862e"),
                             RoleName = "Admin",
                             Url = "/api/Members"
                         },
                         new
                         {
-                            Id = new Guid("d5b3a349-95bf-40f1-bd55-c9f01771e75b"),
+                            Id = new Guid("464501bc-c730-408e-8606-bbdcb1b56d52"),
                             RoleName = "Admin",
                             Url = "/api/Familys"
                         },
                         new
                         {
-                            Id = new Guid("6a1a72a8-eef1-4133-8f90-160cf707b6b5"),
+                            Id = new Guid("579ed7c8-1363-4a15-8f8d-1b03748f4611"),
                             RoleName = "Admin",
                             Url = "/api/NonOperatingAssetss"
                         },
                         new
                         {
-                            Id = new Guid("87556980-ec38-476a-9dfb-8e86f5f1c5c2"),
+                            Id = new Guid("df073e88-a4a3-4271-ac30-de7795bf7470"),
                             RoleName = "System",
                             Url = "/api/Users"
                         },
                         new
                         {
-                            Id = new Guid("3a85f3e4-f48a-4b39-ba0f-d619d7959239"),
+                            Id = new Guid("d171f6f7-5776-4324-b0ca-2c22a55019dd"),
                             RoleName = "System",
                             Url = "/api/Roles"
                         },
                         new
                         {
-                            Id = new Guid("0c119c68-5da4-4176-9947-1344fcc5e97d"),
+                            Id = new Guid("cab9235e-3d2e-429e-8f58-9e993e7b75ce"),
                             RoleName = "System",
                             Url = "/api/UserRoles"
                         },
                         new
                         {
-                            Id = new Guid("eba0f741-bb68-44ba-84ef-051dc4165300"),
+                            Id = new Guid("2efead15-0af8-4a06-8d7c-371fab47d95e"),
                             RoleName = "System",
                             Url = "/api/Menus"
                         },
                         new
                         {
-                            Id = new Guid("d2330f90-4b76-4886-8839-a638ab2c8f29"),
+                            Id = new Guid("0ef2fdd2-aaf9-4652-98ab-790997746932"),
                             RoleName = "Admin",
                             Url = "/api/Secret/deactivate"
                         },
                         new
                         {
-                            Id = new Guid("7b5b78a6-267e-4067-8f68-d792711fb67d"),
+                            Id = new Guid("4c0ba51d-d237-4813-99e4-0467f384482a"),
                             RoleName = "System",
                             Url = "/api/Secret/deactivate"
                         },
                         new
                         {
-                            Id = new Guid("e34110ec-48d9-4300-8361-5429c0ba347b"),
+                            Id = new Guid("408a9005-e4da-4c5b-94d7-ec5980cfbc0a"),
                             RoleName = "Client",
                             Url = "/api/Secret/deactivate"
                         },
                         new
                         {
-                            Id = new Guid("618bc422-686b-44e2-b179-99353c29eb41"),
+                            Id = new Guid("8a2ed145-8fe1-4e90-b8c6-98d5fe10f447"),
                             RoleName = "Admin",
                             Url = "/api/Secret/refresh"
                         },
                         new
                         {
-                            Id = new Guid("5062b234-0ed5-488a-8257-29cdabe68244"),
+                            Id = new Guid("566338f8-e0d0-45d3-8262-ab59056ed660"),
                             RoleName = "System",
                             Url = "/api/Secret/refresh"
                         },
                         new
                         {
-                            Id = new Guid("9e1c14d7-f2f7-4cf3-b05d-62dcc505c2f8"),
+                            Id = new Guid("9d75c482-ad21-4a29-a9dc-dac0fce38ff9"),
                             RoleName = "Client",
                             Url = "/api/Secret/refresh"
                         },
                         new
                         {
-                            Id = new Guid("4aa38011-f086-45c2-a503-20b77dc9afba"),
+                            Id = new Guid("dae33509-9016-494e-b499-301d0375feaa"),
                             RoleName = "Admin",
                             Url = "/api/Secret/userInfo"
                         },
                         new
                         {
-                            Id = new Guid("67f7c093-28eb-4a99-b4b7-a1191b306ce8"),
+                            Id = new Guid("d9e9e4c7-5e76-4487-ae99-41d5096f1cb2"),
                             RoleName = "System",
                             Url = "/api/Secret/userInfo"
                         },
                         new
                         {
-                            Id = new Guid("7d77922a-2f42-4f3c-929a-e889cd47430c"),
+                            Id = new Guid("546eceb7-f062-4392-8b10-a19996cc870a"),
                             RoleName = "Client",
                             Url = "/api/Secret/userInfo"
-                        },
-                        new
-                        {
-                            Id = new Guid("7208ec4b-342d-4a4d-8bd0-4876c2d0f594"),
-                            RoleName = "Client",
-                            Url = "/api/Villagers/excel"
-                        },
-                        new
-                        {
-                            Id = new Guid("2e1eb6b6-cd8a-4b43-b849-29b007d9e920"),
-                            RoleName = "Client",
-                            Url = "/api/Towns/excel"
-                        },
-                        new
-                        {
-                            Id = new Guid("5dbc5340-39db-44ad-974a-01a8846ef151"),
-                            RoleName = "Client",
-                            Url = "/api/Villages/excel"
-                        },
-                        new
-                        {
-                            Id = new Guid("4cecc891-df23-4087-a094-0caa2ad0c646"),
-                            RoleName = "Client",
-                            Url = "/api/VillagerGroups/excel"
-                        },
-                        new
-                        {
-                            Id = new Guid("fbf52b23-d223-46d4-bdbd-81ea012b65a5"),
-                            RoleName = "Client",
-                            Url = "/api/Members/excel"
-                        },
-                        new
-                        {
-                            Id = new Guid("4a665780-921c-4b4f-9ce1-a390d03db7a0"),
-                            RoleName = "Client",
-                            Url = "/api/PartyMembers/excel"
-                        },
-                        new
-                        {
-                            Id = new Guid("b884c9b9-1257-4bc0-a317-570e98d53b7a"),
-                            RoleName = "Client",
-                            Url = "/api/NonOperatingAssetss/excel"
-                        },
-                        new
-                        {
-                            Id = new Guid("214de09a-57c3-412f-8922-85392bc306c2"),
-                            RoleName = "Client",
-                            Url = "/api/Departments/excel"
-                        },
-                        new
-                        {
-                            Id = new Guid("f7ec7563-5f0b-4144-a72e-199e851ef9eb"),
-                            RoleName = "Client",
-                            Url = "/api/Familys/excel"
                         });
                 });
 
@@ -1528,7 +1476,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("74b91b3c-cc42-4022-9d27-46df0cc0cbc3"),
+                            Id = new Guid("f28aaba2-6d26-419b-96df-c582624270ef"),
                             LibaryCollectionsNumber = 3000,
                             LibraryNumber = 1,
                             OfficeBuildingArea = 105f,
@@ -1544,7 +1492,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f5fae88d-6b03-4503-93eb-5b1a0b854913"),
+                            Id = new Guid("747febd0-6d89-4c5a-9f12-7a42a842cfd4"),
                             LibaryCollectionsNumber = 2500,
                             LibraryNumber = 1,
                             OfficeBuildingArea = 172f,
@@ -1560,7 +1508,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("06845aff-ec63-419e-b3b4-65e67116897a"),
+                            Id = new Guid("ac5e15bc-49f5-4aa0-bb1d-8a1f2dc34f92"),
                             LibaryCollectionsNumber = 5000,
                             LibraryNumber = 1,
                             OfficeBuildingArea = 250f,
@@ -1629,7 +1577,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b8ac548c-0dc3-4ba6-a16c-a69efe85dd1c"),
+                            Id = new Guid("0d664615-5713-488c-a90f-027aacbe7188"),
                             Birthday = new DateTime(1974, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ContactPhone = "13057134712",
                             DepartmentCode = "001",
@@ -1660,17 +1608,17 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7cb047a9-2208-4707-a076-4c475a890431"),
+                            Id = new Guid("08754d14-c16d-4f2a-9542-6403afe0cf05"),
                             RoleName = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("2ed02b7a-f585-4282-8569-23637a17e1e5"),
+                            Id = new Guid("0f401a19-428d-41f5-a3b9-1272eac46ff1"),
                             RoleName = "Client"
                         },
                         new
                         {
-                            Id = new Guid("eace1a22-2e37-4a97-b45f-7e3d7b40e866"),
+                            Id = new Guid("37fa6728-3d5d-4f43-94aa-62b46829a97a"),
                             RoleName = "System"
                         });
                 });
@@ -1713,7 +1661,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dc26fea2-cd2e-41e7-8493-9e51f43f4f9c"),
+                            Id = new Guid("0d743705-441a-4612-ab74-162e627aec1c"),
                             Address = "前进西路168号",
                             AreaNumber = "320583102000",
                             ChairmanName = "祖冲之",
@@ -1725,7 +1673,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0bc09461-4661-49f3-a524-564d775b1136"),
+                            Id = new Guid("6db80571-a837-41a8-a49b-4c5fe007b5da"),
                             Address = "前进东路",
                             AreaNumber = "320583400000",
                             ChairmanName = "邢栋祥",
@@ -1737,7 +1685,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5b21cc4a-401a-49fa-9479-91365f2ce4fb"),
+                            Id = new Guid("90a4fe33-8ebf-4a29-9ff5-1b94482c8861"),
                             Address = "花溪路358号",
                             AreaNumber = "320583104000",
                             ChairmanName = "武财章",
@@ -1749,7 +1697,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("73ac7ea4-e950-47a2-858d-585f3869ccc9"),
+                            Id = new Guid("202d3fa1-e841-4c02-a85e-ac81eaba3e72"),
                             Address = "华杨路188号",
                             AreaNumber = "320583106000",
                             ChairmanName = "成梦昆",
@@ -1761,7 +1709,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c89c93bd-1145-4780-a38c-da8fbb17e093"),
+                            Id = new Guid("dc42de4b-d67d-461d-8647-d87206e449cb"),
                             Address = "菉溪路22号",
                             AreaNumber = "	320583103000",
                             ChairmanName = "李迪尉",
@@ -1773,7 +1721,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6b1d4875-ce62-44a8-b8eb-f0d7f2b3caf7"),
+                            Id = new Guid("47a5019a-2156-415a-95a8-ae58edfff348"),
                             Address = "新澄路918号",
                             AreaNumber = "320583101000",
                             ChairmanName = "周伟",
@@ -1785,7 +1733,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3d1e1fee-ca72-40ec-bea9-4156eb649e02"),
+                            Id = new Guid("2c2446ce-b3f4-47f7-b830-8a4c5926f959"),
                             Address = "炎东路",
                             AreaNumber = "320583108000",
                             ChairmanName = "林修胜",
@@ -1797,7 +1745,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0f43f8f2-809e-4b3b-bd57-8679f750cc41"),
+                            Id = new Guid("fbc980e1-90b0-42c6-9a92-9de7cef52e83"),
                             Address = "府前路78号",
                             AreaNumber = "320583105000",
                             ChairmanName = "常般业",
@@ -1809,7 +1757,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7b675417-6675-4224-b685-9e5f9195dead"),
+                            Id = new Guid("fa32cc00-121e-43cb-8c7a-637c3283b51f"),
                             Address = "淀南路100号",
                             AreaNumber = "320583107000",
                             ChairmanName = "陆先",
@@ -1821,7 +1769,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9b11f848-7994-4947-a215-4852d5e696cc"),
+                            Id = new Guid("3041c44a-59bb-4dfb-9b11-9e3977c83e66"),
                             Address = "普庆路1号",
                             AreaNumber = "320583109000",
                             ChairmanName = "邹鉴夕",
@@ -1853,25 +1801,25 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("bf825c75-3c94-4be4-993b-47333a76801b"),
+                            Id = new Guid("7a50a997-a549-4423-b15a-f2b4a5164556"),
                             Password = "fu1Enyt+Hrdo9BNpDnSy5qb0tM7noN4WtRZwYUtkfpc=",
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = new Guid("1747ba27-bdba-49a7-986e-7675db170996"),
+                            Id = new Guid("136f3c2c-21cd-484f-a999-c3a4eb61b030"),
                             Password = "/uQH4FsnsFGBmvRluYOYHKDjUWimJiwnOV9WCRuEHQE=",
                             UserName = "user1"
                         },
                         new
                         {
-                            Id = new Guid("0bcb6e08-fd93-4608-bd8f-5f4d6e3f134a"),
+                            Id = new Guid("b7aab956-e321-43b2-8bd7-6be494bdc903"),
                             Password = "vuQZWjwJouGCACBNyNwxQoSZc+8sK51nsCv34XSgelE=",
                             UserName = "user2"
                         },
                         new
                         {
-                            Id = new Guid("c156632f-48a4-4411-9455-548a4d642aa6"),
+                            Id = new Guid("8df1ff29-2ce7-4b6a-8a07-6ec468e9fbf2"),
                             Password = "h3fPS6qc1oAs9EImA3iGSZ9fH6Zl1yZJtFa6T3tiQko=",
                             UserName = "user3"
                         });
@@ -1897,33 +1845,33 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("182ad846-7ba5-4899-a035-5a8c59aa82d7"),
-                            RoleId = new Guid("7cb047a9-2208-4707-a076-4c475a890431"),
-                            UserId = new Guid("bf825c75-3c94-4be4-993b-47333a76801b")
+                            Id = new Guid("f4ad32b0-d87e-4a79-81b1-e47072b1e0c2"),
+                            RoleId = new Guid("08754d14-c16d-4f2a-9542-6403afe0cf05"),
+                            UserId = new Guid("7a50a997-a549-4423-b15a-f2b4a5164556")
                         },
                         new
                         {
-                            Id = new Guid("6b632217-93fe-4e3e-a930-a7f6e591648e"),
-                            RoleId = new Guid("2ed02b7a-f585-4282-8569-23637a17e1e5"),
-                            UserId = new Guid("1747ba27-bdba-49a7-986e-7675db170996")
+                            Id = new Guid("72fffd94-9748-43d3-8f0a-5e5c47ba4907"),
+                            RoleId = new Guid("0f401a19-428d-41f5-a3b9-1272eac46ff1"),
+                            UserId = new Guid("136f3c2c-21cd-484f-a999-c3a4eb61b030")
                         },
                         new
                         {
-                            Id = new Guid("123a12a1-2a39-4322-852f-928dbb0c30de"),
-                            RoleId = new Guid("2ed02b7a-f585-4282-8569-23637a17e1e5"),
-                            UserId = new Guid("0bcb6e08-fd93-4608-bd8f-5f4d6e3f134a")
+                            Id = new Guid("6c894b65-a667-4d46-bf0c-9ecb8d466eda"),
+                            RoleId = new Guid("0f401a19-428d-41f5-a3b9-1272eac46ff1"),
+                            UserId = new Guid("b7aab956-e321-43b2-8bd7-6be494bdc903")
                         },
                         new
                         {
-                            Id = new Guid("7828aa55-043d-4822-93f1-d1dfc90aebc9"),
-                            RoleId = new Guid("7cb047a9-2208-4707-a076-4c475a890431"),
-                            UserId = new Guid("c156632f-48a4-4411-9455-548a4d642aa6")
+                            Id = new Guid("8930197c-9dc1-436f-a0a8-44cc7cc09cf6"),
+                            RoleId = new Guid("08754d14-c16d-4f2a-9542-6403afe0cf05"),
+                            UserId = new Guid("8df1ff29-2ce7-4b6a-8a07-6ec468e9fbf2")
                         },
                         new
                         {
-                            Id = new Guid("5625a5e3-9a68-45aa-9705-e04484459454"),
-                            RoleId = new Guid("eace1a22-2e37-4a97-b45f-7e3d7b40e866"),
-                            UserId = new Guid("bf825c75-3c94-4be4-993b-47333a76801b")
+                            Id = new Guid("ce9e7a7e-5803-42a9-8d2e-55726b52228b"),
+                            RoleId = new Guid("37fa6728-3d5d-4f43-94aa-62b46829a97a"),
+                            UserId = new Guid("7a50a997-a549-4423-b15a-f2b4a5164556")
                         });
                 });
 
@@ -1970,7 +1918,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2e9f59a1-41fa-4134-b816-16fc484749ae"),
+                            Id = new Guid("92837056-a3c9-45b4-a5d8-634d1ad5ba09"),
                             Address = "京东路469号",
                             AreaNumber = "320583106001",
                             ContactPhone = "0512-57441175",
@@ -1984,7 +1932,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6d86d329-26d9-43b8-a563-1e92600d1d12"),
+                            Id = new Guid("d14f0edc-1940-4805-afd2-6d7a12bfaffe"),
                             Address = "花苑路与京东路交叉口西侧",
                             AreaNumber = "320583106002",
                             ContactPhone = "0512-36863123",
@@ -1998,7 +1946,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("af2ee042-8e85-446c-bcdc-929e2f154324"),
+                            Id = new Guid("db0d0857-7c7c-42ea-a6a4-f314199c7462"),
                             Address = "振苏六村",
                             AreaNumber = "320583106003",
                             ContactPhone = "0512-55270465",
@@ -2011,7 +1959,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3e6d513b-2a08-488c-b71e-6f19e50b67c7"),
+                            Id = new Guid("62536e5d-0b0b-4108-a369-a89fd9a74fa2"),
                             Address = "震阳路126号",
                             AreaNumber = "320583106004",
                             ContactPhone = "0512-57428835",
@@ -2024,7 +1972,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("26333130-88c5-4817-89a9-0bd2129c543a"),
+                            Id = new Guid("2344d5cd-e7a8-46e0-ba14-1f7ae032da08"),
                             Address = "淞沪西路36号",
                             AreaNumber = "320583106005",
                             ContactPhone = "0512-57256550",
@@ -2037,7 +1985,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bd288122-ff81-48ed-a88c-d899f9b98394"),
+                            Id = new Guid("19aabdab-b7ba-451a-8ca4-59c9e47f7d1d"),
                             Address = "俱巷路894号",
                             AreaNumber = "320583106006",
                             ContactPhone = "0512-36691258",
@@ -2050,7 +1998,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("10ff6d5a-558b-49fa-9bb7-e9eb13422075"),
+                            Id = new Guid("8b95aefa-7c08-49a3-aea7-5ef608676ca0"),
                             Address = "商秧路178号",
                             AreaNumber = "320583106007",
                             ContactPhone = "0512-55272500",
@@ -2064,7 +2012,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2cd3176b-f47b-4737-8e57-6a6b45787053"),
+                            Id = new Guid("9b756aa8-7c15-4567-ae70-0e5b7ca48be8"),
                             Address = "大直路504号",
                             AreaNumber = "320583106008",
                             ContactPhone = "0512-55272500",
@@ -2078,7 +2026,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("aff93c07-c0bd-4c7d-9d92-62bb6a64b1c0"),
+                            Id = new Guid("df1af61c-b908-4de2-8f00-b5886d558ef4"),
                             Address = "周巷路",
                             AreaNumber = "320583106009",
                             ContactPhone = "0512-57294577",
@@ -2092,7 +2040,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b87bb638-3b49-4606-872a-2d5bdce3731e"),
+                            Id = new Guid("6f1480a5-82a3-41be-bb62-ff2b75be83de"),
                             Address = "京东路588号",
                             AreaNumber = "320583106012",
                             ContactPhone = "0512-57883298",
@@ -2105,7 +2053,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c964b753-8972-4551-914b-a59f34268be8"),
+                            Id = new Guid("f543586f-5305-4f7e-b55d-191d1d9e9e38"),
                             Address = "京东路731号",
                             AreaNumber = "320583106013",
                             ContactPhone = "0512-57278938",
@@ -2118,7 +2066,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f4f726b4-d01d-4daa-87dd-3f6de83f3a2f"),
+                            Id = new Guid("196e3d7d-fb58-4323-935c-7bb0a9173d1c"),
                             Address = "金华路1号",
                             AreaNumber = "320583106200",
                             ContactPhone = "0512-57293702",
@@ -2132,7 +2080,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dd239896-1a75-420e-8231-57e532b66396"),
+                            Id = new Guid("1dfe2f75-b8bb-4f6c-9a28-e8a875ad6704"),
                             Address = "商鞅路1号",
                             AreaNumber = "320583106204",
                             ContactPhone = "0512-50310612",
@@ -2146,7 +2094,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("73853a7e-d9ec-408d-a5ef-6823f4dc6119"),
+                            Id = new Guid("357da03e-a99c-4d0d-b621-05cf5faa9cb6"),
                             Address = "机场路与兴陵路交叉口往南200米",
                             AreaNumber = "320583106205",
                             ContactPhone = "0512-57441476",
@@ -2160,7 +2108,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9edf3302-9918-47f1-9342-5b11542d4f86"),
+                            Id = new Guid("58a6f72b-1e2f-4ca8-ae13-0696bebe7488"),
                             Address = "川浩路22号",
                             AreaNumber = "320583106206",
                             ContactPhone = "0512-57441101",
@@ -2173,7 +2121,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dd30117a-5bf3-441d-88d4-dfc588202add"),
+                            Id = new Guid("06df7d45-9415-4ca5-93cb-64645031cd5a"),
                             Address = "港浦东路8号",
                             AreaNumber = "320583106207",
                             ContactPhone = "0512-5736863220",
@@ -2187,7 +2135,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e9a49fe8-0227-4eb1-9494-eae2954746c0"),
+                            Id = new Guid("3d0b4320-aec8-48b7-803b-4ae56a00f0f4"),
                             Address = "盛巷花园门卫北侧",
                             AreaNumber = "320583106209",
                             ContactPhone = "0512-57441616",
@@ -2201,7 +2149,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("35eaab82-af48-435c-bcc3-3084b389d71b"),
+                            Id = new Guid("a3e2f36f-0394-4cb9-a227-139e57f199ef"),
                             Address = "震阳路与双娄路交叉口",
                             AreaNumber = "320583106210",
                             ContactPhone = "0512-57421150",
@@ -2215,7 +2163,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5a3d2b79-2bb2-4151-8da8-8548bc3fa543"),
+                            Id = new Guid("61ee2dae-8700-4028-b882-0b2a0fe8810f"),
                             Address = "陈邱家浜58号",
                             AreaNumber = "320583106211",
                             ContactPhone = "0512-50331469",
@@ -2229,7 +2177,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9fcd808d-9985-467d-a2d9-e2aef89ad1c4"),
+                            Id = new Guid("1f8aad49-750e-451f-888b-c097b7562f3d"),
                             Address = "建林路往北到底向西100米",
                             AreaNumber = "320583106212",
                             ContactPhone = "0512-57120550",
@@ -2242,7 +2190,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("46958e21-5832-4125-ba29-1c462674e80a"),
+                            Id = new Guid("c456c8cd-ec91-4e4f-851f-1c01800918e1"),
                             Address = "南港文体站",
                             AreaNumber = "320583106214",
                             ContactPhone = "0512-57428327",
@@ -2256,7 +2204,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2b4e2282-9dec-4216-8a22-14bc525c5e9e"),
+                            Id = new Guid("f0611d01-a91e-480b-8bb5-e12bf5ae47c6"),
                             Address = "安头村公交站台往南60米处",
                             AreaNumber = "320583106215",
                             ContactPhone = "0512-57428927",
@@ -2270,7 +2218,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3c12f4bd-d225-4a2f-aa4f-f662ea9face8"),
+                            Id = new Guid("5bffd547-8aed-42f2-931d-f91838c7256a"),
                             Address = "江浦南路与C325交叉处",
                             AreaNumber = "320583106219",
                             ContactPhone = "0512-57272133",
@@ -2284,7 +2232,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("02dc15b1-1243-48e2-af00-d20e3dab0edd"),
+                            Id = new Guid("6b721dd7-3537-4731-bee8-c8037940df3f"),
                             Address = "长江南路东侧与锦溪北交界",
                             AreaNumber = "320583106220",
                             ContactPhone = "0512-57256590",
@@ -2298,7 +2246,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("360f7488-6098-4ee1-9be5-2917df2cc825"),
+                            Id = new Guid("e2e6879f-8d0c-4a75-8fe4-d6c25162c778"),
                             Address = "姚家港北首",
                             AreaNumber = "320583106221",
                             ContactPhone = "0512-57117756",
@@ -2312,7 +2260,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1659a6dc-8299-46c2-9911-b1f4fd00a6a7"),
+                            Id = new Guid("547dd9e2-03da-4978-990e-4beb81133e6f"),
                             Address = "淞沪西路与江浦南路交叉口",
                             AreaNumber = "320583106226",
                             ContactPhone = "0512-57255236",
@@ -2326,7 +2274,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4cb82adc-e5fa-4798-8820-4d8fc6852567"),
+                            Id = new Guid("f1d38739-e9a6-42c6-8bef-728cd6dcb2da"),
                             Address = "淞沪东路12号",
                             AreaNumber = "320583106227",
                             ContactPhone = "0512-57251131",
@@ -2374,7 +2322,7 @@ namespace AspNetCore.Entity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("55714ea0-e32e-45c3-b8c4-a14e990b15a6"),
+                            Id = new Guid("14399309-32ec-4454-a140-c5f3d71ddc4c"),
                             MemberNumber = 356,
                             PrincipalAddress = "张浦镇望江新村6幢206室",
                             PrincipalEmail = "wuxuefei@kszpwz.gov.cn",
@@ -2385,7 +2333,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8eff3a96-67f8-4b1a-8796-bb2e3f71e08b"),
+                            Id = new Guid("4f3686fa-ad5a-46f3-ae3f-d348dc1bea0e"),
                             MemberNumber = 412,
                             PrincipalAddress = "张浦镇富都新村3幢204室",
                             PrincipalEmail = "fangjitong@kszpfd.gov.cn",
@@ -2396,7 +2344,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d53de398-0d15-4f14-ab87-0207bfcc4959"),
+                            Id = new Guid("62c3202f-ff4c-4015-87cd-1266ba919a8c"),
                             MemberNumber = 532,
                             PrincipalAddress = "张浦镇茶风新村1幢206室",
                             PrincipalEmail = "caogao@kszpcf.gov.cn",
@@ -2407,7 +2355,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f167adec-ecd9-4abf-87a6-54966c219519"),
+                            Id = new Guid("27b667fd-566c-4b38-9f8c-1b55e8bb9eec"),
                             MemberNumber = 253,
                             PrincipalAddress = "张浦镇富仁小区5幢102室",
                             PrincipalEmail = "changgaohan@kszpfr.gov.cn",
@@ -2418,7 +2366,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("405b40da-10d0-4296-8251-29283d903c91"),
+                            Id = new Guid("868020e7-c802-4381-b48c-a6874046b2c0"),
                             MemberNumber = 512,
                             PrincipalAddress = "张浦镇风和日丽5幢1102室",
                             PrincipalEmail = "qianyancheng@kszpfhrl.gov.cn",
@@ -2429,7 +2377,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("35b117d4-16d1-4b2d-a8a0-34ed0ed3bebc"),
+                            Id = new Guid("bd708559-bbbb-4f62-96f3-69254e3d36e8"),
                             MemberNumber = 567,
                             PrincipalAddress = "张浦镇枫情佳苑3幢306室",
                             PrincipalEmail = "kongzhiwen@kszpfqjy.gov.cn",
@@ -2440,7 +2388,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("647435e2-b16d-4cb8-8fad-40705625ad8a"),
+                            Id = new Guid("8b6765f9-e400-4f5f-a396-a75199846d45"),
                             MemberNumber = 476,
                             PrincipalAddress = "张浦镇张浦村14号",
                             PrincipalEmail = "huhaorang@kszpzp.gov.cn",
@@ -2451,7 +2399,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("94d76f25-4a34-459a-bda7-b66dc097da9a"),
+                            Id = new Guid("7a069a86-de7b-41b8-94e2-c0f769a99a60"),
                             MemberNumber = 345,
                             PrincipalAddress = "张浦镇张浦村142号",
                             PrincipalEmail = "xuexiuxian@kszpzp.gov.cn",
@@ -2462,7 +2410,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4431a6f4-f48c-448c-bcc0-c63818b1eb8f"),
+                            Id = new Guid("37ed698b-1cc6-4b59-b823-310c96adac2d"),
                             MemberNumber = 452,
                             PrincipalAddress = "张浦镇银鹿新城3幢802室",
                             PrincipalEmail = "heliren@kszpylxc.gov.cn",
@@ -2473,7 +2421,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ba10df09-b354-4772-84e1-a00427ca340c"),
+                            Id = new Guid("20bb7f6c-0a8a-44d2-abae-f8d34108835b"),
                             MemberNumber = 662,
                             PrincipalAddress = "张浦镇牡丹苑7幢502",
                             PrincipalEmail = "zhongjunde@kszpmdy.gov.cn",
@@ -2484,7 +2432,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3b5fb35c-576f-4618-9509-078365522e59"),
+                            Id = new Guid("88bacc49-ebda-4b5a-b1af-88cac5f13b65"),
                             MemberNumber = 341,
                             PrincipalAddress = "张浦镇江南春堤14号",
                             PrincipalEmail = "jiatianzong@kszpjnkd.gov.cn",
@@ -2495,7 +2443,7 @@ namespace AspNetCore.Entity.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1969abc6-dfae-4938-ad4e-80ead18b5779"),
+                            Id = new Guid("a2acb00e-dec2-49df-9b35-b525f2e0a7a7"),
                             MemberNumber = 543,
                             PrincipalAddress = "张浦镇安居小区24号",
                             PrincipalEmail = "duanxuehai@kszpanxq.gov.cn",

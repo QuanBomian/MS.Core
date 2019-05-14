@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Application.DataCategroyInfo;
 using AspNetCore.Domain.DataCategroyInfo.Dto;
 using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Policy = "Permission")]
     [ApiController]
     public class DataCategroysController : ControllerBase
     {

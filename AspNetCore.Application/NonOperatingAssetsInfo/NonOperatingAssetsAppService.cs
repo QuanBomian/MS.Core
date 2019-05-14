@@ -2,6 +2,7 @@
 using AspNetCore.Domain.NonOperatingAssetsInfo;
 using AspNetCore.Domain.NonOperatingAssetsInfo.Dto;
 using AspNetCore.Entity;
+using AspNetCore.Infrastructure.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,6 +46,11 @@ namespace AspNetCore.Application.NonOperatingAssetsInfo
         public List<NonOperatingAssets> Search(NonOperatingAssetsQueryDto condition)
         {
             return _domain.Get(condition);
+        }
+        public async Task<PaginatedList<NonOperatingAssets>> GetPaginationAsync(int pageIndex, int pageSize)
+        {
+            var query = _domain.Query();
+            return await PaginatedList<NonOperatingAssets>.CreateAsync(query, pageIndex, pageSize);
         }
     }
 }

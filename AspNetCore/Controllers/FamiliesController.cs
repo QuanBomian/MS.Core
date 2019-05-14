@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Application.FamilyInfo;
 using AspNetCore.Domain.FamilyInfo.Dto;
 using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Policy = "Permission")]
     [ApiController]
     public class FamilysController : ControllerBase
     {
@@ -20,27 +22,47 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] FamilyQueryDto condition, int? pageIndex, int? pageSize)
         {
-            var items = await _service.GetAll();
-            return new JsonResult(new
+            if (pageIndex == null || pageSize == null)
             {
-                code = 20000,
-                items
-            });
-        }
-        [HttpGet]
-        [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] FamilyQueryDto condition)
-        {
-
-            var list = _service.Search(condition);
-            return new JsonResult(new
+                if (condition.AccountCharacter != null||
+                    condition.PeopleNumber!=null
+                || condition.AverageAnnualIncome != null
+                || condition.AverageHousingArea != null
+                || condition.FamilyCode != null
+                || condition.Householder != null
+                || condition.HousingArea != null
+                || condition.IsLowIncome != null
+                || condition.IsPoor != null
+                || condition.VillageGroupCode != null
+                || condition.VillageName != null)
+                {
+                    var list = _service.Search(condition);
+                    return new JsonResult(new
+                    {
+                        code = 20000,
+                        list
+                    });
+                }
+                var items = await _service.GetAll();
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
+            else
             {
-                code = 20000,
-                list
-            });
+                var items = await _service.GetPaginationAsync(pageIndex.Value, pageSize.Value);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
         }
+        
         // GET: api/Familyr/5
         [HttpGet("{id}")]
         public Family Get(Guid id)

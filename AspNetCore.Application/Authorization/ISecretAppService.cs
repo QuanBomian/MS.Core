@@ -8,6 +8,7 @@
 // Description: 
 //-----------------------------------------------------------------------
 using AspNetCore.Application.Authorization.Dto;
+using AspNetCore.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,7 +26,7 @@ namespace AspNetCore.Application.Authorization
         /// <param name="account">账户名</param>
         /// <param name="password">密码</param>
         /// <returns></returns>
-        Task<UserDto> GetCurrentUserAsync(string account, string password);
+        User GetCurrentUser(string account, string password);
 
         #endregion
     }

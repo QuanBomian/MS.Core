@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AspNetCore.Domain.TownInfo;
 using AspNetCore.Domain.TownInfo.Dto;
 using AspNetCore.Entity;
+using AspNetCore.Infrastructure.Pagination;
 
 namespace AspNetCore.Application.TownInfo
 {
@@ -44,6 +45,11 @@ namespace AspNetCore.Application.TownInfo
         public List<Town> Search(TownQueryDto condition)
         {
             return _domain.Get(condition);
+        }
+        public async Task<PaginatedList<Town>> GetPaginationAsync(int pageIndex, int pageSize)
+        {
+            var query = _domain.Query();
+            return await PaginatedList<Town>.CreateAsync(query, pageIndex, pageSize);
         }
     }
 }

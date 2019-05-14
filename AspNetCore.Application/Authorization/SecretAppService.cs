@@ -10,6 +10,7 @@
 using AspNetCore.Application.Authorization;
 using AspNetCore.Application.Authorization.Dto;
 using AspNetCore.Domain.UserInfo;
+using AspNetCore.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,13 +46,10 @@ namespace AspNetCore.Application.Authorization
         /// <param name="account">账户名</param>
         /// <param name="password">密码</param>
         /// <returns></returns>
-        public async Task<UserDto> GetCurrentUserAsync(string account, string password)
+        public  User GetCurrentUser(string account, string password)
         {
-            var user = await _user.GetUserForLoginAsync(account, password);
-
-            //Todo：AutoMapper 做实体转换
-
-            return null;
+            var user =  _user.GetUserForLogin(account, password);
+            return user;
         }
 
         #endregion

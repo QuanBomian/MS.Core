@@ -1,35 +1,39 @@
-﻿using AspNetCore.Application.UserRoleInfo;
-using AspNetCore.Domain.UserInfo.Dto;
-using AspNetCore.Domain.UserRoleInfo.Dto;
-using AspNetCore.Entity;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCore.Application.MenuInfo;
+using AspNetCore.Domain.MenuInfo.Dto;
+using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
     [Authorize(Policy = "Permission")]
     [ApiController]
-    public class UserRolesController : ControllerBase
+    public class MenusController : ControllerBase
     {
-        private readonly IUserRoleAppService _service;
-        public UserRolesController(IUserRoleAppService service)
+        private readonly IMenuAppService _service;
+        public MenusController(IMenuAppService service)
         {
             _service = service;
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery]MenuQueryDto condition)
         {
-            //if (condition. != null)
-            //{
-            //    var list = _service.Get(condition);
-
-            //}
+            if (condition.RoleName!= null||condition.Url!=null)
+            {
+                var list = _service.Search(condition);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    list
+                });
+            }
             var items = await _service.GetAll();
             return new JsonResult(new
             {
@@ -37,29 +41,29 @@ namespace AspNetCore.Controllers
                 items
             });
         }
-        // GET: api/UserRoler/5
+        // GET: api/Menur/5
         [HttpGet("{id}")]
-        public UserRole Get(Guid id)
+        public Menu Get(Guid id)
         {
             return _service.Get(id);
         }
 
-        // POST: api/UserRoler
+        // POST: api/Menur
         [HttpPost]
-        public JsonResult Post([FromBody] UserRole UserRole)
+        public JsonResult Post([FromBody] Menu Menu)
         {
-            _service.Add(UserRole);
+            _service.Add(Menu);
             return new JsonResult(new
             {
                 code = 20000
             });
         }
 
-        // PUT: api/UserRoler/5
+        // PUT: api/Menur/5
         [HttpPut]
-        public JsonResult Put([FromBody] UserRole UserRole)
+        public JsonResult Put([FromBody] Menu Menu)
         {
-            _service.Update(UserRole);
+            _service.Update(Menu);
             return new JsonResult(new
             {
                 code = 20000

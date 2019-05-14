@@ -6,6 +6,7 @@ using AspNetCore.Domain.Repository;
 using AspNetCore.Domain.UserInfo.Dto;
 using AspNetCore.Entity;
 using AspNetCore.Entity.Core;
+using AspNetCore.Infrastructure.Secret;
 
 namespace AspNetCore.Domain.UserInfo
 {
@@ -25,15 +26,15 @@ namespace AspNetCore.Domain.UserInfo
             return query.ToList();
         }
 
-        public  User GetUserForLoginAsync(string account)
+        public  User GetUserForLogin(string account)
         {
             return   _repository.Query(a => a.UserName == account).FirstOrDefault();
             
         }
 
-        public Task<User> GetUserForLoginAsync(string account, string password)
+        public User GetUserForLogin(string account, string password)
         {
-            throw new NotImplementedException();
+            return _repository.Query(a => a.UserName == account && SecretHelper.GenerateHashSecret(password) == a.Password).FirstOrDefault();
         }
     }
 }

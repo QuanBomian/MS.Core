@@ -11,6 +11,6 @@ namespace AspNetCore.Domain.UserInfo
     public interface IUserDomain : IDomain<User, Guid>
     {
         List<User> Get(UserQueryDto queryDto);
-        Task<User> GetUserForLoginAsync(string account, string password);
+        User GetUserForLogin(string account, string password);
     }
 }

@@ -28,6 +28,10 @@ namespace AspNetCore.Domain.PartyMemberInfo
             {
                 query = query.Where(PartyMember => PartyMember.PartyMemberCode.Contains(condition.MemberCode));
             }
+            if (condition.Education != null && condition.Education.Trim() != "")
+            {
+                query = query.Where(PartyMember => PartyMember.Education.Contains(condition.Education));
+            }
             if (condition.Gender != null && condition.Gender.Trim() != "")
             {
                 query = query.Where(PartyMember => PartyMember.Gender.Contains(condition.Gender));

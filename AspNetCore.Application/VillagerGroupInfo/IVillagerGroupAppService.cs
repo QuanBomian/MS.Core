@@ -15,5 +15,6 @@ namespace AspNetCore.Application.VillagerGroupInfo
         void Add(VillagerGroup VillagerGroup);
         VillagerGroup Get(Guid id);
         List<VillagerGroup> Search(VillagerGroupQueryDto condition);
+        Task<Infrastructure.Pagination.PaginatedList<VillagerGroup>> GetPaginationAsync(int pageIndex, int pageSize);
     }
 }

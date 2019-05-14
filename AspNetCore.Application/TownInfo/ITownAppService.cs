@@ -15,5 +15,6 @@ namespace AspNetCore.Application.TownInfo
         void Add(Town town);
        Town Get(Guid id);
         List<Town> Search(TownQueryDto condition);
+        Task<Infrastructure.Pagination.PaginatedList<Town>> GetPaginationAsync(int pageIndex, int pageSize);
     }
 }

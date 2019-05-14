@@ -25,12 +25,12 @@ namespace AspNetCore.Domain.Repository
 
         public List<TEntity> GetAll()
         {
-            return _set.ToList<TEntity>();
+            return _set.AsNoTracking().ToList<TEntity>();
         }
 
         public Task<List<TEntity>> GetAllAsync()
         {
-            return _set.ToListAsync<TEntity>();
+            return _set.AsNoTracking().ToListAsync<TEntity>();
         }
 
         public TEntity GetByKey(TKey key)

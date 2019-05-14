@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Application.DepartmentInfo;
 using AspNetCore.Domain.DepartmentInfo.Dto;
 using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Policy = "Permission")]
     [ApiController]
     public class DepartmentsController : ControllerBase
     {
@@ -20,27 +22,45 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] DepartmentQueryDto condition, int? pageIndex, int? pageSize)
         {
-            var items = await _service.GetAll();
-            return new JsonResult(new
+            if (pageIndex == null || pageSize == null)
             {
-                code = 20000,
-                items
-            });
-        }
-        [HttpGet]
-        [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] DepartmentQueryDto condition)
-        {
-
-            var list = _service.Search(condition);
-            return new JsonResult(new
+                if (condition.DepartmentCode != null
+                || condition.Address != null
+                || condition.ContactPhone != null
+                || condition.DepartmentCode != null
+                || condition.DepartmentName != null
+                || condition.Email != null
+                || condition.Fax != null
+                || condition.Notes != null
+                || condition.PrincipalName != null)
+                {
+                    var list = _service.Search(condition);
+                    return new JsonResult(new
+                    {
+                        code = 20000,
+                        list
+                    });
+                }
+                var items = await _service.GetAll();
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
+            else
             {
-                code = 20000,
-                list
-            });
+                var items = await _service.GetPaginationAsync(pageIndex.Value, pageSize.Value);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
         }
+   
         // GET: api/Departmentr/5
         [HttpGet("{id}")]
         public Department Get(Guid id)

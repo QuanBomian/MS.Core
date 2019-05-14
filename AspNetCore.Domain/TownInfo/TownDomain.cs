@@ -41,7 +41,7 @@ namespace AspNetCore.Domain.TownInfo
             }
             if (condition.AreaNumber != null && condition.AreaNumber.Trim() != "")
             {
-                query = query.Where(town => town.ContactPhone.Contains(condition.ContactPhone));
+                query = query.Where(town => town.AreaNumber.Contains(condition.AreaNumber));
             }
             if (condition.GovernmentLevel != null)
             {

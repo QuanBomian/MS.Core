@@ -2,6 +2,7 @@
 using AspNetCore.Domain.VillagerGroupInfo;
 using AspNetCore.Domain.VillagerGroupInfo.Dto;
 using AspNetCore.Entity;
+using AspNetCore.Infrastructure.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,6 +46,11 @@ namespace AspNetCore.Application.VillagerGroupInfo
         public List<VillagerGroup> Search(VillagerGroupQueryDto condition)
         {
             return _domain.Get(condition);
+        }
+        public async Task<PaginatedList<VillagerGroup>> GetPaginationAsync(int pageIndex, int pageSize)
+        {
+            var query = _domain.Query();
+            return await PaginatedList<VillagerGroup>.CreateAsync(query, pageIndex, pageSize);
         }
     }
 }

@@ -24,6 +24,7 @@ namespace AspNetCore.Controllers
     [ApiController]
  
     [Authorize(Policy = "Permission")]
+    [Authorize(Policy = "Permission")]
     [Route("api/[controller]")]
     public class SecretController : ControllerBase
     {

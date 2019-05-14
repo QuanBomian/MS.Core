@@ -15,5 +15,6 @@ namespace AspNetCore.Application.MemberInfo
         void Add(Member Member);
         Member Get(Guid id);
         List<Member> Search(MemberQueryDto condition);
+        Task<Infrastructure.Pagination.PaginatedList<Member>> GetPaginationAsync(int pageIndex, int pageSize);
     }
 }

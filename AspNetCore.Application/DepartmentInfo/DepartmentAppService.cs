@@ -2,6 +2,7 @@
 using AspNetCore.Domain.DepartmentInfo;
 using AspNetCore.Domain.DepartmentInfo.Dto;
 using AspNetCore.Entity;
+using AspNetCore.Infrastructure.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,6 +46,11 @@ namespace AspNetCore.Application.DepartmentInfo
         public List<Department> Search(DepartmentQueryDto condition)
         {
             return _domain.Get(condition);
+        }
+        public async Task<PaginatedList<Department>> GetPaginationAsync(int pageIndex, int pageSize)
+        {
+            var query = _domain.Query();
+            return await PaginatedList<Department>.CreateAsync(query, pageIndex, pageSize);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Application.NonOperatingAssetsInfo;
 using AspNetCore.Domain.NonOperatingAssetsInfo.Dto;
 using AspNetCore.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace AspNetCore.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Policy = "Permission")]
     [ApiController]
     public class NonOperatingAssetssController : ControllerBase
     {
@@ -20,27 +22,54 @@ namespace AspNetCore.Controllers
         }
         [HttpGet]
 
-        public async Task<JsonResult> GetAsync()
+        public async Task<JsonResult> GetAsync([FromQuery] NonOperatingAssetsQueryDto condition, int? pageIndex, int? pageSize)
         {
-            var items = await _service.GetAll();
-            return new JsonResult(new
+            if (pageIndex == null || pageSize == null)
             {
-                code = 20000,
-                items
-            });
-        }
-        [HttpGet]
-        [Route("condition")]
-        public JsonResult GetByCondition([FromQuery] NonOperatingAssetsQueryDto condition)
-        {
-
-            var list = _service.Search(condition);
-            return new JsonResult(new
+                if (condition.LibaryCollectionsNumber != null ||
+                condition.LibraryNumber != null ||
+                condition.OfficeBuildingArea != null ||
+                condition.OfficeBuildingNumber != null ||
+                condition.SeniorCitizenCenterArea != null ||
+                condition.SeniorCitizenCenterNumber != null
+                ||
+                condition.ServiceStationNumber != null
+                ||
+                condition.SportActivityRoomArea != null
+                ||
+                condition.SportsActivityRoomNumber != null
+                ||
+                condition.StaffQuarterArea != null
+                ||
+                condition.StaffQuartersNumber != null
+                ||
+                condition.VillageName != null)
+                {
+                    var list = _service.Search(condition);
+                    return new JsonResult(new
+                    {
+                        code = 20000,
+                        list
+                    });
+                }
+                var items = await _service.GetAll();
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
+            else
             {
-                code = 20000,
-                list
-            });
+                var items = await _service.GetPaginationAsync(pageIndex.Value, pageSize.Value);
+                return new JsonResult(new
+                {
+                    code = 20000,
+                    items
+                });
+            }
         }
+       
         // GET: api/NonOperatingAssetsr/5
         [HttpGet("{id}")]
         public NonOperatingAssets Get(Guid id)

@@ -15,10 +15,10 @@ namespace AspNetCore.Entity
         [Required]
         public Guid RoleId { get; set; }
         [ForeignKey("UserId")]
-        [Required]
+        
         public User User { get; set; }
         [ForeignKey("RoleId")]
-        [Required]
+        
         public Role Role { get; set; }
     }
 }

@@ -15,5 +15,6 @@ namespace AspNetCore.Application.NonOperatingAssetsInfo
         void Add(NonOperatingAssets NonOperatingAssets);
         NonOperatingAssets Get(Guid id);
         List<NonOperatingAssets> Search(NonOperatingAssetsQueryDto condition);
+        Task<Infrastructure.Pagination.PaginatedList<NonOperatingAssets>> GetPaginationAsync(int pageIndex, int pageSize);
     }
 }

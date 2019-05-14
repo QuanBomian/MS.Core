@@ -2,6 +2,7 @@
 using AspNetCore.Domain.PartyMemberInfo;
 using AspNetCore.Domain.PartyMemberInfo.Dto;
 using AspNetCore.Entity;
+using AspNetCore.Infrastructure.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,6 +46,11 @@ namespace AspNetCore.Application.PartyMemberInfo
         public List<PartyMember> Search(PartyMemberQueryDto condition)
         {
             return _domain.Get(condition);
+        }
+        public async Task<PaginatedList<PartyMember>> GetPaginationAsync(int pageIndex, int pageSize)
+        {
+            var query = _domain.Query();
+            return await PaginatedList<PartyMember>.CreateAsync(query, pageIndex, pageSize);
         }
     }
 }
